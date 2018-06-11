@@ -1,0 +1,190 @@
+\documentclass[12pt,reqno]{amsart} % add titlepage param for separate title page
+\usepackage[margin=1in]{geometry}
+\usepackage[foot]{amsaddr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsthm,amssymb,comment}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{mathrsfs}
+\usepackage{latexsym}
+\usepackage[dvips]{graphics}
+\usepackage{epsfig}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{url}
+%\usepackage{breakurl}
+\newcommand{\bburl}[1]{\textcolor{blue}{\url{#1}}}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{tkz-graph}
+\usetikzlibrary{shapes.geometric,positioning}
+%\newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
+\newcommand{\blue}[1]{\textcolor{blue}{(\bf{#1})}}
+\newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
+\newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
+\newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
+\newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
+\newcommand{\ind}{\otimes}
+\newcommand{\witi}{\widetilde}
+\newcommand{\ch}{{\bf 1}}
+\newcommand{\dt}[1]{\witi{\witi #1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\lr}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\eqd}{\overset{\footnotesize{d}}{=}}
+\newcommand{\calf}{{\mathcal F}}
+\newcommand{\cal}{\mathcal}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{que}[thm]{Question}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{proj}[thm]{Research Project}
+
+\theoremstyle{plain}
+\newtheorem{X}{X}[section]
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{hypothesis}[thm]{Hypothesis}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rek}[thm]{Remark}
+
+\newtheorem{remark}[thm]{Remark}
+
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\F}{\mathscr{F}}
+\newcommand{\f}{\widehat{\eta}}
+
+
+%%%%%%%%%%%%%% Dirichlet characters
+\newcommand{\Norm}[1]{\frac{#1}{\sqrt{N}}}
+
+\newcommand{\sumii}[1]{\sum_{#1 = -\infty}^\infty}
+\newcommand{\sumzi}[1]{\sum_{#1 = 0}^\infty}
+\newcommand{\sumoi}[1]{\sum_{#1 = 1}^\infty}
+
+\newcommand{\eprod}[1]{\prod_p \left(#1\right)^{-1}}
+%$(s,b)$-Generacci
+\newcommand{\sbg}{(s,b)\text{-Generacci}}
+\newcommand{\sbs}{(s,b)\text{-Generacci\ sequence}}
+\newcommand{\fqs}{\text{Fibonacci\ Quilt\ sequence}}
+\newcommand{\fq}{\text{Fibonacci\ Quilt}}
+
+\newcommand\st{\text{s.t.\ }}
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}}
+\newcommand\bee{\begin{equation*}}
+\newcommand\eee{\end{equation*}}
+\newcommand\bea{\begin{eqnarray}}
+\newcommand\eea{\end{eqnarray}}
+\newcommand\beae{\begin{eqnarray*}}
+\newcommand\eeae{\end{eqnarray*}}
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand\ben{\begin{enumerate}}
+\newcommand\een{\end{enumerate}}
+\newcommand\bc{\begin{center}}
+\newcommand\ec{\end{center}}
+\newcommand\ba{\begin{array}}
+\newcommand\ea{\end{array}}
+
+\newcommand{\mo}{\text{mod}\ }
+
+\newcommand\ie{{i.e.,\ }}
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand\CF{{Continued Fraction}}
+\newcommand\cf{{continued fraction}}
+\newcommand\cfs{{continued fractions}}
+\newcommand\usb[2]{\underset{#1}{\underbrace{#2}}}
+
+
+%kmin and kmax
+\newcommand{\kmin}[1]{k_{\min}(#1)}
+\newcommand{\kmax}[1]{k_{\max}(#1)}
+\newcommand{\kminm}{K_{\min}(m)}
+\newcommand{\kmaxm}{K_{\max}(m)}
+\newcommand{\B}{\mathcal{B}}
+
+% General Symbols
+\def\notdiv{\ \mathbin{\mkern-8mu|\!\!\!\smallsetminus}}
+\newcommand{\done}{\Box} %use in linux
+%\newcommand{\umess}[2]{\underset{(#1)}{\underbrace{#2}}}
+\newcommand{\umessclean}[2]{\underset{=#1}{\underbrace{#2}}}
+
+%Blackboard Letters
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Qoft}{\mathbb{Q}(t)}  %use in linux
+
+\newcommand\frakfamily{\usefont{U}{yfrak}{m}{n}}
+\DeclareTextFontCommand{\textfrak}{\frakfamily}
+\newcommand\G{\textfrak{G}}
+
+% Fractions
+\newcommand{\fof}{\frac{1}{4}}  %oneforth
+\newcommand{\foh}{\frac{1}{2}}  %onehalf
+\newcommand{\fot}{\frac{1}{3}}  %onethird
+\newcommand{\fop}{\frac{1}{\pi}}    %1/pi
+\newcommand{\ftp}{\frac{2}{\pi}}    %2/pi
+\newcommand{\fotp}{\frac{1}{2 \pi}} %1/2pi
+\newcommand{\fotpi}{\frac{1}{2 \pi i}}
+\newcommand{\cm}{c_{\text{{\rm mean}}}}
+\newcommand{\cv}{c_{\text{{\rm variance}}}}
+
+% Theorem / Lemmas et cetera
+
+%\theoremstyle{definition}
+\newcommand{\vars}[2]{ #1_1, \dots, #1_{#2} }
+\newcommand{\ncr}[2]{{#1 \choose #2}}
+\newcommand{\twocase}[5]{#1 \begin{cases} #2 & \text{{\rm #3}}\\ #4
+&\text{{\rm #5}} \end{cases}   }
+\newcommand{\threecase}[7]{#1 \begin{cases} #2 & \text{{\rm #3}}\\ #4
+&\text{{\rm #5}}\\ #6 & \texttt{{\rm #7}} \end{cases}   }
+\newcommand{\twocaseother}[3]{#1 \begin{cases} #2 & \text{#3}\\ 0
+&\text{otherwise} \end{cases}   }
+
+%Formatting
+\renewcommand{\baselinestretch}{1}
+\newcommand{\murl}[1]{\href{mailto:#1}{\textcolor{blue}{#1}}}
+\newcommand{\hr}[1]{\href{#1}{\url{#1}}}
+
+%%% NEW COMMANDS FOR THIS PAPER
+\newcommand{\dfq}{d_{\rm FQ}}
+\newcommand{\dave}{d_{\rm FQ; ave}}
+\newcommand{\daven}{d_{\rm FQ; ave}(n)}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\DN}[1]{\textcolor{blue}{\textbf{(DN:#1)}}}
+\newcommand{\PF}[1]{\textcolor{cyan}{\textbf{(PF:#1)}}}
+
+%%% NEW COMMANDS FROM VARIANCE
+\newcommand{\PP}[1]{\mathbb{P}[#1]}
+\newcommand{\E}[1]{\mathbb{E}[#1]}
+\newcommand{\V}[1]{\text{{\rm Var}}[#1]}
+\newcommand{\BS}{\mathcal{S}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\LT}{\mathcal{L_T}}
+\newcommand{\LS}{\mathcal{L_S}}
+\newcommand{\ZS}{\mathcal{Z_S}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\nsum}{Y_n}

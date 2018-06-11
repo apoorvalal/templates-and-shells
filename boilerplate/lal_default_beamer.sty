@@ -1,0 +1,146 @@
+% sensible defaults for assignments/papers
+% can be sourced directly using \usepackage , e.g.
+% \usepackage{"/home/alal/tex_templates/lal_default"}
+
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%
+
+\usepackage{
+amsfonts,
+amsmath,
+amssymb,
+amsthm,
+mathtools,
+setspace,
+graphics,
+color,
+graphicx
+}
+
+% fixes encodings for accented letters in bib names
+\usepackage[utf8]{inputenc}
+
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
+
+% font size presets for dense slides
+\newcommand\Fontsm{\fontsize{6}{7.2}\selectfont}
+\newcommand\Fontmed{\fontsize{8}{9.2}\selectfont}
+
+\makeatletter
+  \setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}
+      \insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor
+      [fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}
+      \insertshorttitle\hfill\insertframenumber}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatletter
+
+% adobe utopia font family - fourier
+% \usepackage{fourier}
+% palatino font family - mathpazo
+% \usepackage{mathpazo}
+% bitstream charter font family
+% \usepackage{charter}
+% charter with math
+% \usepackage[bitstream-charter]{mathdesign}
+% times new roman (boooring)
+% \usepackage{mathptm}
+
+% header last updated
+\newcommand{\updateinfo}[1][\today]{\par\hfill{\scriptsize
+Last updated on #1}}
+
+% nullspace
+\newcommand{\nulls}{\mathrm{null}}
+% range
+\newcommand{\range}{\mathrm{range}}
+% maximise
+\newcommand{\maximise}{\operatornamewithlimits{max}}
+% minimise
+\newcommand{\minimise}{\operatornamewithlimits{min}}
+% maximiser
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% minimiser
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+
+% blackboard F
+\def\Function{\mathbb{F}}
+
+% Natural
+\def\Nat{\mathbb{N}}
+% Integers
+\def\Int{\mathbb{Z}}
+% Reals
+\def\Real{\mathbb{R}}
+% Rationals
+\def\Rat{\mathbb{Q}}
+% Complex
+\def\Cplx{\mathbb{C}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+% expectation_n
+\def\Expn{\mathbb{E}_n}
+% P_n
+\def\Probn{\mathbb{P}_n}
+
+% inner product
+\newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
+% vector norm
+\newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+% absolute value
+\newcommand{\abs}[1]{\left\vert {#1} \right\vert}
+% linalg misc
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\spn}{\mathrm{span}}
+\newcommand{\row}{\mathrm{Row}}
+\newcommand{\col}{\mathrm{Col}}
+\renewcommand{\dim}{\mathrm{dim}}
+% weakly prefer
+\newcommand{\prefeq}{\succeq}
+% strictly prefer
+\newcommand{\pref}{\succ}
+% sequence
+\newcommand{\seq}[1]{\{{#1}_n \}_{n=1}^\infty }
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
+% double arrow
+\newcommand{\corres}{\overrightarrow{\rightarrow}}
+% evaluate definite integral
+\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+% expectation
+\newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
+% variance
+\newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+
+\endinput
+

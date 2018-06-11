@@ -1,0 +1,134 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{lmodern}% http://ctan.org/pkg/lm
+\usepackage[utf8]{inputenc}
+\usepackage{bookmark}
+\hypersetup{bookmarksdepth=4,bookmarksnumbered=true,bookmarksopen=true}
+% either
+% \usetheme{metropolis}
+% or {
+\usetheme[compress]{Berlin}
+% \usefonttheme{structuresmallcapsserif}\usecolortheme{rose}
+\setbeamerfont{section in head/foot}{size=\tiny}
+% }
+
+\usepackage{graphicx}
+\usepackage{cmbright}
+\usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
+
+\beamertemplatenavigationsymbolsempty
+
+%Information to be included in the title page:
+\title{Title}
+\subtitle{subtitle}
+\author{Apoorva Lal, Stanford University}
+\date{Date}
+\begin{document}
+%------------------------------------------------
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+\section{Introduction}
+\tableofcontents[currentsection,subsubsectionstyle=hide]
+\subsection{Introduction}
+\begin{frame}\frametitle{Introduction}
+
+Stuff
+
+\cite{AngristMostlyharmlesseconometrics2008b}
+
+\end{frame}
+%------------------------------------------------
+\subsection{Conceptual Framework / Definitions}
+
+\begin{frame}[t]\frametitle{Conceptual Framework}
+
+Stuff 2
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]\frametitle{Linking data to theory}
+
+
+
+\end{frame}
+%------------------------------------------------
+
+\subsection{Summary of Results}
+\begin{frame}[t]\frametitle{Summary of Results}
+
+Upshot
+
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+\section{Theory}
+\tableofcontents[currentsection,subsubsectionstyle=hide]
+
+\subsection{Theoretical Predictions}
+\begin{frame}[t]\frametitle{Theoretical Predictions}
+\begin{center}
+center
+\end{center}
+
+If you do bad things, bad stuff will happen
+
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+\section{Empirics}
+\tableofcontents[currentsection,subsubsectionstyle=hide]
+\subsection{Data}
+\begin{frame}\frametitle{Main Data}
+
+Stuff
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Estimation}
+\begin{frame}\frametitle{Estimation Framework}
+
+\begin{align*}
+\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p
+PPI_{ict-k} + \gamma_{ct} + \epsilon_{ict} \\
+\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p PPI_{ict-k} +
+\sum_{k=0}^2 + \beta_{t-k}^m CPI_{ict-k} + \\ & \gamma_{c}\times
+trend_t + \epsilon_{ict}
+\end{align*}
+
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+\section{Conclusion}
+\subsection{Conclusion}
+
+\begin{frame}[t]\frametitle{Summary}
+%
+\begin{itemize}
+\item Phenomenal point1
+\item Amazing Point 2
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]\frametitle{Bibliography}
+\printbibliography
+\end{frame}
+\begin{frame}[t]\frametitle{End}
+\begin{center}
+\Huge
+Thank you!
+\end{center}
+\end{frame}
+\end{document}
+%------------------------------------------------

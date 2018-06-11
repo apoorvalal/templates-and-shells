@@ -1,0 +1,170 @@
+% sensible defaults for assignments/papers
+% can be sourced directly using \usepackage , e.g.
+% \usepackage{"/home/alal/tex_templates/lal_default"}
+
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%
+
+\usepackage{
+amsfonts,
+amsmath,
+amssymb,
+amsthm,
+mathtools,
+enumitem,
+setspace,
+graphics,
+color,
+titling,
+hyperref,
+fancyhdr
+}
+
+% fixes encodings for accented letters in bib names
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+style=authoryear,
+citestyle=authoryear,
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
+
+
+% adobe utopia font family - fourier
+% \usepackage{fourier}
+% palatino font family - mathpazo
+% \usepackage{mathpazo}
+% bitstream charter font family
+% \usepackage{charter}
+% charter with math
+% \usepackage[bitstream-charter]{mathdesign}
+% times new roman (boooring)
+% \usepackage{mathptm}
+
+% Smallcaps section headers
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\scshape}
+
+% header last updated
+\newcommand{\updateinfo}[1][\today]{\par\hfill{\scriptsize
+Last updated on #1}}
+
+% margins
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\textwidth}{7in}
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\oddsidemargin}{-0.25in}
+
+% command shorthand
+\newcommand{\eg}{e.g., \xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\iid}{\emph{i.i.d.}\ }
+\newcommand{\etal}{et.\ al.\ }
+\newcommand{\D}{\displaystyle}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bs}{\begin{align}\begin{split}\nonumber}
+\newcommand{\bsnumber}{\begin{align}\begin{split}}
+\newcommand{\es}{\end{split}\end{align}}
+\newcommand{\fns}{\singlespace\footnotesize}
+
+% math shorthand
+% vertical equal prefix
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+% vertical equal to
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+% nullspace
+\newcommand{\nulls}{\mathrm{null}}
+% range
+\newcommand{\range}{\mathrm{range}}
+% maximise
+\newcommand{\maximise}{\operatornamewithlimits{max}}
+% minimise
+\newcommand{\minimise}{\operatornamewithlimits{min}}
+% maximiser
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% minimiser
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+
+% ellipsis
+\newcommand{\tto}{,\ldots,}
+
+% blackboard F
+\def\Function{\mathbb{F}}
+
+% Natural
+\def\Nat{\mathbb{N}}
+% Integers
+\def\Int{\mathbb{Z}}
+% Reals
+\def\Real{\mathbb{R}}
+% Rationals
+\def\Rat{\mathbb{Q}}
+% Complex
+\def\Cplx{\mathbb{C}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+% expectation_n
+\def\Expn{\mathbb{E}_n}
+% P_n
+\def\Probn{\mathbb{P}_n}
+
+\def\rel{\,{\buildrel R \over \sim}\,}
+% generic m x n matrix
+\newcommand{\gmatrix}[1]{\begin{pmatrix} {#1}_{11} & \cdots &
+    {#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &
+    {#1}_{mn} \end{pmatrix}}
+% lagrangian
+% \newcommand{\Lagr}{\mathcal{L}}
+% inner product
+\newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
+% vector norm
+\newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+% absolute value
+\newcommand{\abs}[1]{\left\vert {#1} \right\vert}
+% linalg misc
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\spn}{\mathrm{span}}
+\newcommand{\row}{\mathrm{Row}}
+\newcommand{\col}{\mathrm{Col}}
+\renewcommand{\dim}{\mathrm{dim}}
+% weakly prefer
+\newcommand{\prefeq}{\succeq}
+% strictly prefer
+\newcommand{\pref}{\succ}
+% sequence
+\newcommand{\seq}[1]{\{{#1}_n \}_{n=1}^\infty }
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
+% double arrow
+\newcommand{\corres}{\overrightarrow{\rightarrow}}
+% evaluate definite integral
+\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+% expectation
+\newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
+% variance
+\newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+
+\endinput
+
