@@ -1,69 +1,168 @@
 ---
-title: Paper Title
-author: Apoorva Lal
-thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
-date: Date
-abstract: 'This paper does amazing things'
-output: pdf_document
-toc: true
-numbersections: true
-geometry: "margin=1in"
+output:
+  pdf_document:
+    keep_tex: true
+    citation_package: biblatex
+    latex_engine: pdflatex
+    fig_caption: true
+    template: ~/Templates/boilerplate/lal-paper-template.tex
+title: "Paper Title : Subtitle"
+thanks: "Acknowledgements here. **Current version**: `r format(Sys.time(), '%B %d, %Y')`; **Corresponding author**: apoorval@stanford.edu."
+author:
+- name: Apoorva Lal
+  affiliation: Stanford University
+abstract: "abstract goes here"
+keywords: "JEL keywords"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontfamily: libertine
 fontsize: 12pt
+spacing: single
+toc: false
+septitle:
+titlecentre:
+fancy-header: 'Title (shortened if necessary)'
 bibliography: /home/alal/Dropbox/MyLibrary.bib
-csl: econometrica.csl
-header-includes:
-    - \usepackage{fancyhdr}
-    - \usepackage{booktabs}
-    - \pagestyle{fancy}
-    - \rhead{Title}
-    - \lhead[CO,LE]{Apoorva Lal}
+endnote: no
+biblio-style: authoryear
 ---
 
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
+                      cache=T,
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
 
-```{r, echo=FALSE, include=FALSE}
+<!-- /*
+██████  ██████  ███████ ██████
+██   ██ ██   ██ ██      ██   ██
+██████  ██████  █████   ██████
+██      ██   ██ ██      ██
+██      ██   ██ ███████ ██
+*/
+ -->
+
+```{r, include=F}
+#%%
+# preliminaries
 ####################################################
 rm(list=ls())
 if (require('LalRUtils')==F) {
     library(devtools)
     devtools::install_github("apoorvalal/LalRUtils")
 }
-load_or_install(c('tidyverse','magrittr','Hmisc','knitr','stargazer'))
+load_or_install(c('tidyverse',
+    'magrittr','Hmisc','data.table', 'stargazer')) #, 'lib2'))
 sessionInfo()
-
-opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
-               message=FALSE, warning=FALSE)
-
+####################################################
+#%%
 ```
+
+<!-- /*
+██ ███    ██ ████████ ██████   ██████
+██ ████   ██    ██    ██   ██ ██    ██
+██ ██ ██  ██    ██    ██████  ██    ██
+██ ██  ██ ██    ██    ██   ██ ██    ██
+██ ██   ████    ██    ██   ██  ██████
+*/
+ -->
 
 # Introduction
 
+Main question: What is the average air speed velocity of a laden swallow?
+
 @Deatonanalysishouseholdsurveys1997
+
+The quick brown fox jumped over the lazy dog^[but the dog's laziness
+is heavily debated].
+
+
+<!-- /*
+███    ███  ██████  ██████  ███████ ██
+████  ████ ██    ██ ██   ██ ██      ██
+██ ████ ██ ██    ██ ██   ██ █████   ██
+██  ██  ██ ██    ██ ██   ██ ██      ██
+██      ██  ██████  ██████  ███████ ███████
+*/
+ -->
 
 # Model
 
-$$
-max_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
-$$
+\begin{align*}
+\maximise_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
+  s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
+\end{align*}
+
+# Estimation Framework
+
+
+\begin{align*}
+\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p
+PPI_{ict-k} + \gamma_{ct} + \epsilon_{ict} \\
+\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p PPI_{ict-k} +
+\sum_{k=0}^2 + \beta_{t-k}^m CPI_{ict-k} + \\ & \gamma_{c}\times
+trend_t + \epsilon_{ict}
+\end{align*}
+
+<!-- /*
+██████   █████  ████████  █████
+██   ██ ██   ██    ██    ██   ██
+██   ██ ███████    ██    ███████
+██   ██ ██   ██    ██    ██   ██
+██████  ██   ██    ██    ██   ██
+*/
+ -->
 
 # Data
 
-```{r}
+## Make plots in document
+```{r, fig.cap="Made here"}
 #%%
 ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()
 #%%
 ```
 
+\newpage
+
+
+<!-- /*
+██████  ███████ ███████ ██    ██ ██   ████████ ███████
+██   ██ ██      ██      ██    ██ ██      ██    ██
+██████  █████   ███████ ██    ██ ██      ██    ███████
+██   ██ ██           ██ ██    ██ ██      ██         ██
+██   ██ ███████ ███████  ██████  ███████ ██    ███████
+*/
+ -->
+
 # Results
 
-```{r}
-lm1 = lm(hwy ~ cyl + factor(class), data=mpg)
-```
+## Embed stargazer output
 
 ```{r, results='asis'}
+lm1 = lm(hwy ~ cyl + factor(class), data=mpg)
 stargazer(lm1, header=F, type='latex')
 ```
 
-\newpage
+## Embed standalone latex table
+
+# Conclusion
+
+Something significant
+
+<!-- /*
+ █████  ██████  ██████  ███████ ███    ██ ██████  ██ ██   ██
+██   ██ ██   ██ ██   ██ ██      ████   ██ ██   ██ ██  ██ ██
+███████ ██████  ██████  █████   ██ ██  ██ ██   ██ ██   ███
+██   ██ ██      ██      ██      ██  ██ ██ ██   ██ ██  ██ ██
+██   ██ ██      ██      ███████ ██   ████ ██████  ██ ██   ██
+*/
+ -->
+
+# Appendix
+
+```{r, ref.label='summary stats', echo=TRUE, include=TRUE}
+print(summary(mpg))
+```
 
 # Bibliography

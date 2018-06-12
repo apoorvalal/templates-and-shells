@@ -1,0 +1,69 @@
+---
+title: Paper Title
+author: Apoorva Lal
+thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
+date: Date
+abstract: 'This paper does amazing things'
+output: pdf_document
+toc: true
+numbersections: true
+geometry: "margin=1in"
+fontsize: 12pt
+bibliography: /home/alal/Dropbox/MyLibrary.bib
+csl: econometrica.csl
+header-includes:
+    - \usepackage{fancyhdr}
+    - \usepackage{booktabs}
+    - \pagestyle{fancy}
+    - \rhead{Title}
+    - \lhead[CO,LE]{Apoorva Lal}
+---
+
+
+```{r, echo=FALSE, include=FALSE}
+####################################################
+rm(list=ls())
+if (require('LalRUtils')==F) {
+    library(devtools)
+    devtools::install_github("apoorvalal/LalRUtils")
+}
+load_or_install(c('tidyverse','magrittr','Hmisc','knitr','stargazer'))
+sessionInfo()
+
+opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
+               message=FALSE, warning=FALSE)
+
+```
+
+# Introduction
+
+@Deatonanalysishouseholdsurveys1997
+
+# Model
+
+$$
+max_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+$$
+
+# Data
+
+```{r}
+#%%
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
+#%%
+```
+
+# Results
+
+```{r}
+lm1 = lm(hwy ~ cyl + factor(class), data=mpg)
+```
+
+```{r, results='asis'}
+stargazer(lm1, header=F, type='latex')
+```
+
+\newpage
+
+# Bibliography
