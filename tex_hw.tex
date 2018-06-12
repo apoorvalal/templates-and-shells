@@ -1,8 +1,6 @@
 \documentclass{article}
 \usepackage{subfig,url}
-\usepackage{/home/alal/Templates/boilerplate/lal_default}
-% \usepackage{libertine}
-%----------------------- Macros and Definitions --------------------------
+\usepackage{"/home/alal/Templates/boilerplate/lal_default"}
 
 %%% FILL THIS OUT
 \newcommand{\studentname}{Apoorva Lal}
@@ -10,7 +8,6 @@
 \newcommand{\suid}{apoorval}
 \newcommand{\exerciseset}{Problem Set 1}
 \newcommand{\univ}{Stanford}
-%%% END
 
 \renewcommand{\theenumi}{\bf \Alph{enumi}}
 
@@ -18,27 +15,21 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 
-\fancypagestyle{plain}{}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[RO,LE]{\sffamily\bfseries\large \univ}
-\fancyhead[LO,RE]{\sffamily\bfseries\large \coursename}
-\fancyfoot[LO,RE]{\sffamily\bfseries\large \studentname: \suid @stanford.edu}
-\fancyfoot[RO,LE]{\sffamily\bfseries\thepage}
-\renewcommand{\headrulewidth}{1pt}
-\renewcommand{\footrulewidth}{1pt}
+\lhead{\coursename : \exerciseset}
+\rhead[CO,LE]{\sffamily\bfseries\bfseries \studentname ; \suid}
+\fancyfoot[LO,RE]{\sffamily\bfseries\large \updateinfo}
 
-\graphicspath{{figures/}}
-
-%-------------------------------- Title ----------------------------------
-
-\title{\coursename : \exerciseset}
-\author{\studentname \qquad SUNet ID: \suid}
-
-%--------------------------------- Text ----------------------------------
 
 \begin{document}
-\maketitle
+
+\begin{center}
+\huge
+\coursename : \exerciseset
+\end{center}
+
 
 \section*{Problem 1}
 \begin{enumerate}
@@ -69,3 +60,5 @@ Next one here.
 
 
 \end{document}
+
+
