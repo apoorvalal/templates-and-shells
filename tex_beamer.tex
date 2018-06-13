@@ -1,5 +1,5 @@
-\documentclass[aspectratio=169]{beamer}
-\usepackage{lmodern}% http://ctan.org/pkg/lm
+% \documentclass{beamer}
+\documentclass[11pt, aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{bookmark}
 \hypersetup{bookmarksdepth=4,bookmarksnumbered=true,bookmarksopen=true}
@@ -7,20 +7,27 @@
 % \usetheme{metropolis}
 % or {
 \usetheme[compress]{Berlin}
-% \usefonttheme{structuresmallcapsserif}\usecolortheme{rose}
 \setbeamerfont{section in head/foot}{size=\tiny}
-% }
+% hyperlinks and math shortcuts
+\usepackage{/home/alal/tex_templates/lal_default_beamer}
 
-\usepackage{graphicx}
-\usepackage{cmbright}
-\usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
+% fonts
+\usepackage[T1]{fontenc}
+% \usefonttheme{structuresmallcapsserif}\usecolortheme{rose}
+% \usefonttheme{serif} % for serif fonts
+% \usepackage{cmbright} % thin default sans serif
+% \usepackage[condensed]{roboto} % roboto condensed
+\usepackage[sfdefault,scaled=.85]{FiraSans} % fira
+
+
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
 
 \beamertemplatenavigationsymbolsempty
 
 %Information to be included in the title page:
 \title{Title}
 \subtitle{subtitle}
-\author{Apoorva Lal, Stanford University}
+\author{Apoorva Lal, UBC}
 \date{Date}
 \begin{document}
 %------------------------------------------------
@@ -33,61 +40,55 @@
 %------------------------------------------------
 \section{Introduction}
 \tableofcontents[currentsection,subsubsectionstyle=hide]
+%------------------------------------------------
 \subsection{Introduction}
 \begin{frame}\frametitle{Introduction}
-
 Stuff
-
 \cite{AngristMostlyharmlesseconometrics2008b}
-
 \end{frame}
 %------------------------------------------------
-\subsection{Conceptual Framework / Definitions}
-
-\begin{frame}[t]\frametitle{Conceptual Framework}
-
-Stuff 2
-
-\end{frame}
-%------------------------------------------------
-
-\begin{frame}[t]\frametitle{Linking data to theory}
-
-
-
-\end{frame}
-%------------------------------------------------
-
 \subsection{Summary of Results}
 \begin{frame}[t]\frametitle{Summary of Results}
-
 Upshot
-
 \end{frame}
 
 %------------------------------------------------
 %------------------------------------------------
 \section{Theory}
 \tableofcontents[currentsection,subsubsectionstyle=hide]
-
-\subsection{Theoretical Predictions}
-\begin{frame}[t]\frametitle{Theoretical Predictions}
+%------------------------------------------------
+\subsection{Model}
+\begin{frame}[t]\frametitle{Model}
 \begin{center}
-center
+centered text
 \end{center}
-
-If you do bad things, bad stuff will happen
-
+\begin{align*}
+\maximise_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
+  s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
+\end{align*}
+Everyone does infinite horizon optimisation, right?
 \end{frame}
-
 %------------------------------------------------
 %------------------------------------------------
 \section{Empirics}
 \tableofcontents[currentsection,subsubsectionstyle=hide]
 \subsection{Data}
-\begin{frame}\frametitle{Main Data}
+\begin{frame}[label=data_slide]\frametitle{Main Data}
 
-Stuff
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+   \item some text here some text here some text here some text here some text here
+   \item \hyperlink{appendix_end}{\beamergotobutton{Details in appendix}}
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+    \begin{center}
+    Picture goes here
+     % \includegraphics[width=1\textwidth]{picture.png}
+     \end{center}
+\end{column}
+\end{columns}
 
 \end{frame}
 
@@ -114,8 +115,8 @@ trend_t + \epsilon_{ict}
 \begin{frame}[t]\frametitle{Summary}
 %
 \begin{itemize}
-\item Phenomenal point1
-\item Amazing Point 2
+\item Upshot
+\item Closing remark
 \end{itemize}
 
 \end{frame}
@@ -130,5 +131,17 @@ trend_t + \epsilon_{ict}
 Thank you!
 \end{center}
 \end{frame}
-\end{document}
 %------------------------------------------------
+\appendix
+\begin{frame}[label=appendix_end]{Appendix land}
+  \begin{wideitemize}
+    \item[] Now you can make it clear you've done a shitload of work
+      \begin{itemize}
+      \item[]  without having to show everything! \hyperlink{data_slide}{\beamergotobutton{Back}}
+      \end{itemize}
+    \item[] You label a frame with the \texttt{[label=name]} option, and then point a link to it
+    \item[] You can make an object a link using the \texttt{\textbackslash hyperlink\{label\}\{object\}} command
+  \end{wideitemize}
+\end{frame}
+\end{document}
+%

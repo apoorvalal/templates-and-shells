@@ -1,0 +1,10 @@
+slides > slide {
+  font-family: 'Liberation Sans', Helvetica, Arial, sans-serif;
+  box-shadow:  0 3px 0 #8c1515;
+}
+
+.title-slide hgroup h1 {
+  color: #8c1515;
+  font-size: 48px;
+}
+

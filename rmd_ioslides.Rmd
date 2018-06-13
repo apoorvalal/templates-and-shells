@@ -1,0 +1,89 @@
+---
+title: An Example R Markdown IoSlides
+subtitle: (A Subtitle)
+author: Apoorva Lal
+institute: Stanford
+titlegraphic: 'vse.jpg'
+fontsize: 11pt
+output:
+  ioslides_presentation:
+    widescreen: true
+    incremental: true
+    logo: ~/Templates/boilerplate/Stanford-Tree.jpg
+    css: ~/Templates/boilerplate/alal-ioslides-css.css
+bibliography: /home/alal/Dropbox/MyLibrary.bib
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+# Introduction
+
+## The Problem
+
+Here is what I'm going to talk about
+
+- point 1
+- point 2
+- point 3
+
+## Literature
+
+Cite a paper @ManningHealthinsurancedemand1987
+
+## Empirics
+
+I found some great data and ran some regressions
+
+$$
+Y_i = X_i^{T} \beta + \epsilon_i
+$$
+
+
+
+## Data
+<!-- example of 2 column slide -->
+<div class="columns-2">
+  ![](vse.jpg)
+
+  > - Bullet 1 $\sum_{i=1}^n \alpha_i$
+  > - Bullet 2
+  > - Bullet 3
+</div>
+
+# Example R code
+
+## Example R stuff
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+## ggplot code
+
+```{r createdata, echo=TRUE, eval=FALSE}
+df <- data.frame(x = rnorm(1000))
+x <- df$x
+base <- ggplot(df, aes(x)) + geom_density()  + scale_x_continuous(limits = c(-5, 5))
+base + stat_function(fun = dnorm, colour = "red")
+```
+
+## Another Plot
+
+```{r plotit, echo=FALSE}
+library(ggplot2)
+df <- data.frame(x = rnorm(1000))
+x <- df$x
+base <- ggplot(df, aes(x)) + geom_density()  + scale_x_continuous(limits = c(-5, 5))
+base + stat_function(fun = dnorm, colour = "red")
+```
+
+#
