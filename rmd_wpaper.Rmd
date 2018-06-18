@@ -23,12 +23,11 @@ header-includes:
 ```{r, echo=FALSE, include=FALSE}
 ####################################################
 rm(list=ls())
-if (require('LalRUtils')==F) {
-    library(devtools)
-    devtools::install_github("apoorvalal/LalRUtils")
-}
-load_or_install(c('tidyverse','magrittr','Hmisc','knitr','stargazer'))
+load_or_install(c('tidyverse','magrittr','rio','data.table', 'stargazer'))
+   #, "lib2"))
 sessionInfo()
+theme_set(theme_minimal())
+####################################################
 
 opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
                message=FALSE, warning=FALSE)

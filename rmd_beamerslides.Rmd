@@ -57,6 +57,23 @@ theme_set(theme_bw())
 - Point B
 - Point C
 
+## Multicolumn Slide
+
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+   \item some text here some text here some text here some text here some text here
+   \item another point
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+    \begin{center}
+    Picture goes here
+     % \includegraphics[width=1\textwidth]{picture.png}
+     \end{center}
+\end{column}
+\end{columns}
+
 ## Graphs
 
 ```{r, fig.cap="Figure Caption", fig.align='center'}

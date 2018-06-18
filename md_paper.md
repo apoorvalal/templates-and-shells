@@ -1,28 +1,25 @@
 ---
-title: "Pandoc Markdown Paper Shell"
+title: "Pandoc Markdown Document Shell"
 author: 'Apoorva Lal'
-thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
-date: Date
-abstract: 'This paper does amazing things'
+# thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
+# date: Date
+# abstract: 'This paper does amazing things'
 geometry: "margin=1in"
-output:
-  pdf_document:
-    keep_tex: true
-    fig_caption: true
+output: pdf_document
 fontsize: 12pt
-fontfamily: libertine
+# fontfamily: libertine
 indent: true
-toc: true
+# toc: true
 numbersections: true
-documentclass: article
+documentclass: amsart
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
 header-includes:
-    - \usepackage{fancyhdr}
-    - \usepackage{booktabs}
-    - \pagestyle{fancy}
-    - \rhead{Title}
-    - \lhead[CO,LE]{Apoorva Lal}
+    # - \usepackage{fancyhdr}
+    # - \pagestyle{fancy}
+    # - \rhead{Title}
+    # - \lhead[CO,LE]{Apoorva Lal}
+    - \input{/home/alal/Templates/boilerplate/math_shortcuts}
 ---
 
 # Introduction

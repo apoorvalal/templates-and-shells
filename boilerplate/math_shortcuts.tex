@@ -1,74 +1,15 @@
-% sensible defaults for assignments/papers
-% can be sourced directly using \usepackage , e.g.
-% \usepackage{"/home/alal/tex_templates/lal_default"}
-
-%% This program can be redistributed and/or modified under the terms
-%% of the LaTeX Project Public License Distributed from CTAN archives
-%% in directory macros/latex/base/lppl.txt.
-%
-
-\usepackage{
-amsfonts,
-amsmath,
-amssymb,
-amsthm,
-mathtools,
-enumitem,
-setspace,
-graphics,
-color,
-titling,
-hyperref,
-fancyhdr
-}
-
-% fixes encodings for accented letters in bib names
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-
-% set universal bibliography (change to point to your master bibfile)
-\bibliographystyle{plainnat}
-\usepackage[backend=biber,
-style=authoryear,
-citestyle=authoryear,
-]{biblatex}
-\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
-
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Apoorva Lal},
-             pdfkeywords = {JEL keywords},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-
-% adobe utopia font family - fourier
-% \usepackage{fourier}
-% palatino font family - mathpazo
-% \usepackage{mathpazo}
-% bitstream charter font family
-% \usepackage{charter}
-% charter with math
-% \usepackage[bitstream-charter]{mathdesign}
-% times new roman (boooring)
-% \usepackage{mathptm}
-
-% Smallcaps section headers
-\usepackage{sectsty}
-\allsectionsfont{\normalfont\scshape}
-
-% header last updated
-\newcommand{\updateinfo}[1][\today]{\par\hfill{\scriptsize
-Last updated on #1}}
-
-% margins
-\setlength{\textheight}{9in}
-\setlength{\topmargin}{-0.5in}
-\setlength{\textwidth}{7in}
-\setlength{\evensidemargin}{-0.25in}
-\setlength{\oddsidemargin}{-0.25in}
+\usepackage{amsmath,amsthm,amssymb,comment}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{mathrsfs}
+\usepackage{latexsym}
+\usepackage[dvips]{graphics}
+\usepackage{epsfig}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{url}
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
@@ -174,6 +115,3 @@ Last updated on #1}}
 \newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
-
-\endinput
-

@@ -1,37 +1,44 @@
 ---
-title: "Tufte Document RMarkdown"
-author: "Apoorva Lal"
+title: Document Title
+author: Apoorva Lal
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output:
-  tufte::tufte_html: default
-  tufte::tufte_handout:
-    citation_package: natbib
-    latex_engine: xelatex
-  tufte::tufte_book:
-    citation_package: natbib
-    latex_engine: xelatex
-link-citations: yes
 bibliography: /home/alal/Dropbox/MyLibrary.bib
-biblio-style: authoryear
+csl: econometrica.csl
+output:
+  html_document:
+    theme: flatly
+    # theme: paper
+    # theme: cosmo
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    code_folding: hide
 ---
 
-## Preliminaries
+# 1. Preliminaries
 
-```{r setup, include=FALSE}
-#%%
+**started off as Chapter-by-chapter notes for
+@AngristMostlyharmlesseconometrics2008b**; based on material from
+[Josh Gottlieb](http://www.joshuagottlieb.ca/)'s research design class
+with additional material from
+@CameronMicroeconometricsmethodsapplications2005
+
+```{r,include=F}
 knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
-                      cache=T,
-                      echo=FALSE, warning=FALSE, message=FALSE)
-####################################################
+                      echo=TRUE, warning=FALSE, message=FALSE,
+                      cache=TRUE
+)
+
+options(digits=2)
+# R Imports Boilerplate
 rm(list=ls())
-load_or_install(c('tidyverse','Hmisc', 'lfe','estimatr','rio',
-    'stargazer'))
-sessionInfo()
+user_name = Sys.info()['user']
+temp_path = Sys.getenv()['TMP']
+load_or_install(c('tidyverse','data.table', 'stargazer','lfe','rio'))
 theme_set(theme_minimal())
-####################################################
-#%%
 ```
-### Cite
+
+## Cite
 
 @DeatonPaneldatatime1985
 
@@ -54,7 +61,7 @@ trend_t + \epsilon_{ict}
 \end{align*}
 
 
-## Regression output
+# Regression output
 
 ```{r}
 lm1 = felm(hwy ~ cyl ,   data = mpg)
@@ -67,7 +74,7 @@ stargazer(lm1, lm2, type='html')
 #%%
 ```
 
-## Margin Figure
+# Figures
 
 ```{r, fig.margin=T}
 #%%
@@ -82,17 +89,4 @@ ggplot(mtcars2, aes(hp, mpg, color = am)) +
 #%%
 ```
 
-## Main Text Figure
-
-```{r}
-#%%
-library(ggplot2)
-mtcars2 <- mtcars
-mtcars2$am <- factor(
-  mtcars$am, labels = c('automatic', 'manual')
-)
-ggplot(mtcars2, aes(hp, mpg, color = am)) +
-  geom_point() + geom_smooth() +
-  theme(legend.position = 'bottom')
-#%%
-```
+# Bibliography
