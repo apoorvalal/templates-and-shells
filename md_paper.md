@@ -12,6 +12,7 @@ indent: true
 # toc: true
 numbersections: true
 documentclass: amsart
+# documentclass: article
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
 header-includes:
