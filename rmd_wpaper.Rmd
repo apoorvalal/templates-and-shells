@@ -4,9 +4,17 @@ author: Apoorva Lal
 thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
 date: Date
 abstract: 'This paper does amazing things'
-output: pdf_document
-toc: true
+output:
+  pdf_document:
+    keep_tex: true
+    toc: true
+    toc_depth : 2
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    # latex_engine: xelatex
 numbersections: true
+# mainfont: "Georgia"
 geometry: "margin=1in"
 fontsize: 12pt
 bibliography: /home/alal/Dropbox/MyLibrary.bib
@@ -23,7 +31,8 @@ header-includes:
 ```{r, echo=FALSE, include=FALSE}
 ####################################################
 rm(list=ls())
-load_or_install(c('tidyverse','magrittr','rio','data.table', 'stargazer'))
+load_or_install(c('knitr','tidyverse','magrittr',
+  'rio','data.table', 'stargazer'))
    #, "lib2"))
 sessionInfo()
 theme_set(theme_minimal())
