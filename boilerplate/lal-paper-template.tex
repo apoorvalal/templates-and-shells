@@ -89,6 +89,7 @@ $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatex
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
+
 $endif$
 $if(listings)$
 \usepackage{listings}
@@ -387,6 +388,7 @@ $endif$
 $endif$
 $endif$
 $if(biblatex)$
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
 
 $endif$

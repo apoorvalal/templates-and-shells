@@ -118,7 +118,7 @@ xtable(summary(lm(y ~ x)), caption = "Here is the table we made")
 @
 
 
-
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
 \printbibliography
 
 \end{document}
