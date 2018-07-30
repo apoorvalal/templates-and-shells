@@ -19,9 +19,24 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 
-\usepackage{amsfonts, amsmath, amssymb, amsthm,
-mathtools, enumitem, fancyhdr, booktabs}
+% \usepackage{amsfonts, amsmath, amssymb, amsthm,
+% mathtools, enumitem, fancyhdr, booktabs}
 
+\usepackage{
+amsfonts,
+amsmath,
+amssymb,
+amsthm,
+mathtools,
+enumitem,
+setspace,
+graphics,
+color,
+titling,
+hyperref,
+fancyhdr,
+todonotes
+}
 
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -240,6 +255,7 @@ $endif$
 
 $if(biblatex)$
 \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$

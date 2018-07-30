@@ -2,10 +2,10 @@
 title: "Pandoc Markdown Document Shell"
 subtitle: "A Subtitle"
 author:  'Apoorva Lal'
-# documentclass: amsart
-# titlefooter: true
-# address: 'Stanford University, CA'
-# email:   'apoorval@stanford.edu'
+documentclass: amsart
+titlefooter: true
+address: 'Stanford University, CA'
+email:   'apoorval@stanford.edu'
 thanks: 'thanks'
 date: \today
 abstract: 'This paper does amazing things'
@@ -18,10 +18,9 @@ toc: true
 xetex: true
 mathspec: true
 numbersections: true
+backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
-header-includes:
-    - '% \usepackage{lipsum}' 
 ---
 
 # Introduction
@@ -50,7 +49,7 @@ $$
 
 # Data
 
-\lipsum[1]
+<!-- \lipsum[1] -->
 
 # Results
 
