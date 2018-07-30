@@ -3,7 +3,16 @@
 % \usepackage{fullpage} % changes the margin
 \usepackage{/home/alal/Templates/boilerplate/lal_default}
 
-\title{Title \thanks{Acknowledgements} \\
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+style=authoryear,
+citestyle=authoryear,
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
+\renewbibmacro{in:}{}
+
+\title{Title \thanks{Acknowledgements, \updateinfo } \\
   \large Subtitle}
 
 
