@@ -19,12 +19,16 @@ graphics,
 color,
 titling,
 hyperref,
-fancyhdr
+fancyhdr,
+todonotes,
+sectsty
 }
 
 % fixes encodings for accented letters in bib names
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+
+\allsectionsfont{\normalfont\scshape}
 
 % set universal bibliography (change to point to your master bibfile)
 \bibliographystyle{plainnat}
@@ -38,7 +42,7 @@ citestyle=authoryear,
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Apoorva Lal},
-             pdfkeywords = {JEL keywords},
+            pdfkeywords = {JEL keywords},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -57,8 +61,15 @@ citestyle=authoryear,
 % \usepackage{mathptm}
 
 % Smallcaps section headers
-\usepackage{sectsty}
-\allsectionsfont{\normalfont\scshape}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 % header last updated
 \newcommand{\updateinfo}[1][\today]{\par\hfill{\scriptsize
@@ -177,4 +188,3 @@ Last updated on #1}}
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
 
 \endinput
-

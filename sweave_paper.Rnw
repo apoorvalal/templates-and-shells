@@ -1,4 +1,4 @@
-\documentclass[12pt]{amsart}         % the type of document and font size (default 10pt)
+\documentclass[12pt]{amsart}          % the type of document and font size (default 10pt)
 \usepackage[margin=1.0in]{geometry}   % sets all margins to 1in, can be changed
 \usepackage{moreverb}                 % for verbatimtabinput -- LaTeX environment
 \usepackage{url}                      % for \url{} command
@@ -122,5 +122,3 @@ xtable(summary(lm(y ~ x)), caption = "Here is the table we made")
 \printbibliography
 
 \end{document}
-
-
