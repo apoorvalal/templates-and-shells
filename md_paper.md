@@ -1,31 +1,34 @@
 ---
 title: "Pandoc Markdown Document Shell"
-author: 'Apoorva Lal'
-# thanks: 'PhD Candidate, Stanford University. Acknowledgements go here'
-# date: Date
-# abstract: 'This paper does amazing things'
+subtitle: "A Subtitle"
+author:  'Apoorva Lal'
+# documentclass: amsart
+# titlefooter: true
+# address: 'Stanford University, CA'
+# email:   'apoorval@stanford.edu'
+thanks: 'thanks'
+date: \today
+abstract: 'This paper does amazing things'
 geometry: "margin=1in"
 output: pdf_document
 fontsize: 12pt
-# fontfamily: libertine
+colorlinks: true
 indent: true
-# toc: true
+toc: true
+xetex: true
+mathspec: true
 numbersections: true
-# documentclass: amsart
-documentclass: article
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
 header-includes:
-    # - \usepackage{fancyhdr}
-    # - \pagestyle{fancy}
-    # - \rhead{Title}
-    # - \lhead[CO,LE]{Apoorva Lal}
-    - \input{/home/alal/Templates/boilerplate/math_shortcuts}
+    - '% \usepackage{lipsum}' 
 ---
 
 # Introduction
 
 @Deatonanalysishouseholdsurveys1997
+
+\newpage
 
 ## Footnotes
 
@@ -42,13 +45,26 @@ footnotes are easier to handle^[like so].
 # Model
 
 $$
-max_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+\maximise_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
 $$
 
 # Data
+
+\lipsum[1]
 
 # Results
 
 \newpage
 
-# Bibliography
+
+\appendix
+
+$$
+Y_{i} = X_i'\beta + \epsilon_i
+$$
+
+\newpage 
+
+\textsc{Bibliography}
+
+
