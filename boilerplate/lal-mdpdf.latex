@@ -1,5 +1,7 @@
 % pandoc template meant to play nice with amsart
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+
+
 \PassOptionsToPackage{hyphens}{url}
 $if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
@@ -19,9 +21,6 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 
-% \usepackage{amsfonts, amsmath, amssymb, amsthm,
-% mathtools, enumitem, fancyhdr, booktabs}
-
 \usepackage{
 amsfonts,
 amsmath,
@@ -33,9 +32,7 @@ setspace,
 graphics,
 color,
 titling,
-hyperref,
-fancyhdr,
-todonotes
+fullpage
 }
 
 \usepackage{ifxetex,ifluatex}
@@ -97,6 +94,27 @@ $if(CJKmainfont)$
 $endif$
 \fi
 
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \PassOptionsToPackage{hyphens}{url}\usepackage[unicode=true]{hyperref}
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+\usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+
+\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -118,8 +136,9 @@ $if(verbatim-in-note)$
 $endif$
 $if(colorlinks)$
 \usepackage{xcolor}
+\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
 $endif$
-\usepackage{hyperref}
+
 \hypersetup{
 $if(title-meta)$
             pdftitle={$title-meta$},
@@ -131,13 +150,14 @@ $if(keywords)$
             pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
 $endif$
 $if(colorlinks)$
-            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
-$else$
-            pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            pdfborder={0 0 0}
 $endif$
-            breaklinks=true}
+}
+            % breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
@@ -158,6 +178,7 @@ $endif$
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
+
 $if(tables)$
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
@@ -261,34 +282,32 @@ $for(bibliography)$
 $endfor$
 $endif$
 
-$if(title)$
-\title{$title$}
-$endif$
 
-$if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
-$endif$
+
 
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 
-$if(institute)$
-\providecommand{\institute}[1]{}
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
 
-\date{$date$}
 
-$if(titlefooter)$
+$if(amsart)$
   \usepackage[foot]{amsaddr}
-  \address{$address$}
-  \email{$email$}
-  \thanks{$thanks$}
+  $if(address)$\address{$address$}$endif$
+  $if(email)$\email{$email$}$endif$
+  $if(thanks)$\thanks{$thanks$}$endif$
 $endif$
 
+$if(title)$
+  $if(amsart)$
+    \title{{\large $title$} $if(subtitle)$ \\ $subtitle$  $endif$}
+  $else$
+    \title{{\Huge $title$} $if(subtitle)$ \\ $subtitle$
+      $if(thanks)$\thanks{$thanks$}$endif$  $endif$}
+  $endif$
+$endif$
 
+$if(date)$\date{$date$}$endif$
 
 % math shortcuts
 
