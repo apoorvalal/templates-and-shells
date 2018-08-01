@@ -3,9 +3,10 @@
 
 
 \PassOptionsToPackage{hyphens}{url}
-$if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
-$endif$$if(dir)$$if(latex-dir-rtl)$
+
+
+$if(dir)$$if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
 $endif$$endif$%
 \documentclass[$if(fontsize)$$fontsize$,$endif$ $if(lang)$$babel-lang$,$endif$ $if(papersize)$$papersize$paper,$endif$ $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
@@ -16,6 +17,7 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
+
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
@@ -30,7 +32,6 @@ mathtools,
 enumitem,
 setspace,
 graphics,
-color,
 titling,
 fullpage
 }
@@ -51,30 +52,37 @@ $if(mathspec)$
 $else$
   \usepackage{unicode-math}
 $endif$
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
 $for(fontfamilies)$
   \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
 $endfor$
+
 $if(mainfont)$
     \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 $endif$
+
 $if(sansfont)$
     \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
 $endif$
+
 $if(monofont)$
     \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
 $endif$
+
 $if(mathfont)$
-$if(mathspec)$
-  \ifxetex
-    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
-  \else
+  $if(mathspec)$
+    \ifxetex
+      \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+    \else
+      \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+    \fi
+  $else$
     \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
-  \fi
-$else$
-  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  $endif$
 $endif$
-$endif$
+
 $if(CJKmainfont)$
   \ifxetex
     \usepackage{xeCJK}
@@ -86,6 +94,7 @@ $if(luatexjapresetoptions)$
     \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
   \fi
 $endif$
+
 $if(CJKmainfont)$
   \ifluatex
     \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
@@ -94,11 +103,10 @@ $if(CJKmainfont)$
 $endif$
 \fi
 
-
 \makeatletter
 \@ifpackageloaded{hyperref}{}{%
 \ifxetex
-  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
+  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false,
               unicode=false, % unicode breaks when used with xetex
               xetex]{hyperref}
 \else
@@ -106,14 +114,12 @@ $endif$
 \fi
 }
 
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
+\@ifpackageloaded{xcolor}{
+    \PassOptionsToPackage{usenames,dvipsnames}{xcolor}
 }{%
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[usenames,dvipsnames]{xcolor}
 }
 \makeatother
-
-\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
 
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -122,6 +128,7 @@ $endif$
 \usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+
 $if(indent)$
 $else$
 \IfFileExists{parskip.sty}{%
@@ -131,13 +138,12 @@ $else$
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 }
 $endif$
+
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
-$if(colorlinks)$
-\usepackage{xcolor}
+
 \definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
-$endif$
 
 \hypersetup{
 $if(title-meta)$
@@ -149,15 +155,14 @@ $endif$
 $if(keywords)$
             pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
 $endif$
-$if(colorlinks)$
+            breaklinks=true,
+            bookmarks=true,
             colorlinks=true,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$maroon$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            citecolor=maroon,
+            urlcolor=blue,
+            linkcolor=blue,
             pdfborder={0 0 0}
-$endif$
 }
-            % breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
@@ -173,8 +178,10 @@ $endif$
 
 
 $if(lhs)$
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+\lstnewenvironment{code}{\lstset{language=Haskell,
+  basicstyle=\small\ttfamily}}{}
 $endif$
+
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
@@ -241,6 +248,7 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
@@ -282,14 +290,9 @@ $for(bibliography)$
 $endfor$
 $endif$
 
-
-
-
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
-
-
 
 $if(amsart)$
   \usepackage[foot]{amsaddr}
@@ -413,7 +416,6 @@ $if(date)$\date{$date$}$endif$
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
 
 
-
 \begin{document}
 $if(title)$
 \maketitle
@@ -429,13 +431,9 @@ $include-before$
 
 $endfor$
 $if(toc)$
-
-    $if(colorlinks)$
-      \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
-    $endif$
+    \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
     \setcounter{tocdepth}{$toc-depth$}
     \tableofcontents
-
 $endif$
 
 $if(lot)$
@@ -458,13 +456,14 @@ $endif$
 
 
 \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-
-
 $endif$
 $endif$
+
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
+\renewbibmacro{in:}{}
+\printbibliography$if(biblio-title)$[title=$biblio-title$]
+$endif$
 
 $endif$
 $for(include-after)$

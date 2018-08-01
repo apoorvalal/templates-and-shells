@@ -5,9 +5,6 @@ author:
   - 'Apoorva Lal'
 documentclass: amsart
 amsart: true
-# address: 'Stanford University, CA'
-# email:   'apoorval@stanford.edu'
-# thanks: "Acknowledgements: I'd like to thank my mum and dad"
 date: \today
 abstract: '\lipsum[4]'
 colorlinks: true
@@ -15,12 +12,17 @@ xetex: true
 mathspec: true
 indent: true
 tables: true
+# address: 'Stanford University, CA'
+# email:   'apoorval@stanford.edu'
+# thanks: "Acknowledgements: I'd like to thank my mum and dad"
+# toc: true
 # numbersections: true
 output: pdf_document
 fontsize: 12pt
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
+biblio-style: authoryear
 header-includes: 
   - '\usepackage{lipsum}'
 
@@ -28,7 +30,7 @@ header-includes:
 
 # Introduction
 
-@Deatonanalysishouseholdsurveys1997
+@AngristMostlyharmlesseconometrics2008b
 
 
 $$
@@ -42,7 +44,6 @@ $$
 Here is a footnote reference^[Footnotes are the mind killer.
 Footnotes are the little-death that brings total obliteration. I will
 face my footnotes.] and^[Here is the 2nd footnote.]
-
 
 # Model
 
@@ -58,15 +59,16 @@ $$
 
 \newpage
 
-
 \appendix
 
-$$
-Y_{i} = X_i'\beta + \epsilon_i
-$$
+# Appendix
+
+## Guts of proof
+
+We have reached a $\bot$
 
 \newpage 
 
-\noindent {\large \textsc{Bibliography}}
+
 
 
