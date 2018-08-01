@@ -1,6 +1,8 @@
+\documentclass[12pt,reqno]{amsart} % add titlepage param for separate title page
 % nice AMS math paper template from Steven Miller at Williams
 % original can be downloaded at
 % https://web.williams.edu/Mathematics/sjmiller/public_html/math/LaTexMathematica/papertemplate.tex
+
 \input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
 
 \usepackage{lipsum} %This package just generates Lorem Ipsum filler text.
@@ -14,6 +16,9 @@ citestyle=authoryear,
 \addbibresource{/home/alal/Dropbox/MyLibrary.bib}
 
 \renewbibmacro{in:}{}
+
+% \setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{0}
 
 % font
 % \usepackage{libertine}
@@ -55,7 +60,15 @@ citestyle=authoryear,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-<<foo, include=F, fig.height=4>>=
+
+% ██     ██ ██████  ██ ████████ ███████
+% ██     ██ ██   ██ ██    ██    ██
+% ██  █  ██ ██████  ██    ██    █████
+% ██ ███ ██ ██   ██ ██    ██    ██
+%  ███ ███  ██   ██ ██    ██    ███████
+
+
+<<foo, fig.height=4>>=
 1+1
 letters
 chartr('xie', 'XIE', c('xie yihui', 'Yihui Xie'))

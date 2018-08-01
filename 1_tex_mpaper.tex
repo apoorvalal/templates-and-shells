@@ -1,8 +1,9 @@
+\documentclass[12pt,reqno]{amsart} % add titlepage param for separate title page
 % nice AMS math paper template from Steven Miller at Williams
 % original can be downloaded at
 % https://web.williams.edu/Mathematics/sjmiller/public_html/math/LaTexMathematica/papertemplate.tex
 \input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
-
+\usepackage{graphics}
 \usepackage{lipsum} %This package just generates Lorem Ipsum filler text.
 
 % bibliography
@@ -15,13 +16,16 @@ citestyle=authoryear,
 
 \renewbibmacro{in:}{}
 
+\usepackage{fullpage}
+
+% \setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{0}
+
 % font
 % \usepackage{libertine}
 % \usepackage{fourier}
 % \usepackage{mathpazo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Paper Title}
@@ -52,8 +56,7 @@ citestyle=authoryear,
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Introduction}
 
 Math heavy textbooks:
@@ -81,7 +84,9 @@ using the elements $\{a_1, \dots, a_{i-1}\}$.
 
 \lipsum[1]
 
-\begin{thm}[Recurrence Relation and Explicit Formula]\label{thrm:recurrencesb_2}
+\begin{thm}[Recurrence Relation and Explicit
+Formula]\label{thrm:recurrencesb_2}
+
 For $n > (s+1)b+1$,  the $n^{\text{th}}$ term of the $(s,b)$-Generacci
 sequence satisfies
 \be
@@ -98,19 +103,13 @@ We thus see something....
 \begin{rek} Here is a remark. This makes the text stand out.... \end{rek}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Fibonacci Quilt Sequence}  Blah blah.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Results}
 
 \lipsum[5]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Decompositions}
 
@@ -118,22 +117,17 @@ We thus see something....
 \lipsum[6]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Wickets}
 
 \lipsum[3]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comments}
 
 \lipsum[2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Gap Measures}
 
 \subsection{Average Bin Gap Measure}\label{sec:gaps}
@@ -150,8 +144,6 @@ This completes the proof....
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Individual Bin Gap Measure}
 
@@ -161,9 +153,6 @@ Now do it for an individual....
 
 \appendix
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Computations}
@@ -178,7 +167,8 @@ relatively prime integers satisfying
 
 \lipsum[10]
 
-\be \left|\frac{p_N}{q_N} - \frac{\pi^2}6\right| \ = \ \frac{p_N}{q_N} \left|1 - \prod_{p > f(N)} \left(1 + \frac{1}{p^2 - 1}\right)\right|.
+\be \left|\frac{p_N}{q_N} - \frac{\pi^2}6\right| \ = \ \frac{p_N}{q_N}
+\left|1 - \prod_{p > f(N)} \left(1 + \frac{1}{p^2 - 1}\right)\right|.
 \ee
 
 \end{proof}
