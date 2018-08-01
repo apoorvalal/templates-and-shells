@@ -3,7 +3,6 @@
 \usepackage[foot]{amsaddr}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{amsmath,amsthm,amssymb,comment}
 \usepackage{braket}
 \usepackage{mathtools}
 \usepackage{caption}
@@ -120,7 +119,6 @@
 
 \newcommand{\mo}{\text{mod}\ }
 
-\newcommand\ie{{i.e.,\ }}
 \newcommand{\tbf}[1]{\textbf{#1}}
 \newcommand\CF{{Continued Fraction}}
 \newcommand\cf{{continued fraction}}
@@ -143,7 +141,6 @@
 
 %Blackboard Letters
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
-\newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
@@ -152,7 +149,6 @@
 
 \newcommand\frakfamily{\usefont{U}{yfrak}{m}{n}}
 \DeclareTextFontCommand{\textfrak}{\frakfamily}
-\newcommand\G{\textfrak{G}}
 
 % Fractions
 \newcommand{\fof}{\frac{1}{4}}  %oneforth
@@ -182,22 +178,100 @@
 \newcommand{\murl}[1]{\href{mailto:#1}{\textcolor{blue}{#1}}}
 \newcommand{\hr}[1]{\href{#1}{\url{#1}}}
 
-%%% NEW COMMANDS FOR THIS PAPER
-\newcommand{\dfq}{d_{\rm FQ}}
-\newcommand{\dave}{d_{\rm FQ; ave}}
-\newcommand{\daven}{d_{\rm FQ; ave}(n)}
-\newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
-\newcommand{\DN}[1]{\textcolor{blue}{\textbf{(DN:#1)}}}
-\newcommand{\PF}[1]{\textcolor{cyan}{\textbf{(PF:#1)}}}
+\newcommand{\eg}{e.g., \xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\iid}{\emph{i.i.d.}\ }
+\newcommand{\etal}{et.\ al.\ }
+\newcommand{\D}{\displaystyle}
+\newcommand{\bs}{\begin{align}\begin{split}\nonumber}
+\newcommand{\bsnumber}{\begin{align}\begin{split}}
+\newcommand{\es}{\end{split}\end{align}}
+\newcommand{\fns}{\singlespace\footnotesize}
 
-%%% NEW COMMANDS FROM VARIANCE
-\newcommand{\PP}[1]{\mathbb{P}[#1]}
-\newcommand{\E}[1]{\mathbb{E}[#1]}
-\newcommand{\V}[1]{\text{{\rm Var}}[#1]}
-\newcommand{\BS}{\mathcal{S}}
-\newcommand{\T}{\mathcal{T}}
-\newcommand{\LT}{\mathcal{L_T}}
-\newcommand{\LS}{\mathcal{L_S}}
-\newcommand{\ZS}{\mathcal{Z_S}}
-\newcommand{\ds}{\displaystyle}
-\newcommand{\nsum}{Y_n}
+% math shorthand
+% vertical equal prefix
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+% vertical equal to
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+% nullspace
+\newcommand{\nulls}{\mathrm{null}}
+% range
+\newcommand{\range}{\mathrm{range}}
+% maximise
+\newcommand{\maxi}{\operatornamewithlimits{max}}
+% minimise
+\newcommand{\mini}{\operatornamewithlimits{min}}
+% maximiser
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% minimiser
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+
+% ellipsis
+\newcommand{\tto}{,\ldots,}
+
+% blackboard F
+\def\Function{\mathbb{F}}
+
+% Natural
+\def\Nat{\mathbb{N}}
+% Integers
+\def\Int{\mathbb{Z}}
+% Reals
+\def\Real{\mathbb{R}}
+% Rationals
+\def\Rat{\mathbb{Q}}
+% Complex
+\def\Cplx{\mathbb{C}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+% expectation_n
+\def\Expn{\mathbb{E}_n}
+% P_n
+\def\Probn{\mathbb{P}_n}
+
+\def\rel{\,{\buildrel R \over \sim}\,}
+% generic m x n matrix
+\newcommand{\gmatrix}[1]{\begin{pmatrix} {#1}_{11} & \cdots &
+    {#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &
+    {#1}_{mn} \end{pmatrix}}
+% lagrangian
+% \newcommand{\Lagr}{\mathcal{L}}
+% inner product
+\newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
+% vector norm
+\newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+% absolute value
+\newcommand{\abs}[1]{\left\vert {#1} \right\vert}
+% linalg misc
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\spn}{\mathrm{span}}
+\newcommand{\row}{\mathrm{Row}}
+\newcommand{\col}{\mathrm{Col}}
+\renewcommand{\dim}{\mathrm{dim}}
+% weakly prefer
+\newcommand{\prefeq}{\succeq}
+% strictly prefer
+\newcommand{\pref}{\succ}
+% sequence
+\newcommand{\seq}[1]{\{{#1}_n \}_{n=1}^\infty }
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
+% double arrow
+\newcommand{\corres}{\overrightarrow{\rightarrow}}
+% evaluate definite integral
+\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+% expectation
+\newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
+% variance
+\newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
