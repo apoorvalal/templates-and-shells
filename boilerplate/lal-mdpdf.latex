@@ -313,6 +313,31 @@ $endif$
 $if(date)$\date{$date$}$endif$
 
 % math shortcuts
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{que}[thm]{Question}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{proj}[thm]{Research Project}
+
+\theoremstyle{plain}
+\newtheorem{X}{X}[section]
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{hypothesis}[thm]{Hypothesis}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rek}[thm]{Remark}
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
@@ -338,9 +363,9 @@ $if(date)$\date{$date$}$endif$
 % range
 \newcommand{\range}{\mathrm{range}}
 % maximise
-\newcommand{\maximise}{\operatornamewithlimits{max}}
+\newcommand{\maxi}{\operatornamewithlimits{max}}
 % minimise
-\newcommand{\minimise}{\operatornamewithlimits{min}}
+\newcommand{\mini}{\operatornamewithlimits{min}}
 % maximiser
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
 % minimiser
@@ -370,6 +395,12 @@ $if(date)$\date{$date$}$endif$
 \def\Rat{\mathbb{Q}}
 % Complex
 \def\Cplx{\mathbb{C}}
+
+% such that
+\def\ST{\text{ s.t. }}
+
+% if
+\def\IF{\text{ if }}
 
 % n-dimensional Real
 \def\Realn{\mathbb{R}^n}
@@ -414,6 +445,7 @@ $if(date)$\date{$date$}$endif$
 \newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+
 
 
 \begin{document}
