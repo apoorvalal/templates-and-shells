@@ -9,7 +9,7 @@
 \usetheme[compress]{Berlin}
 \setbeamerfont{section in head/foot}{size=\tiny}
 % hyperlinks and math shortcuts
-\usepackage{/home/alal/tex_templates/lal_default_beamer}
+\usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
 
 % fonts
 \usepackage[T1]{fontenc}
@@ -28,9 +28,12 @@
 %Information to be included in the title page:
 \title{Title}
 \subtitle{subtitle}
-\author{Apoorva Lal, UBC}
+
+\author{Apoorva Lal}
+\institute{Stanford}
+
 \date{Date}
-\titlegraphic{\includegraphics[width=0.2\textwidth,height=.3\textheight]{/home/alal/Templates/boilerplate/Stanford-Tree.jpg}}
+\titlegraphic{\includegraphics[width=0.17\textwidth,height=.3\textheight]{/home/alal/Templates/boilerplate/Stanford-Tree.jpg}}
 
 \begin{document}
 %------------------------------------------------
@@ -66,7 +69,7 @@ Upshot
 centered text
 \end{center}
 \begin{align*}
-\maximise_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
+\maxi_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
   s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
 \end{align*}
 Everyone does infinite horizon optimisation, right?

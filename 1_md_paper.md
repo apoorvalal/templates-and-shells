@@ -48,7 +48,7 @@ face my footnotes.] and^[Here is the 2nd footnote.]
 # Model
 
 $$
-\maximise_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+\maxi_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
 $$
 
 # Data
