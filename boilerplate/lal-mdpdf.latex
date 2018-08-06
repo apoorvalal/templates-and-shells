@@ -12,11 +12,7 @@ $endif$$endif$%
 \documentclass[$if(fontsize)$$fontsize$,$endif$ $if(lang)$$babel-lang$,$endif$ $if(papersize)$$papersize$paper,$endif$ $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage{lmodern}
-$endif$
+
 
 $if(linestretch)$
 \usepackage{setspace}
@@ -41,7 +37,7 @@ fullpage
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
+  % \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
 $if(mathspec)$
   \ifxetex
@@ -169,6 +165,12 @@ $if(verbatim-in-note)$
 $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
 $endif$
 
 $if(listings)$

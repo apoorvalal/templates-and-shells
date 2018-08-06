@@ -1,75 +1,54 @@
 ---
-title: "Title: Summary"
-author: 'Apoorva Lal'
+title: "Research Idea Template"
+author:  
+  - 'Apoorva Lal'
 documentclass: amsart
 amsart: true
+# address: 'Stanford University, CA'
+# email:   'apoorval@stanford.edu'
+# thanks: "Acknowledgements: I'd like to thank my mum and dad"
+geometry: "margin=0.5in"
 date: \today
 colorlinks: true
-xetex: true
-mathspec: true
-# indent: true
+indent: true
 tables: true
-geometry: "margin=0.5in"
-toc: true
-numbersections: true
 output: pdf_document
 fontsize: 12pt
 backend: biber
-# bibliography: "C:/Users/apoor/Dropbox (Personal)/MyLibrary.bib"
 bibliography: /home/alal/Dropbox/MyLibrary.bib
-biblio-style: authoryear
-header-includes:
-    # - '\input{"C:/Users/alal/tex_templates/boilerplate/math_shortcuts.tex"}'
+csl: econometrica.csl
+header-includes: 
+  - '\usepackage{lipsum}'
 ---
 
-# Introduction
+## Name 
+**Amazing Research Idea 001**
 
-@AngristMostlyharmlesseconometrics2008b
+## Motivation
+\lipsum[2]
 
-$$
-\zeta
-$$
+## Questions to answer/main hypotheses
+\lipsum[3]
 
-## Footnotes
+## Identification strategy
+\lipsum[4]
 
-Here is a footnote reference^[Footnotes are the mind killer.
-Footnotes are the little-death that brings total obliteration. I will
-face my footnotes.] and^[Here is the 2nd footnote.]
+## Concerns
+\lipsum[5]
 
-# Model
+## Estimation
+\lipsum[6]
 
-$$
-\maxi_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
-$$
+## Data to use
+\lipsum[7]
 
-# Data
+## Interpretation of results
+\lipsum[8]
 
-\begin{thm}[Pythagoras]
-The square of the hypotenuse of a right triangle is equal to the sum
-of the squares of the two adjacent sides.
-\end{thm}
+## References
+\lipsum[9]
 
-# Results
+## Steps
+replicate @BanerjeeHistoryinstitutionseconomic2005
 
-\begin{conj}[Fermat]
-$$
-\not \exists n \in \Int, n>2 \ST a^n + b^n = c^n
-$$
-\end{conj}
-
-\newpage
-
-\appendix
-
-# Appendix
-
-## Guts of proof
-
-We have reached a $\bot$
-
-\newpage
-
-
-
-
-
+# References
