@@ -1,8 +1,7 @@
 ---
 title       : "Template for Reveal JS Slides"
-subtitle    :
 author      : Apoorva Lal
-institution : Stanford University
+institute   : Stanford University
 date        : July 2018
 output:
   revealjs::revealjs_presentation:
@@ -13,20 +12,111 @@ output:
     highlight : zenburn
     reveal_options:
       slideNumber: true
-      center : true
+      center : false
       help : true
       previewLinks: true
+bibliography: /home/alal/Dropbox/MyLibrary.bib
 ---
-
-
+<style type="text/css">
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }
+</style>
 
 ```{r setup, include=FALSE}
-load_or_install(c('knitr', 'knitcitations'))
+library(LalRUtils)
+load_or_install(c('tidyverse','knitr', 'knitcitations'))
 # set global chunk options
 opts_chunk$set(cache=TRUE, warning = FALSE)
-
 ```
-#  Constrained optimization
+
+# Introduction
+
+## The Problem
+
+Here is what I'm going to talk about
+
+- point 1
+- point 2
+- point 3
+
+---
+
+## The Problem - dramatic
+
+  > - point 1
+  > - point 2
+  > - point 3
+
+## Literature
+
+Cite a paper @ManningHealthinsurancedemand1987
+
+---
+
+## Empirics
+
+I found some great data and ran some regressions
+
+$$
+Y_i = X_i^{T} \beta + \epsilon_i
+$$
+
+---
+
+## Data
+
+  > - Bullet 1 $\sum_{i=1}^n \alpha_i$
+  > - Bullet 2
+  > - Bullet 3
+
+# R code
+
+## Example R stuff
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+---
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+---
+
+## ggplot code
+
+```{r createdata, echo=TRUE, eval=FALSE}
+df <- data.frame(x = rnorm(1000))
+x <- df$x
+base <- ggplot(df, aes(x)) + geom_density() +
+  scale_x_continuous(limits = c(-5, 5))
+base + stat_function(fun = dnorm, colour = "red")
+```
+
+---
+
+## Another Plot
+
+```{r plotit, echo=FALSE}
+df <- data.frame(x = rnorm(1000))
+x <- df$x
+base <- ggplot(df, aes(x)) + geom_density() +
+  scale_x_continuous(limits = c(-5, 5))
+base + stat_function(fun = dnorm, colour = "red") + lal_plot_theme()
+```
+
+# Math
 
 ---
 
@@ -87,6 +177,7 @@ x_i}(x^*) = 0 \\
     & \lambda_j^* \left(g_j(x^*) - b \right)= 0
 \end{aligned}
 $$
+
 ---
 
 ## Complementary slackness
@@ -95,82 +186,3 @@ For each $j$ if $\lambda_j^* > 0$ then $g_j(x^*) = b_j$ and if
   $g_j(x^*) < b$, then $\lambda_j^*=0$.
 
 ---
-
-# Comparative statics
-
-## Comparative statics
-
-- Value function
-$$
-v(\theta) = \max_x f(x,\theta) \text{ s.t. } h(x,\theta) = c
-$$
-- Maximizer
-$$
-x^*(\theta) = \mathrm{arg}\max_x f(x,\theta) \text{ s.t. } h(x,\theta) = c
-$$
-
----
-
-## Envelope theorem
-
-Let $f:\mathbb{R}^{n+k} \to \mathbb{R}$ and $h: \mathbb{R}^{n+k} \to
-\mathbb{R}^m$ be continuously differentiable. Define
-\[ v(\theta) = \max_x f(x,\theta) \text{ s.t. } h(x,\theta) = c \]
-where $x \in \mathbb{R}^n$ and $\theta \in \mathbb{R}^k$. Then
-\[ D_\theta v_\theta = D_\theta f_{x^*,\theta} - \mu^T D_\theta
-h_{x^*,\theta} \]
-where $\mu$ are the Lagrange multipliers, $D_\theta f_{x^*,\theta}$
-denotes the $1 \times k$ matrix of partial derivatives of $f$ with
-respect to $\theta$ evaluated at $(x^*,\theta)$ , and $D_\theta
-h_{x^*,\theta}$ denotes the $m \times k$ matrix of partial derivatives
-of $f$ with respect to $\theta$ evaluated at $(x^*,\theta)$.
-
----
-
-## Example: consumer theory
-
-> - Consumer choosing goods $x \in \mathbb{R}^n$ with prices $p$ and income $y$
-> - Value function / indirect utility function
-$$ v(p,y) = \max_x u(x) \text{ s.t. } p^T x - y \leq 0 $$
-> - Expenditure minimization
-$$ e(p,\bar{u}) = \min_x p^T x \text{ s.t. } u(x) \geq \bar{u} $$
-
----
-
-## Example: producer theory
-
-- Competitive multiple product firm facing output prices $p
-  \in \mathbb{R}^k$ and input
-  prices $w \in \mathbb{R}^n$
-- Profits
-  \[ \pi(p,w) = \max_{y,x} p^T y - w^T x \text{ s.t. } y - f(x) \leq
-  0 \]
-- Show supply slopes up and input demand slopes down, make extra
-  assumptions about $f$ if needed
-
----
-
-## Example: contracting with productivity shocks
-
-- Firm production: $y = x f(h)$, $f$ increasing and concave
-- Labor $h$, productivity $x \in \{x_H, x_L\}$
-- Firm's problem with $x$ observed and contractible
-$$ \max_{c(x), h(x)} \sum_{i \in \{H,L\}} q_i [x_i f(h_i)-c_i] $$
-s.t.
-$$ \sum_i q_i[U(c_i) + V(1-h_i)] \geq W_0 $$
-- Show $c_H = c_L$ and $h_H > h_L$
-
----
-
-## Example: contracting with productivity shocks
-
-- Firm's problem with $x$ not-contractible, observed by firm but not worker
-$$ \max_{c(x), h(x)} \sum_{i \in \{H,L\}} q_i [x_i f(h_i)-c_i] $$
-s.t.
-$$ \sum_i q_i[U(c_i) + V(1-h_i)] \geq W_0 $$
-$$ x_L f(h_L) - c_L \geq x_L f(h_H) - c_H $$
-$$ x_H f(h_H) - c_H \geq x_H f(h_L) - c_L $$
-
-- Which constraint binds?
-- Compare $c_i$ and $h_i$ with first-best contract
-
