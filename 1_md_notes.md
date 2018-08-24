@@ -1,5 +1,5 @@
 ---
-title: "Research Idea Template"
+title: "Notes Template"
 author:  
   - 'Apoorva Lal'
 documentclass: amsart
@@ -22,7 +22,7 @@ header-includes:
 ---
 
 ## Name 
-**Amazing Research Idea 001**
+**Topic 001 / Reference **
 
 ## Motivation
 \lipsum[2]
