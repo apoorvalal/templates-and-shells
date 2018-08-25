@@ -1,6 +1,6 @@
 ---
 title: "Notes Template"
-author:  
+author:
   - 'Apoorva Lal'
 documentclass: amsart
 amsart: true
@@ -16,13 +16,20 @@ output: pdf_document
 fontsize: 12pt
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary.bib
+# bibliography: "C:/Users/alal/Dropbox/MyLibrary.bib"
 csl: econometrica.csl
-header-includes: 
+header-includes:
   - '\usepackage{lipsum}'
+  # - '\input{C:/Users/alal/Dropbox/1_Templates/boilerplate/math_shortcuts}'
+  # - '\input{/home/alal/Templates/boilerplate/math_shortcuts}'
 ---
 
-## Name 
-**Topic 001 / Reference **
+## Name
+**Topic 001**
+
+$$
+\maxi_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+$$
 
 ## Motivation
 \lipsum[2]
