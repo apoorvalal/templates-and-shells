@@ -5,6 +5,7 @@ output:
     citation_package: biblatex
     latex_engine: pdflatex
     fig_caption: true
+    dev: cairo_pdf
     template: ~/Templates/boilerplate/lal-paper-template.tex
 title: "Paper Title : Subtitle"
 thanks: "Acknowledgements here. **Current version**: `r format(Sys.time(), '%B %d, %Y')`; **Corresponding author**: apoorval@stanford.edu."
