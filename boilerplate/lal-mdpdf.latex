@@ -29,7 +29,8 @@ enumitem,
 setspace,
 graphics,
 titling,
-fullpage
+fullpage,
+cancel
 }
 
 \usepackage{ifxetex,ifluatex}

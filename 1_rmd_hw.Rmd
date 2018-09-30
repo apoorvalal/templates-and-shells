@@ -1,5 +1,5 @@
 ---
-title: "Math Camp : R HW 1"
+title: "Course Name: HW 1"
 author:  'Apoorva Lal'
 documentclass: amsart
 amsart: true
@@ -9,8 +9,8 @@ output:
     keep_tex: true
     toc: false
     toc_depth : 2
-    fig_width: 7
-    fig_height: 6
+    fig_width: 5
+    fig_height: 4
     fig_caption: true
     dev: cairo_pdf
     template: /home/alal/Templates/boilerplate/lal-mdpdf.latex
@@ -20,8 +20,6 @@ geometry: margin=2cm
 colorlinks: true
 indent: true
 xetex: true
-mathspec: true
-numbersections: true
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary.bib
 csl: econometrica.csl
@@ -29,26 +27,42 @@ header-includes:
   - '\usepackage{lipsum}'
 ---
 
-```{r, results='hide'}
-####################################################
+```{r, include=F, echo=F}
+knitr::opts_chunk$set(
+  echo =    F,          # don't show code
+  include = T,          # show output
+  warning = F,       # don't show warnings
+  message = F,       # don't show messages (less serious warnings)
+  cache   = F,       # F unless runtime is very long
+  fig.width=10, fig.height=6, fig.path='Figs/', # figure prefs
+  # root.dir = 'location_of_dependencies'
+  fig.align = "center"
+)
+# preliminaries - clear workspace and load libraries
 rm(list=ls())
-load_or_install(c('knitr','tidyverse','magrittr',
-  'rio','data.table', 'stargazer'))
-####################################################
-
-opts_chunk$set(echo=T, autodep=TRUE, cache.comments=FALSE,
-               message=FALSE, warning=FALSE)
+library(LalRUtils)
+load_or_install(c('tidyverse','lfe','skimr',
+    'magrittr', 'stargazer',  'GGally'))
+set.seed(12345)
 theme_set(lal_plot_theme())
 ```
 
+# Problem 1
 
-
-# Problem Description
+a) Create a numeric vector that is the sequence of all integers
+between 1 and 1000 and assign this vector the name "vec"
 
 ```{r}
 set.seed(98)
+
+1:10
 ```
 
-a) Create a numeric vector that is the sequence of all integers between 1 and 1000 and assign this vector the name "vec"
+@AutorOutsourcingwillcontribution2003
+
+
+# Code
+```{r code=readLines(knitr::purl('/home/alal/tmp/tex-sandbox/eh.Rmd', documentation = 0)), echo=T, include=T, eval = FALSE}
+```
 
 # Bibliography

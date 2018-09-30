@@ -1,17 +1,29 @@
 \documentclass{article}
 \usepackage{"/home/alal/Templates/boilerplate/lal_default"}
-\usepackage{fullpage}
+\usepackage{sectsty}
+\sectionfont{\centering}
+\subsectionfont{\centering}
+
+\newtheorem{thm}{Theorem}
+
 \begin{document}
-\begin{flushright}
-Apoorva Lal
-\end{flushright}
 
-\begin{center}
-\Large \textsc{Notes} \\
-\end{center}
+\title{\textsc{Notes on X}}
+\author{Apoorva Lal}
+\maketitle
 
-\section{Induction} % (fold)
+
+\section{Induction}
 \label{sec:induction}
+
+Here we talk about how to do an induction proof.
+
+\begin{thm}
+Let $f$ be a function whose derivative exists in every point, then $f$
+is a continuous function.
+\end{thm}
+
+\subsection{How to do an induction proof}
 
 \begin{itemize}
   \item Prove base case
