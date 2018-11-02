@@ -1,5 +1,3 @@
-\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd,cancel}
-
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
 \newcommand{\ie}{i.e.,\xspace}
@@ -18,16 +16,6 @@
 \newcommand{\es}{\end{split}\end{align}}
 \newcommand{\fns}{\singlespace\footnotesize}
 
-% Likelihood
-\newcommand{\Likl}{\mathcal{L}}
-
-% such that (inside math mode)
-\newcommand{\suchthat}{\text{ s.t. }}
-
-
-% big parentheses
-\newcommand*\Bigpar[1]{\left( #1 \right )}
-
 % math shorthand
 % vertical equal prefix
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
@@ -38,13 +26,19 @@
 % range
 \newcommand{\range}{\mathrm{range}}
 % maximise
-\newcommand{\maxi}{\operatornamewithlimits{max}}
+\newcommand{\maximise}{\operatornamewithlimits{max}}
 % minimise
-\newcommand{\mini}{\operatornamewithlimits{min}}
+\newcommand{\minimise}{\operatornamewithlimits{min}}
 % maximiser
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
 % minimiser
-\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+
+% such that (inside math mode)
+\newcommand{\suchthat}{\text{ s.t. }}
+
+% big parentheses
+\newcommand*\Bigpar[1]{\left( #1 \right )}
+
 % convergence in probability sideways
 \def\inprobLOW{\rightarrow_p}
 % convergence in probability
@@ -80,11 +74,11 @@
 
 \def\rel{\,{\buildrel R \over \sim}\,}
 % generic m x n matrix
-\newcommand{\gmatrix}[1]{\begin{pmatrix} {#1}_{11} & \cdots &
-    {#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &
-    {#1}_{mn} \end{pmatrix}}
-% lagrangian
-% \newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\gmatrix}[1]{\begin{pmatrix} {#1}_{11} & \cdots &{#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &{#1}_{mn} \end{pmatrix}}
+
+% Likelihood
+\newcommand{\Likl}{\mathcal{L}}
+
 % inner product
 \newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
 % vector norm
@@ -114,3 +108,79 @@
 \newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+\newcommand{\F}{\mathscr{F}}
+\newcommand{\f}{\widehat{\eta}}
+%Blackboard Letters
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Qoft}{\mathbb{Q}(t)}  %use in linux
+
+\newcommand\frakfamily{\usefont{U}{yfrak}{m}{n}}
+\DeclareTextFontCommand{\textfrak}{\frakfamily}
+
+% Fractions
+\newcommand{\fof}{\frac{1}{4}}  %oneforth
+\newcommand{\foh}{\frac{1}{2}}  %onehalf
+\newcommand{\fot}{\frac{1}{3}}  %onethird
+\newcommand{\fop}{\frac{1}{\pi}}    %1/pi
+\newcommand{\ftp}{\frac{2}{\pi}}    %2/pi
+\newcommand{\fotp}{\frac{1}{2 \pi}} %1/2pi
+\newcommand{\fotpi}{\frac{1}{2 \pi i}}
+\newcommand{\cm}{c_{\text{{\rm mean}}}}
+\newcommand{\cv}{c_{\text{{\rm variance}}}}
+
+
+% math shorthand
+% vertical equal prefix
+
+% minimiser
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+
+% such that
+\def\ST{\text{ s.t. }}
+
+% if
+\def\IF{\text{ if }}
+
+
+% blackboard F
+\def\Function{\mathbb{F}}
+
+% Natural
+\def\Nat{\mathbb{N}}
+% Integers
+\def\Int{\mathbb{Z}}
+% Reals
+\def\Real{\mathbb{R}}
+% Rationals
+\def\Rat{\mathbb{Q}}
+% Complex
+\def\Cplx{\mathbb{C}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+% expectation_n
+\def\Expn{\mathbb{E}_n}
+% P_n
+\def\Probn{\mathbb{P}_n}
+
+\def\rel{\,{\buildrel R \over \sim}\,}
+
+% lagrangian
+\newcommand{\Lagr}{\mathcal{L}}
+
+\renewcommand{\det}{\mathrm{det}}
+\renewcommand{\dim}{\mathrm{dim}}
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
