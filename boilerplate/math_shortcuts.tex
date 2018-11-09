@@ -31,10 +31,12 @@
 \newcommand{\minimise}{\operatornamewithlimits{min}}
 % maximiser
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
-% minimiser
 
 % such that (inside math mode)
 \newcommand{\suchthat}{\text{ s.t. }}
+
+% indicator function
+\newcommand*\Indic[1]{\mathbbm{1}_{#1}}
 
 % big parentheses
 \newcommand*\Bigpar[1]{\left( #1 \right )}
@@ -53,6 +55,9 @@
 
 % blackboard F
 \def\Function{\mathbb{F}}
+
+% Lagrangian
+\def\Lagr{\mathcal{L}}
 
 % Natural
 \def\Nat{\mathbb{N}}
@@ -177,8 +182,7 @@
 
 \def\rel{\,{\buildrel R \over \sim}\,}
 
-% lagrangian
-\newcommand{\Lagr}{\mathcal{L}}
+
 
 \renewcommand{\det}{\mathrm{det}}
 \renewcommand{\dim}{\mathrm{dim}}
