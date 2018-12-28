@@ -48,6 +48,7 @@ citestyle=authoryear,
 \date{\today}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 % \begin{abstract} Abstract for a groundbreaking paper.
 % \end{abstract}
@@ -81,107 +82,6 @@ You can also write inline expressions, e.g. $\pi=\Sexpr{pi}$, and
 \Sexpr{1.55 / 2} is a big number.
 
 \section{Introduction}
-Math heavy textbooks:
-
-\bi
-\item \cite{Acemoglucolonialoriginscomparative2001}
-\item \parencite{AutorOutsourcingwillcontribution2003}
-\ei
-
-Actual math books:
-
-\ben
-\item \cite{CarterFoundationsmathematicaleconomics2001}
-\item \cite{CasellaStatisticalinference2002}
-\een
-
-\begin{defi}[($s,b$)-Generacci sequence]\label{sbDefi}
-For fixed integers $s, b \geq 1$, an increasing sequence of positive
-integers $\{a_i\}_{i=1}^\infty$ is the {\em $(s,b)$-Generacci
-sequence} if every $a_i$ for $i \geq 1$ is the smallest positive
-integer that does not have an $(s,b)$-Generacci legal decomposition
-using the elements $\{a_1, \dots, a_{i-1}\}$.
-\end{defi}
-
-\lipsum[1]
-
-\begin{thm}[Recurrence Relation and Explicit Formula]\label{thrm:recurrencesb_2}
-For $n > (s+1)b+1$,  the $n^{\text{th}}$ term of the $(s,b)$-Generacci
-sequence satisfies
-\be
-a_n \ = \ a_{n-b}+ba_{n-(s+1)b} \ = \  c_1\lambda_1^n \left[1 +
-O\left((\lambda_2/\lambda_1)^n\right)\right],
-\ee
-where $\lambda_1$ is the largest root of $x^{(s+1)b} - x^{sb} - b  =
-0$, and $c_1$ and $\lambda_2$ are constants with $\lambda_1>1$,   $c_1
-> 0 $ and $|\lambda_2| < \lambda_1$.
-\end{thm}
-
-We thus see something....
-
-\begin{rek} Here is a remark. This makes the text stand out.... \end{rek}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Fibonacci Quilt Sequence}  Blah blah.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Results}
-
-\lipsum[5]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Decompositions}
-
-
-\lipsum[6]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Wickets}
-
-\lipsum[3]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Comments}
-
-\lipsum[2]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Gap Measures}
-
-\subsection{Average Bin Gap Measure}\label{sec:gaps}
-
-\begin{proof}[Proof of Theorem ADD REF]
-Let $m \in I_n:= [a_{(n-1)b+1},a_{nb+1})$ have a legal decomposition.
-Thus this case contributes to $H_{n+1}$
-
-\bea & &  (H_{n-1} - H_{n-Z}) + (c_2-1)(H_{n-1} - H_{n-1-Z}) \nonumber
-\\ & & \ \ \ \ \ \ = \ c_2 (H_{n-1} - H_{n-1-Z}) +
-(H_{n-1-Z}-H_{n-Z}). \eea
-
-This completes the proof....
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Individual Bin Gap Measure}
-
-Now do it for an individual....
-
-\newpage
 
 \appendix
 
@@ -189,23 +89,6 @@ Now do it for an individual....
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Computations}
-
-\begin{proof} For any integer $N$ let $p_N$ and $q_N$ be the
-relatively prime integers satisfying
-\be
-\frac{p_N}{q_N} \ = \ \prod_{p \le N} \left(1 -
-\frac1{p^2}\right)^{-1} \ = \ \prod_{p \le N} \left(1 + \frac{1}{p^2 -
-1}\right).
-\ee
-
-\lipsum[10]
-
-\be \left|\frac{p_N}{q_N} - \frac{\pi^2}6\right| \ = \ \frac{p_N}{q_N} \left|1 - \prod_{p > f(N)} \left(1 + \frac{1}{p^2 - 1}\right)\right|.
-\ee
-
-\end{proof}
 
 % \newpage
 
