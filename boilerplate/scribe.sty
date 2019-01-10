@@ -10,7 +10,7 @@
 \usepackage{color}
 \usepackage{manfnt}
 \usepackage{ifthen}
-\usepackage[top=2.54cm,bottom=2.54cm,right=2.54cm,left=2.54cm]{geometry}
+\usepackage[top=1cm,bottom=1cm,right=1cm,left=1cm]{geometry}
 
 \usepackage{sectsty}
 \sectionfont{\centering}
@@ -67,5 +67,8 @@
 }{%
   $\clubsuit$ \bigskip
 }
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{defn}[thm]{Definition}
 
 \input{'/home/alal/Templates/boilerplate/math_shortcuts.tex'}
