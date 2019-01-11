@@ -13,6 +13,7 @@ $endif$$endif$%
 
 
 
+% \setlength\parindent{0pt}
 
 $if(linestretch)$
 \usepackage{setspace}
@@ -25,13 +26,13 @@ amsmath,
 amssymb,
 amsthm,
 mathtools,
-enumitem,
 setspace,
 graphics,
 titling,
-fullpage,
 cancel
 }
+
+\usepackage[shortlabels]{enumitem}
 
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
