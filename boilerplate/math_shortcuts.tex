@@ -1,3 +1,5 @@
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd,bbm}
+
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
 \newcommand{\ie}{i.e.,\xspace}
@@ -298,16 +300,35 @@
 % Lemmas are numbered by section, and observations, claims, facts, and
 % assumptions take their numbering. Propositions and definitions have their
 % own numbering by section.
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{observation}[theorem]{Observation}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{fact}[theorem]{Fact}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+
+\newtheorem{theorem}[thm]{Theorem}
+
 \newtheorem{assumption}{Assumption}
-\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{hypothesis}[thm]{Hypothesis}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{proj}[thm]{Research Project}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{que}[thm]{Question}
+\newtheorem{rek}[thm]{Remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{X}{X}[section]
+
 
 \renewenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip\\}
 \newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}
