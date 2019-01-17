@@ -41,21 +41,21 @@
 
 
 
-%% Example environments
+% %% Example environments
 
-\newcounter{example}
+% \newcounter{example}
 
-\newenvironment{example}[1][]{
-  \refstepcounter{example}
-  \ifthenelse{\isempty{#1}}{%
-    % There is no text to display in the example
-    \noindent \textbf{Example \theexample:}\hspace*{.05em}
-  }{%
-    \noindent \textbf{Example \theexample} ({#1})\textbf{:}\hspace*{.05em}
-  }
-}{%
-  $\clubsuit$ \bigskip
-}
+% \newenvironment{example}[1][]{
+%   \refstepcounter{example}
+%   \ifthenelse{\isempty{#1}}{%
+%     % There is no text to display in the example
+%     \noindent \textbf{Example \theexample:}\hspace*{.05em}
+%   }{%
+%     \noindent \textbf{Example \theexample} ({#1})\textbf{:}\hspace*{.05em}
+%   }
+% }{%
+%   $\clubsuit$ \bigskip
+% }
 
 \newenvironment{example*}[1][]{
   \ifthenelse{\isempty{#1}}{%
@@ -67,8 +67,5 @@
 }{%
   $\clubsuit$ \bigskip
 }
-
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{defn}[thm]{Definition}
 
 \input{'/home/alal/Templates/boilerplate/math_shortcuts.tex'}
