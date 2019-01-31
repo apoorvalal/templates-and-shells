@@ -52,6 +52,13 @@
 % convergence in distribution
 \def\indist{\,{\buildrel d \over \rightarrow}\,}
 
+% equality in distribution
+\def\eqdist{\,{\buildrel d \over = }\,}
+
+% independence (bench)
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern5mu{#1#2}}}
+
 % ellipsis
 \newcommand{\tto}{,\ldots,}
 
@@ -116,6 +123,8 @@
 \newcommand{\Expt}[2]{\mathbb{E}_{#1}\left(#2\right)}
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+% Probability
+\newcommand{\Prob}[1]{\mathbb{Pr}\left(#1\right)}
 \newcommand{\F}{\mathscr{F}}
 \newcommand{\f}{\widehat{\eta}}
 %Blackboard Letters

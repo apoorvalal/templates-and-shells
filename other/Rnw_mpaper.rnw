@@ -5,17 +5,6 @@
 
 \input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
 
-\usepackage{lipsum} %This package just generates Lorem Ipsum filler text.
-
-% bibliography
-\usepackage[
-backend=biber,
-style=authoryear,
-citestyle=authoryear,
-]{biblatex}
-\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
-
-\renewbibmacro{in:}{}
 
 % \setcounter{secnumdepth}{5}
 \setcounter{secnumdepth}{0}
@@ -47,54 +36,38 @@ citestyle=authoryear,
 \keywords{KW1, KW2}
 \date{\today}
 
+
 \begin{document}
+
 \SweaveOpts{concordance=TRUE}
 
-% \begin{abstract} Abstract for a groundbreaking paper.
-% \end{abstract}
 
 \maketitle
 
-\tableofcontents
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% ██     ██ ██████  ██ ████████ ███████
-% ██     ██ ██   ██ ██    ██    ██
-% ██  █  ██ ██████  ██    ██    █████
-% ██ ███ ██ ██   ██ ██    ██    ██
-%  ███ ███  ██   ██ ██    ██    ███████
+$$
+Y = X\beta
+$$
 
 
-<<foo, fig.height=4>>=
+<<switch,eval=TRUE,echo=TRUE>>=
+2+2
+@
+
+
+<<foo,fig=TRUE, fig.height=4>>=
 1+1
 letters
 chartr('xie', 'XIE', c('xie yihui', 'Yihui Xie'))
 par(mar=c(4, 4, .2, .2)); plot(rnorm(100))
 @
 
+
+
 You can also write inline expressions, e.g. $\pi=\Sexpr{pi}$, and
 \Sexpr{1.598673e8} is a big number.
 
 \Sexpr{1.55 / 2} is a big number.
 
-\section{Introduction}
-
-\appendix
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \newpage
-
-\medskip
-
-\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}} % IMPORTANT LINE TO BE COMMENTED
-\printbibliography
 
 \end{document}

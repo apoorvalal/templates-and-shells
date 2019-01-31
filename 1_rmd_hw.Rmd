@@ -34,7 +34,6 @@ knitr::opts_chunk$set(
   warning = F,       # don't show warnings
   message = F,       # don't show messages (less serious warnings)
   cache   = F,       # F unless runtime is very long
-  fig.width=10, fig.height=6, fig.path='Figs/', # figure prefs
   # root.dir = 'location_of_dependencies'
   fig.align = "center"
 )
@@ -42,9 +41,10 @@ knitr::opts_chunk$set(
 rm(list=ls())
 library(LalRUtils)
 load_or_install(c('tidyverse','lfe','skimr',
-    'magrittr', 'stargazer',  'GGally'))
+    'magrittr', 'stargazer', 'rio'))
 set.seed(12345)
-theme_set(lal_plot_theme())
+theme_set(lal_plot_theme(fontfam='Latin Modern Math'))
+expt = 'latex'
 ```
 
 # Problem 1
