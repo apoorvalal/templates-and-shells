@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{subfig,url}
+\usepackage{"/home/alal/Templates/boilerplate/lal_default"}
+
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+style=authoryear,
+citestyle=authoryear,
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
+
+%%% FILL THIS OUT
+\newcommand{\studentname}{Apoorva Lal}
+\newcommand{\coursename}{CourseName}
+\newcommand{\suid}{apoorval}
+\newcommand{\exerciseset}{Problem Set 1}
+\newcommand{\univ}{Stanford}
+\renewcommand{\theenumi}{\bf \Alph{enumi}}
+
+% \theoremstyle{plain}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{lemma}[theorem]{Lemma}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\pagestyle{fancy}
+\lhead{\univ; \coursename; \exerciseset}
+\rhead[CO,LE]{\sffamily\bfseries\bfseries \studentname ; \suid}
+\fancyfoot[LO,R]{\sffamily\bfseries\large \updateinfo}
+
+\begin{document}
+\begin{center}
+\huge
+\textsc{\coursename : \exerciseset}
+\end{center}
+
+\section*{Problem 1}
+\begin{enumerate}
+\item[3] %A
+Your answer here.
+\item[C\&B 5.6] %B
+Next one here.
+\item %C
+42
+\end{enumerate}
+
+\section*{Problem 2}
+\begin{enumerate}
+\item %A
+\item %B
+\item %C
+\item %D
+\item %E
+\end{enumerate}
+
+
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}} % IMPORTANT LINE TO BE COMMENTED
+\printbibliography
+
+\end{document}
+
+

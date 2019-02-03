@@ -29,7 +29,9 @@ mathtools,
 setspace,
 graphics,
 titling,
-cancel
+cancel,
+booktabs,
+float
 }
 
 \usepackage[shortlabels]{enumitem}
