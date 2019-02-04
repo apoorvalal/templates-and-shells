@@ -8,6 +8,13 @@
 
 \usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
 
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary.bib}
+
 % If you want to print handouts
 %\documentclass[handout]{beamer}
 
@@ -203,6 +210,9 @@ the same coefficients for rounds 5 and higher.
 % -----------------------------------------
 %  Finish with dark screen again
 
+\begin{frame}[t]\frametitle{Bibliography}
+\printbibliography
+\end{frame}
 
 \begin{frame}
 \frametitle{Thank You!}
