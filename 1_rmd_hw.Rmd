@@ -40,11 +40,12 @@ knitr::opts_chunk$set(
 # preliminaries - clear workspace and load libraries
 rm(list=ls())
 library(LalRUtils)
-load_or_install(c('tidyverse','lfe','skimr',
+load_or_install(c('tidyverse','lfe','skimr', 'kableExtra',
     'magrittr', 'stargazer', 'rio'))
 set.seed(12345)
 theme_set(lal_plot_theme(fontfam='Latin Modern Math'))
 expt = 'latex'
+options(knitr.table.format = "latex")
 ```
 
 # Problem 1
