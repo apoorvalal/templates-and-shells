@@ -34,6 +34,10 @@ booktabs,
 float
 }
 
+\usepackage{lscape}
+\newcommand{\bland}{\begin{landscape}}
+\newcommand{\eland}{\end{landscape}}
+
 \usepackage[shortlabels]{enumitem}
 
 \usepackage{ifxetex,ifluatex}
