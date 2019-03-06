@@ -18,10 +18,11 @@ output:
 fontsize: 12pt
 geometry: margin=2cm
 colorlinks: true
-indent: true
+indent: false
 xetex: true
+monofont: Iosevka
 backend: biber
-bibliography: /home/alal/Dropbox/MyLibrary.bib
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 csl: econometrica.csl
 header-includes:
   - '\usepackage{lipsum}'
@@ -41,7 +42,7 @@ knitr::opts_chunk$set(
 rm(list=ls())
 library(LalRUtils)
 load_or_install(c('tidyverse','lfe','skimr', 'kableExtra',
-    'magrittr', 'stargazer', 'rio'))
+    'magrittr', 'stargazer', 'rio', 'estimatr', 'broom'))
 set.seed(12345)
 theme_set(lal_plot_theme(fontfam='Latin Modern Math'))
 expt = 'latex'
