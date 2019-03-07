@@ -43,7 +43,7 @@ rm(list=ls())
 library(LalRUtils)
 load_or_install(c('tidyverse','lfe','skimr', 'kableExtra',
     'magrittr', 'stargazer', 'rio', 'estimatr', 'broom'))
-set.seed(12345)
+set.seed(42)
 theme_set(lal_plot_theme(fontfam='Latin Modern Math'))
 expt = 'latex'
 options(knitr.table.format = "latex")
@@ -55,8 +55,6 @@ a) Create a numeric vector that is the sequence of all integers
 between 1 and 1000 and assign this vector the name "vec"
 
 ```{r}
-set.seed(98)
-
 1:10
 ```
 

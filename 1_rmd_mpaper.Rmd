@@ -35,11 +35,12 @@ header-includes:
 ```{r, echo=FALSE, include=FALSE}
 ####################################################
 rm(list=ls())
+library(LalRUtils)
 load_or_install(c('knitr','tidyverse','magrittr',
   'rio','data.table', 'stargazer'))
    #, "lib2"))
-sessionInfo()
-theme_set(theme_minimal())
+theme_set(lal_plot_theme())
+set.seed(42)
 ####################################################
 
 opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,

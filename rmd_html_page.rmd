@@ -32,10 +32,9 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 options(digits=2)
 # R Imports Boilerplate
 rm(list=ls())
-user_name = Sys.info()['user']
-temp_path = Sys.getenv()['TMP']
+library(LalRUtils)
 load_or_install(c('tidyverse','data.table', 'stargazer','lfe','rio'))
-theme_set(theme_minimal())
+theme_set(lal_plot_theme())
 ```
 
 ## Cite

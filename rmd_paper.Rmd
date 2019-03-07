@@ -50,8 +50,8 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 rm(list=ls())
 load_or_install(c('tidyverse','rio',
     'magrittr','Hmisc','data.table', 'stargazer')) #, 'lib2'))
-sessionInfo()
-theme_set(theme_minimal())
+theme_set(lal_plot_theme())
+set.seed(42)
 ####################################################
 #%%
 ```
