@@ -25,7 +25,7 @@ xetex: true
 mathspec: true
 # numbersections: true
 backend: biber
-bibliography: /home/alal/Dropbox/MyLibrary.bib
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 csl: econometrica.csl
 header-includes:
   - '\usepackage{lipsum}'

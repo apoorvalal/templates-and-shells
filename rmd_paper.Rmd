@@ -23,7 +23,7 @@ toc: false
 septitle:
 titlecentre:
 fancy-header: 'Title (shortened if necessary)'
-bibliography: /home/alal/Dropbox/MyLibrary.bib
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 endnote: no
 biblio-style: authoryear
 ---

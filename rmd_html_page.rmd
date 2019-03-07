@@ -2,7 +2,7 @@
 title: Document Title
 author: Apoorva Lal
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-bibliography: /home/alal/Dropbox/MyLibrary.bib
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 csl: econometrica.csl
 output:
   html_document:

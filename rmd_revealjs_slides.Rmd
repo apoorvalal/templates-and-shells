@@ -15,7 +15,7 @@ output:
       center : false
       help : true
       previewLinks: true
-bibliography: /home/alal/Dropbox/MyLibrary.bib
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 ---
 <style type="text/css">
   .reveal p {

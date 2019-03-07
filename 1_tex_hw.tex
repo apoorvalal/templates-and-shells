@@ -7,6 +7,16 @@
 \usepackage{lipsum}
 \usepackage[shortlabels]{enumitem}
 
+% bibliography
+\usepackage[
+backend=biber,
+style=authoryear,
+citestyle=authoryear,
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+
+\renewbibmacro{in:}{}
+
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
@@ -24,6 +34,13 @@
 \section*{Problem 1}
 
 \lipsum
+
+
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
+\printbibliography
+
+\appendix
+
 
 \end{document}
 
