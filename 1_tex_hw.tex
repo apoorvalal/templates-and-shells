@@ -1,10 +1,14 @@
-\documentclass[12pt,reqno]{amsart}
+\documentclass[12pt]{article}
 \usepackage{subfig,url}
-\input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
+
+% \documentclass[12pt,reqno]{amsart}
+% \input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
+
+\input{/home/alal/Templates/boilerplate/math_shortcuts}
 
 \usepackage{fancyhdr}
 \usepackage{booktabs}
-\usepackage{lipsum}
+
 \usepackage[shortlabels]{enumitem}
 
 % bibliography
@@ -21,20 +25,33 @@ citestyle=authoryear,
 \def\fps@figure{htbp}
 \makeatother
 
-\author{Apoorva Lal}
-\title{PSCI 450B: HW 3}
-\date{\today}
+\newcommand{\studentname}{Apoorva Lal}
+\newcommand{\coursename}{CourseName}
+\newcommand{\exerciseset}{Problem Set 1}
+\newcommand{\univ}{Stanford}
+
+
+\pagestyle{fancy}
+\lhead{\univ; \coursename; \exerciseset}
+\rhead[CO,LE]{\sffamily\bfseries\bfseries \studentname}
 
 \setlength{\parindent}{0pt}
 
 \begin{document}
 
-\maketitle
+
+
+\begin{center}
+\huge
+\textsc{\coursename : \exerciseset}
+\end{center}
+
 
 \section*{Problem 1}
 
-\lipsum
-
+$$
+\int e^{-x^2} dx = \sqrt{\pi}
+$$
 
 \renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
 \printbibliography

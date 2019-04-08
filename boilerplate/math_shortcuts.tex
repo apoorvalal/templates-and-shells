@@ -1,4 +1,5 @@
-\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd,bbm}
+% math packages
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amscd,bbm,cancel}
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
@@ -71,6 +72,12 @@
 % n-dimensional Real
 \def\Realn{\mathbb{R}^n}
 
+% k-dimensional Real
+\def\Rk{\mathbb{R}^k}
+
+% real with argument
+\newcommand{\Realm}[1]{\mathbb{R}^{#1}}
+
 % P_n
 \def\Probn{\mathbb{P}_n}
 
@@ -85,6 +92,7 @@
 \newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
 % vector norm
 \newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+
 % absolute value
 \newcommand{\abs}[1]{\left\vert {#1} \right\vert}
 % linalg misc
@@ -107,15 +115,15 @@
 % evaluate definite integral
 \newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
 % expectation
-\newcommand{\Exp}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
 % expectation at time
-\newcommand{\Expt}[2]{\mathbb{E}_{#1}\left(#2\right)}
+\newcommand{\Expt}[2]{\mathbb{E}_{#1}\left[#2\right]}
 % variance
-\newcommand{\Var}[1]{\mathbb{V}\left(#1\right)}
+\newcommand{\Var}[1]{\mathbb{V}\left[#1\right]}
 % Probability
-\newcommand{\Prob}[1]{\mathbb{Pr}\left(#1\right)}
+\newcommand{\Prob}[1]{\mathbf{Pr}\left(#1\right)}
 \newcommand{\F}{\mathscr{F}}
-\newcommand{\f}{\widehat{\eta}}
+% \newcommand{\f}{\widehat{\eta}}
 %Blackboard Letters
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -159,6 +167,9 @@
 % if
 \def\IF{\text{ if }}
 
+% definition bench
+\def\deq{\coloneqq}
+
 
 % blackboard F
 \def\Function{\mathbb{F}}
@@ -173,11 +184,6 @@
 \def\Rat{\mathbb{Q}}
 % Complex
 \def\Cplx{\mathbb{C}}
-
-\newcommand{\reals}{\mathbb{R}} % Real number symbol
-\newcommand{\integers}{\mathbb{Z}} % Integer symbol
-\newcommand{\rationals}{\mathbb{Q}} % Rational numbers
-\newcommand{\naturals}{\mathbb{N}} % Natural numbers
 
 % n-dimensional Real
 \def\Realn{\mathbb{R}^n}
@@ -201,8 +207,10 @@
 \def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
 \def\v#1{\mbi{#1}} % Vector notation
 
+
 \newcommand{\lone}[1]{\norm{#1}_1} % l1 norm
 \newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
+\newcommand{\pnorm}[1]{\norm{#1}_p} % p-norm
 \newcommand{\linf}[1]{\norm{#1}_\infty} % l-infinity norm
 \newcommand{\dnorm}[1]{\norm{#1}_*} % Dual norm
 \newcommand{\lfro}[1]{\left\|{#1}\right\|_{\rm Fr}} % Frobenius norm
@@ -224,8 +232,9 @@
 
 \newcommand{\hinge}[1]{\left[{#1}\right]_+}
 
-\newcommand{\defeq}{:=}
-\newcommand{\eqdef}{=:}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wt}[1]{\widetilde{#1}} % Wide tilde
 \newcommand{\wb}[1]{\overline{#1}} % Wide bar
@@ -276,6 +285,9 @@
 
 \providecommand{\argmax}{\mathop{\rm argmax}} % Defining math symbols
 \providecommand{\argmin}{\mathop{\rm argmin}}
+\providecommand{\soup}{\mathop{\rm sup}}
+
+%  linalg stuff
 \providecommand{\dom}{\mathop{\rm dom}}
 \providecommand{\diag}{\mathop{\rm diag}}
 \providecommand{\tr}{\mathop{\rm tr}}
@@ -299,7 +311,8 @@
 % assumptions take their numbering. Propositions and definitions have their
 % own numbering by section.
 
-\theoremstyle{plain}
+% \theoremstyle{plain}
+\theoremstyle{definition}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{assumption}{Assumption}
 \newtheorem{cla}[thm]{Claim}
