@@ -11,6 +11,14 @@
 % hyperlinks and math shortcuts
 \usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
 
+% \usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+
 % fonts
 \usepackage[T1]{fontenc}
 \usefonttheme{structuresmallcapsserif}
@@ -69,7 +77,7 @@ Upshot
 centered text
 \end{center}
 \begin{align*}
-\maxi_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
+\maximise_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
   s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
 \end{align*}
 Everyone does infinite horizon optimisation, right?

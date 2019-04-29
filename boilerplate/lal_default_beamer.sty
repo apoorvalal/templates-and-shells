@@ -7,19 +7,8 @@
 %% in directory macros/latex/base/lppl.txt.
 %
 
-
-
-
-% fixes encodings for accented letters in bib names
 \usepackage{
-amsfonts,
-amsmath,
-amssymb,
-amsthm,
-bbm,
-cancel,
 color,
-enumitem,
 fancyhdr,
 graphicx,
 hyperref,
@@ -56,16 +45,35 @@ xcolor,
   }
 \makeatletter
 
-% adobe utopia font family - fourier
-% \usepackage{fourier}
-% palatino font family - mathpazo
-% \usepackage{mathpazo}
-% bitstream charter font family
-% \usepackage{charter}
-% charter with math
-% \usepackage[bitstream-charter]{mathdesign}
-% times new roman (boooring)
-% \usepackage{mathptm}
+\usefonttheme{structuresmallcapsserif}
+
+% -----------------------------------------
+% Center the Frame Title
+% -----------------------------------------
+
+\setbeamertemplate{frametitle} {
+\begin{centering}
+\vspace{0.1in} \insertframetitle
+\par
+\end{centering}
+}
+
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+
+% -----------------------------------------
+% Number the slides
+% -----------------------------------------
+
+\setbeamertemplate{footline}[frame number]
+
+% -----------------------------------------
+% Get rid of the irritating navigation bar
+% -----------------------------------------
+
+\setbeamertemplate{navigation symbols}{}
+
 
 \input{'/home/alal/Templates/boilerplate/math_shortcuts.tex'}
 
