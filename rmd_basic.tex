@@ -1,0 +1,152 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Utopia}
+    \setmonofont[Mapping=tex-ansi]{Iosevka}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=2cm]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdftitle={Title},
+            pdfauthor={Apoorva Lal},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Title}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Apoorva Lal}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{\today}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}\label{introduction}
+
+\section{Model}\label{model}
+
+\[
+max_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+\]
+
+\section{Data}\label{data}
+
+\includegraphics{rmd_basic_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\section{Results}\label{results}
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & hwy \\ 
+\hline \\[-1.8ex] 
+ cyl & $-$1.685$^{***}$ \\ 
+  & (0.142) \\ 
+  & \\ 
+ factor(class)compact & $-$2.238$^{*}$ \\ 
+  & (1.336) \\ 
+  & \\ 
+ factor(class)midsize & $-$2.027 \\ 
+  & (1.311) \\ 
+  & \\ 
+ factor(class)minivan & $-$6.112$^{***}$ \\ 
+  & (1.462) \\ 
+  & \\ 
+ factor(class)pickup & $-$9.555$^{***}$ \\ 
+  & (1.279) \\ 
+  & \\ 
+ factor(class)subcompact & $-$1.663 \\ 
+  & (1.335) \\ 
+  & \\ 
+ factor(class)suv & $-$8.410$^{***}$ \\ 
+  & (1.240) \\ 
+  & \\ 
+ Constant & 38.280$^{***}$ \\ 
+  & (1.639) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 234 \\ 
+R$^{2}$ & 0.808 \\ 
+Adjusted R$^{2}$ & 0.802 \\ 
+Residual Std. Error & 2.649 (df = 226) \\ 
+F Statistic & 135.900$^{***}$ (df = 7; 226) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+
+\end{document}

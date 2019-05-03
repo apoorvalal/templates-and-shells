@@ -20,6 +20,8 @@ geometry: margin=2cm
 colorlinks: true
 indent: false
 xetex: true
+# mainfont: "Linux Libertine O"
+mainfont: "Utopia"
 monofont: Iosevka
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
@@ -44,7 +46,7 @@ library(LalRUtils)
 load_or_install(c('tidyverse','lfe','skimr', 'kableExtra',
     'magrittr', 'stargazer', 'rio', 'estimatr', 'broom'))
 set.seed(42)
-theme_set(lal_plot_theme(fontfam='Latin Modern Math'))
+theme_set(lal_plot_theme())
 expt = 'latex'
 options(knitr.table.format = "latex")
 ```
