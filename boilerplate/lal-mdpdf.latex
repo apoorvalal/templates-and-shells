@@ -59,6 +59,13 @@ $endif$
 
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 
+
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+
 $for(fontfamilies)$
   \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
 $endfor$
@@ -173,12 +180,6 @@ $if(verbatim-in-note)$
 $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-$endif$
-
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage{lmodern}
 $endif$
 
 $if(listings)$
