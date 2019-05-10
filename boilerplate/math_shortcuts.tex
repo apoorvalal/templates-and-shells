@@ -1,13 +1,14 @@
 % math packages
 \usepackage{
-amsmath,
-amsfonts,
-mathtools,
-amsthm,
-amssymb,
 amscd,
+amsfonts,
+amsmath,
+amssymb,
+amsthm,
 bbm,
-cancel
+cancel,
+latexsym,
+mathtools,
 }
 
 \newcommand{\secend}{\vspace{3mm}}
@@ -123,8 +124,10 @@ cancel
 \renewcommand{\to}{{\rightarrow}}
 % double arrow
 \newcommand{\corres}{\overrightarrow{\rightarrow}}
+% evaluate at
+\newcommand*\Eval[2]{\left.#1\right\rvert_{#2}}
 % evaluate definite integral
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+\newcommand*\IntEval[3]{\left.#1\right\rvert_{#2}^{#3}}
 % expectation
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
 % expectation at time

@@ -20,8 +20,7 @@ geometry: margin=2cm
 colorlinks: true
 indent: false
 xetex: true
-# mainfont: "Linux Libertine O"
-mainfont: "Utopia"
+mainfont: "Linux Libertine O"
 monofont: Iosevka
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
@@ -43,8 +42,9 @@ knitr::opts_chunk$set(
 # preliminaries - clear workspace and load libraries
 rm(list=ls())
 library(LalRUtils)
-load_or_install(c('tidyverse','lfe','skimr', 'kableExtra',
-    'magrittr', 'stargazer', 'rio', 'estimatr', 'broom'))
+load_or_install(c('tidyverse', 'data.table', 'lfe', 'skimr',
+  'kableExtra', 'magrittr', 'stargazer', 'rio', 'estimatr',
+  'broom'))
 set.seed(42)
 theme_set(lal_plot_theme())
 expt = 'latex'
