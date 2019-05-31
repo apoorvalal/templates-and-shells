@@ -1,7 +1,3 @@
-% sensible defaults for assignments/papers
-% can be sourced directly using \usepackage , e.g.
-% \usepackage{"/home/alal/tex_templates/lal_default"}
-
 %% This program can be redistributed and/or modified under the terms
 %% of the LaTeX Project Public License Distributed from CTAN archives
 %% in directory macros/latex/base/lppl.txt.
@@ -23,29 +19,31 @@ xcolor,
 \newcommand\Fontsm{\fontsize{6}{7.2}\selectfont}
 \newcommand\Fontmed{\fontsize{8}{9.2}\selectfont}
 
-\makeatletter
-  \setbeamertemplate{footline}{%
-    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
-      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
-      \leavevmode{\usebeamerfont{author in head/foot}
-      \insertshortauthor}%
-      \hfill%
-      {\usebeamerfont{institute in head/foot}\usebeamercolor
-      [fg]{institute in head/foot}\insertshortinstitute}%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
-      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
-      {\usebeamerfont{title in head/foot}
-      \insertshorttitle\hfill\insertframenumber}%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
-    \end{beamercolorbox}
-  }
-\makeatletter
+% \makeatletter
+%   \setbeamertemplate{footline}{%
+%     \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+%     \end{beamercolorbox}
+%     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+%       leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+%       \leavevmode{\usebeamerfont{author in head/foot}
+%       \insertshortauthor}%
+%       % \hfill%
+%       {\usebeamerfont{institute in head/foot}\usebeamercolor
+%       [fg]{institute in head/foot}\insertshortinstitute}%
+%     \end{beamercolorbox}%
+%     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+%       leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+%       {\usebeamerfont{title in head/foot}
+%       \insertshorttitle\hfill\insertframenumber}%
+%     \end{beamercolorbox}%
+%     \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+%     \end{beamercolorbox}
+%   }
+% \makeatletter
 
-\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{footline}[frame number]
+
+% \usefonttheme{structuresmallcapsserif}
 
 % -----------------------------------------
 % Center the Frame Title
@@ -58,15 +56,23 @@ xcolor,
 \end{centering}
 }
 
-\setbeamertemplate{itemize items}[default]
-\setbeamertemplate{enumerate items}[default]
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
+% \setbeamertemplate{itemize items}[default]
+% \setbeamertemplate{enumerate items}[default]
 
 
 % -----------------------------------------
 % Number the slides
 % -----------------------------------------
 
-\setbeamertemplate{footline}[frame number]
+
 
 % -----------------------------------------
 % Get rid of the irritating navigation bar
