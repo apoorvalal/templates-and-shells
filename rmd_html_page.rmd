@@ -1,45 +1,41 @@
 ---
-title: Document Title
+title: Title
 author: Apoorva Lal
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-bibliography: /home/alal/Dropbox/MyLibrary2.bib
-csl: econometrica.csl
 output:
   html_document:
-    theme: flatly
-    # theme: paper
-    # theme: cosmo
-    toc: true
-    toc_float: true
-    toc_depth: 2
+    theme: spacelab
+    highlight: tango
     code_folding: hide
+    toc: true
+    toc_float: false
+    toc_depth: 3
+    fig_width:  10
+    fig_height: 8
 ---
 
-# 1. Preliminaries
 
-**started off as Chapter-by-chapter notes for
-@AngristMostlyharmlesseconometrics2008b**; based on material from
-[Josh Gottlieb](http://www.joshuagottlieb.ca/)'s research design class
-with additional material from
-@CameronMicroeconometricsmethodsapplications2005
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 
-```{r,include=F}
-knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
-                      echo=TRUE, warning=FALSE, message=FALSE,
-                      cache=TRUE
-)
-
+```{r}
 options(digits=2)
-# R Imports Boilerplate
 rm(list=ls())
 library(LalRUtils)
-load_or_install(c('tidyverse','data.table', 'stargazer','lfe','rio'))
+
+load_or_install(c('tidyverse', 'magrittr', 'data.table', 'knitr',
+  'stargazer','lfe','rio', 'gridExtra', 'kableExtra'))
+
 theme_set(lal_plot_theme())
+
+knitr::opts_knit$set( echo=TRUE, warning=FALSE, message=FALSE, cache=FALSE )
+knitr::opts_chunk$set( echo=TRUE, warning=FALSE, message=FALSE, cache=FALSE )
 ```
-
-## Cite
-
-@DeatonPaneldatatime1985
 
 The quick brown fox jumped over the lazy dog^[but the dog's laziness
 is heavily debated].
@@ -58,7 +54,6 @@ PPI_{ict-k} + \gamma_{ct} + \epsilon_{ict} \\
 \sum_{k=0}^2 + \beta_{t-k}^m CPI_{ict-k} + \\ & \gamma_{c}\times
 trend_t + \epsilon_{ict}
 \end{align*}
-
 
 # Regression output
 
