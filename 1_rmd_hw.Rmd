@@ -20,13 +20,11 @@ geometry: margin=2cm
 colorlinks: true
 indent: false
 xetex: true
-mainfont: "Linux Libertine O"
+mainfont: XCharter
 monofont: Iosevka
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
 csl: econometrica.csl
-header-includes:
-  - '\usepackage{lipsum}'
 ---
 
 ```{r, include=F, echo=F}
@@ -42,9 +40,7 @@ knitr::opts_chunk$set(
 # preliminaries - clear workspace and load libraries
 rm(list=ls())
 library(LalRUtils)
-load_or_install(c('tidyverse', 'data.table', 'lfe', 'skimr',
-  'kableExtra', 'magrittr', 'stargazer', 'rio', 'estimatr',
-  'broom'))
+LalRUtils::libreq(tidyverse, data.table, lfe, kableExtra, magrittr, stargazer, rio, broom)
 set.seed(42)
 theme_set(lal_plot_theme())
 expt = 'latex'
@@ -60,11 +56,8 @@ between 1 and 1000 and assign this vector the name "vec"
 1:10
 ```
 
-@AutorOutsourcingwillcontribution2003
-
-
 # Code
-```{r code=readLines(knitr::purl('/home/alal/tmp/tex-sandbox/eh.Rmd', documentation = 0)), echo=T, include=T, eval = FALSE}
+```{r code=readLines(knitr::purl('/mnt/c/Users/alal/Dropbox/0_GradSchool/1_HW/450d/HW1/HW1.Rmd', documentation = 0)), echo=T, include=T, eval = FALSE}
 ```
 
 # Bibliography
