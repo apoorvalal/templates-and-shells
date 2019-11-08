@@ -6,7 +6,7 @@ amsmath,
 amssymb,
 amsthm,
 bm, % boldmath
-bbm, % blackboard
+dsfont,
 cancel, % cancellation
 latexsym,
 mathtools,
@@ -52,7 +52,7 @@ mathtools,
 \newcommand{\suchthat}{\text{ s.t. }}
 
 % indicator function
-\newcommand*\Indic[1]{\mathbbm{1}_{#1}}
+\newcommand*\Indic[1]{\mathds{1}_{#1}}
 
 % big parentheses
 \newcommand*\Bigpar[1]{\left( #1 \right )}
@@ -291,8 +291,19 @@ mathtools,
 \newcommand{\cas}{\stackrel{a.s.}{\rightarrow}}
 \newcommand{\cp}{\stackrel{p}{\rightarrow}}
 
-\newcommand{\normal}{\mathsf{N}}  % Normal distribution
-\newcommand{\uniform}{\mathsf{Uni}}  % Uniform distribution
+% Probability distributions
+% \newcommand{\normal}{\mathsf{N}}  % Normal distribution
+\newcommand*\normal[1]{\mathsf{N} \left( #1 \right )}
+% \newcommand{\unif}{\mathsf{U}}  % Uniform distribution
+\newcommand*\unif[1]{\mathsf{U} \left( #1 \right )}
+% beta
+\newcommand*\Bdist[1]{\mathsf{Beta} \left( #1 \right )}
+% dirichlet
+\newcommand*\Diri[1]{\mathsf{Dir} \left( #1 \right )}
+% gamma
+\newcommand*\Gdist[1]{\mathsf{Gamma} \left( #1 \right )}
+% inv chi squared
+\newcommand*\InvChi[1]{\mathsf{Inv}-\chi^2 \left( #1 \right )}
 
 % Simple floor/ceiling stuff
 \newcommand{\floor}[1]{\left\lfloor{#1} \right\rfloor}
