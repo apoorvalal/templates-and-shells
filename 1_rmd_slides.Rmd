@@ -1,13 +1,14 @@
 ---
 title: "Lecture 1: Introduction"
-subtitle: "<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
-author: Apoorva Lal | Stanford University
+subtitle: "subtitle here"
+author: Apoorva Lal | Stanford
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts]
     lib_dir: libs
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -15,22 +16,17 @@ output:
 
 ```{r setup, include=FALSE}
 rm(list=ls())
+library(LalRUtils)
+libreq(knitr,tidyverse,magrittr,rio,data.table,stargazer,gapminder)
+
 options(htmltools.dir.version = FALSE)
-library(knitr)
 opts_chunk$set(
-  fig.align="center",
-  fig.height=4, #fig.width=6,
-  dpi=300, #fig.path='Figs/',
+  fig.align="center", fig.height=6, fig.width=10, dpi=300,
   cache=T, echo=F, warning=F, message=F
   )
 
-library(LalRUtils)
-load_or_install(c('knitr','tidyverse','magrittr',
-  'rio','data.table', 'stargazer'))
-   #, "lib2"))
 theme_set(lal_plot_theme())
 set.seed(42)
-####################################################
 ```
 
 # Table of contents
@@ -69,8 +65,6 @@ name: syllabus
 # ggplot2
 
 ```{r gapm_plot, dev="svg"}
-library(ggplot2)
-library(gapminder) ## For the gapminder data
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```

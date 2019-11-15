@@ -15,7 +15,7 @@ output: pdf_document
 fontsize: 12pt
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
-csl: apsr.csl
+csl: econometrica.csl
 header-includes:
   - '\usepackage{lipsum}'
 ---
