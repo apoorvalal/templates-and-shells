@@ -1,0 +1,236 @@
+% lightly modified version of the legendary Bob Hall's template
+% https://web.stanford.edu/~rehall/BeamerSkeleton.tex
+% Document Preamble
+
+%  Must be compiled with pdf Latex
+\documentclass[12pt, aspectratio=169]{beamer}
+%\documentclass[12pt,handout]{beamer}
+% \usetheme{Rochester}
+
+% \usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
+% set universal bibliography (change to point to your master bibfile)
+\bibliographystyle{plainnat}
+\usepackage[backend=biber,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+
+% If you want to print handouts
+%\documentclass[handout]{beamer}
+
+% Changing the fonts: this will make the slides more readable and the math look like regular tex math
+\usefonttheme{serif}
+\usecolortheme{beaver} % v stanford
+
+% Titles will appear in Small Cap Serif
+\usefonttheme{structuresmallcapsserif}
+
+% -----------------------------------------
+% Center the Frame Title
+% -----------------------------------------
+
+\setbeamertemplate{frametitle} {
+\begin{centering}
+\vspace{0.1in} \insertframetitle
+\par
+\end{centering}
+}
+
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+% -----------------------------------------
+% Number the slides
+% -----------------------------------------
+
+\setbeamertemplate{footline}[frame number]
+
+% -----------------------------------------
+% Get rid of the irritating navigation bar
+% -----------------------------------------
+
+\setbeamertemplate{navigation symbols}{}
+
+% -----------------------------------------
+% Begin Document
+% -----------------------------------------
+
+\begin{document}
+
+%  I separate each slide with a line:
+
+% -----------------------------------------
+
+%Information to be included in the title page:
+
+\title{Building State and Citizen:
+How Tax Collection in Congo Engenders
+Citizen Engagement with the State}
+\subtitle{Jonathan Weigel}
+
+\author{Discussant: Apoorva Lal}
+
+\date{\today}
+
+%------------------------------------------------
+\frame{\titlepage}
+
+
+\begin{frame}{Overview}
+\tableofcontents
+\end{frame}
+
+% -----------------------------------------
+
+% /*
+% ██ ███    ██ ████████ ██████   ██████
+% ██ ████   ██    ██    ██   ██ ██    ██
+% ██ ██ ██  ██    ██    ██████  ██    ██
+% ██ ██  ██ ██    ██    ██   ██ ██    ██
+% ██ ██   ████    ██    ██   ██  ██████
+% */
+
+\section{Introduction}
+\begin{frame}{Variation in State Capacity}
+
+% \bi
+% \item developing countries collect much less tax than developed countries(15\% of GDP versus 40\% of
+% GDP
+% \ei
+
+\textbf{Historical Accounts of the development of State Capacity}
+
+When European rulers in the early modern period began systematically
+taxing their subjects, the people resisted, demanding public goods and
+representation in return for tax compliance which in turn triggered
+the co-evolution of tax compliance, citizen participation in politics,
+and accountable governance.
+\parencite{tillyCoercionCapitalEuropean1990,northConstitutionsCommitmentEvolution1989}
+
+\vspace{5mm}
+
+\textbf{Testable Proposition examined by the paper:}
+
+\emph{tax collection increases citizen demand for political participation.}
+
+Problem: Tax collection is not random; governments may strategically
+target to maximise revenue and minimise distortions.
+
+\end{frame}
+
+% /*
+% ███████ ███    ███ ██████  ██ ██████  ██  ██████ ███████
+% ██      ████  ████ ██   ██ ██ ██   ██ ██ ██      ██
+% █████   ██ ████ ██ ██████  ██ ██████  ██ ██      ███████
+% ██      ██  ██  ██ ██      ██ ██   ██ ██ ██           ██
+% ███████ ██      ██ ██      ██ ██   ██ ██  ██████ ███████
+% */
+
+
+\section{Empirics}
+\begin{frame}{The Experiment}
+
+\begin{itemize}
+\item randomizing property tax collection across 431 neighborhoods
+— covering roughly 33,000 properties — of Kananga, D.R. Congo (DRC),
+in 2016.
+\item selected 253 neighborhoods to receive the initial phase of
+property tax collection campaign in the city. In treated
+neighborhoods, tax collectors went door to door making in-person
+appeals for the roughly \$2 property tax, which they collected on the
+spot, issuing printed receipts to payers.
+\item Control neighborhoods remained in the old declarative system:
+citizens were supposed to pay at the bank themselves, but in practice
+less than 1\% did.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Empirical Setup}
+
+\begin{itemize}
+\item \emph{First Stage}: Did the campaign increase tax compliance :
+$0.1 \%$ in controls to $10.3 \%$ in treatment = 100 fold increase
+\item \emph{Reduced Form}: Did the experiment improve political
+participation? Measures willingness to exert costly effort to
+have a voice in the provincial government.
+  \begin{itemize}
+  \item  the government hosted a series of townhall meetings, in which
+  officials and citizens had a dialog about taxation and public
+  spending in Kananga.
+  \item citizens could submit anonymous evaluations of the provincial
+  government to a suggestion box whose contents would be shared with
+  the governor and other top officials.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+% /*
+% ████████ ██   ██ ███████  ██████  ██████  ██    ██
+%    ██    ██   ██ ██      ██    ██ ██   ██  ██  ██
+%    ██    ███████ █████   ██    ██ ██████    ████
+%    ██    ██   ██ ██      ██    ██ ██   ██    ██
+%    ██    ██   ██ ███████  ██████  ██   ██    ██
+% */
+
+\section{Theory}
+\begin{frame}[t]\frametitle{Model}
+\begin{center}
+centered text
+\end{center}
+
+\begin{align*}
+max_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
+  s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
+\end{align*}
+Everyone does infinite horizon optimisation, right?
+
+\end{frame}
+
+
+% /*
+%  ██████  ██████  ███    ██  ██████ ██      ██    ██ ██████  ███████
+% ██      ██    ██ ████   ██ ██      ██      ██    ██ ██   ██ ██
+% ██      ██    ██ ██ ██  ██ ██      ██      ██    ██ ██   ██ █████
+% ██      ██    ██ ██  ██ ██ ██      ██      ██    ██ ██   ██ ██
+%  ██████  ██████  ██   ████  ██████ ███████  ██████  ██████  ███████
+% */
+
+\section{Conclusion}
+
+\begin{frame}
+\frametitle{Conclusion}
+\end{frame}
+% -----------------------------------------
+%  Finish with dark screen again
+
+
+\begin{frame}
+\frametitle{Thank You!}
+\end{frame}
+
+\begin{frame}[t]\frametitle{Bibliography}
+\printbibliography
+\end{frame}
+
+% /*
+%  █████  ██████  ██████  ███████ ███    ██ ██████  ██ ██   ██
+% ██   ██ ██   ██ ██   ██ ██      ████   ██ ██   ██ ██  ██ ██
+% ███████ ██████  ██████  █████   ██ ██  ██ ██   ██ ██   ███
+% ██   ██ ██      ██      ██      ██  ██ ██ ██   ██ ██  ██ ██
+% ██   ██ ██      ██      ███████ ██   ████ ██████  ██ ██   ██
+% */
+
+\appendix
+\begin{frame}[label=appendix_end]{Appendix land}
+  \begin{itemize}
+    \item[] Now you can make it clear you've done a shitload of work
+      \begin{itemize}
+      \item[]  without having to show everything! \hyperlink{data_slide}{\beamergotobutton{Back}}
+      \end{itemize}
+    \item[] You label a frame with the \texttt{[label=name]} option, and then point a link to it
+    \item[] You can make an object a link using the \texttt{\textbackslash hyperlink\{label\}\{object\}} command
+  \end{itemize}
+\end{frame}
+\end{document}

@@ -3,6 +3,8 @@ title       : "Template for Reveal JS Slides"
 author      : Apoorva Lal
 institute   : Stanford University
 date        : July 2018
+width: 1920
+height: 1080
 output:
   revealjs::revealjs_presentation:
     self_contained: true
@@ -10,6 +12,7 @@ output:
     transition: slide
     center : true
     highlight : zenburn
+    css: /home/alal/Templates/boilerplate/reveal_header.css
     reveal_options:
       slideNumber: true
       center : false
@@ -31,9 +34,16 @@ bibliography: /home/alal/Dropbox/MyLibrary2.bib
 
 ```{r setup, include=FALSE}
 library(LalRUtils)
-load_or_install(c('tidyverse','knitr', 'knitcitations'))
-# set global chunk options
-opts_chunk$set(cache=TRUE, warning = FALSE)
+libreq(tidyverse,knitr,knitcitations)
+knitr::opts_chunk$set(
+  echo =    F,          # don't show code
+  include = T,          # show output
+  warning = F,       # don't show warnings
+  message = F,       # don't show messages (less serious warnings)
+  cache   = T,       # F unless runtime is very long
+  # root.dir = 'location_of_dependencies'
+  fig.align = "center"
+)
 ```
 
 # Introduction
@@ -80,7 +90,7 @@ $$
 
 ## Example R stuff
 
-```{r cars, echo = TRUE}
+```{r cars}
 summary(cars)
 ```
 
@@ -94,17 +104,6 @@ plot(pressure)
 
 ---
 
-## ggplot code
-
-```{r createdata, echo=TRUE, eval=FALSE}
-df <- data.frame(x = rnorm(1000))
-x <- df$x
-base <- ggplot(df, aes(x)) + geom_density() +
-  scale_x_continuous(limits = c(-5, 5))
-base + stat_function(fun = dnorm, colour = "red")
-```
-
----
 
 ## Another Plot
 
