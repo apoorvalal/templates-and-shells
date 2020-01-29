@@ -136,9 +136,14 @@ mathtools,
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left[#1\right]}
 % Probability
-\newcommand{\Prob}[1]{\mathbf{Pr}\left(#1\right)}
-\newcommand{\F}{\mathscr{F}}
-% \newcommand{\f}{\widehat{\eta}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+
+% CDF
+\newcommand{\Cdf}[1]{\mathbb{F}\left(#1\right)}
+\newcommand{\Cdff}[2]{\mathbb{F}_{#1}\left(#2\right)}
+
+\newcommand{\F}{\mathbb{F}}
+
 %Blackboard Letters
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -338,14 +343,32 @@ mathtools,
 % own numbering by section.
 
 % \theoremstyle{plain}
-\theoremstyle{definition}
+
+\newtheoremstyle{mystyle}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\sffamily \bfseries }%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  {\newline }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+
+% \theoremstyle{definition}
+
+\theoremstyle{mystyle}
+
+\newtheorem{Theorem}{Theorem}[section]
+
+\newtheorem{defi}[Theorem]{Defn}
+
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{assumption}{Assumption}
 \newtheorem{cla}[thm]{Claim}
 \newtheorem{conjecture}[thm]{Conjecture}
 \newtheorem{conj}[thm]{Conjecture}
 \newtheorem{cor}[thm]{Corollary}
-\newtheorem{defi}[thm]{Definition}
 \newtheorem{egg}[thm]{Example}
 \newtheorem{exe}[thm]{Exercise}
 \newtheorem{hypothesis}[thm]{Hypothesis}
@@ -358,7 +381,6 @@ mathtools,
 \newtheorem{rek}[thm]{Remark}
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{X}{X}[section]
-
 
 \renewenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip\\}
 \newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}
