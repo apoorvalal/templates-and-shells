@@ -4,7 +4,7 @@ author: Apoorva Lal
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
   html_document:
-    theme: spacelab
+    theme: flatly
     highlight: tango
     code_folding: hide
     toc: true
@@ -33,8 +33,15 @@ load_or_install(c('tidyverse', 'magrittr', 'data.table', 'knitr',
 
 theme_set(lal_plot_theme())
 
-knitr::opts_knit$set( echo=TRUE, warning=FALSE, message=FALSE, cache=FALSE )
-knitr::opts_chunk$set( echo=TRUE, warning=FALSE, message=FALSE, cache=FALSE )
+knitr::opts_chunk$set(
+  echo =    F,          # don't show code
+  include = T,          # show output
+  warning = F,       # don't show warnings
+  message = F,       # don't show messages (less serious warnings)
+  cache   = F,       # F unless runtime is very long
+  # root.dir = 'location_of_dependencies'
+  fig.align = "center"
+)
 ```
 
 The quick brown fox jumped over the lazy dog^[but the dog's laziness

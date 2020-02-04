@@ -20,7 +20,7 @@ geometry: margin=2cm
 colorlinks: true
 indent: false
 xetex: true
-mainfont: XCharter
+mainfont: TeX Gyre Pagella
 monofont: Iosevka
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
@@ -57,7 +57,7 @@ between 1 and 1000 and assign this vector the name "vec"
 ```
 
 # Code
-```{r code=readLines(knitr::purl('/mnt/c/Users/alal/Dropbox/0_GradSchool/1_HW/450d/HW1/HW1.Rmd', documentation = 0)), echo=T, include=T, eval = FALSE}
+```{r code=readLines(knitr::purl('~/tmp/1_rmd_hw.Rmd', documentation = 0)), echo=T, include=T, eval = FALSE}
 ```
 
 # Bibliography

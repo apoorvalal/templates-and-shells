@@ -33,6 +33,9 @@ mathtools,
 \newcommand{\fns}{\singlespace\footnotesize}
 
 % math shorthand
+
+
+
 % vertical equal prefix
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
 % vertical equal to
@@ -98,13 +101,26 @@ mathtools,
 % generic m x n matrix
 \newcommand{\gmatrix}[1]{\begin{pmatrix} {#1}_{11} & \cdots &{#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &{#1}_{mn} \end{pmatrix}}
 
+
+% generic n x 1 vector
+\newcommand{\gvec}[1]{\begin{pmatrix} {#1}_{1} \\ \vdots \\ {#1}_{n} \end{pmatrix}}
+
+% matrix inverse
+\newcommand{\inv}[1]{ \left({#1} \right)^{-1}}
+
+% matrix transprose
+\newcommand{\trap}[1]{ {#1}^{T}}
+
 % Likelihood
 \newcommand{\Likl}{\mathcal{L}}
 
 % inner product
-\newcommand{\iprod}[2]{\left\langle {#1} , {#2} \right\rangle}
+\newcommand{\iprod}[1]{\left\langle {#1} \right\rangle}
 % vector norm
 \newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+
+% Trace
+\newcommand{\trace}[1]{\text{tr} \left({#1} \right)}
 
 % absolute value
 \newcommand{\abs}[1]{\left\vert {#1} \right\vert}
@@ -167,9 +183,6 @@ mathtools,
 \newcommand{\cv}{c_{\text{{\rm variance}}}}
 
 
-% math shorthand
-% vertical equal prefix
-
 % minimiser
 \newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
 % convergence in probability sideways
@@ -188,7 +201,8 @@ mathtools,
 \def\IF{\text{ if }}
 
 % definition bench
-\def\deq{\coloneqq}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
 
 
 % blackboard F
@@ -228,6 +242,7 @@ mathtools,
 \def\v#1{\mbi{#1}} % Vector notation
 
 
+\newcommand{\eucN}[1]{\norm{#1}} % l1 norm
 \newcommand{\lone}[1]{\norm{#1}_1} % l1 norm
 \newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
 \newcommand{\pnorm}[1]{\norm{#1}_p} % p-norm
@@ -252,8 +267,6 @@ mathtools,
 
 \newcommand{\hinge}[1]{\left[{#1}\right]_+}
 
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\eqdef}{=\vcentcolon}
 
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wt}[1]{\widetilde{#1}} % Wide tilde
@@ -380,6 +393,8 @@ mathtools,
 \newtheorem{que}[thm]{Question}
 \newtheorem{rek}[thm]{Remark}
 \newtheorem{rem}[thm]{Remark}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{propt}[thm]{Property}
 \newtheorem{X}{X}[section]
 
 \renewenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip\\}
