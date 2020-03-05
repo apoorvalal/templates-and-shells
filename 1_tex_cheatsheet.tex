@@ -1,29 +1,116 @@
-\documentclass[10pt,a4paper]{amsart}
-\usepackage[margin=1cm,landscape]{geometry}
-\usepackage{fontspec}
-\usepackage{flowfram}
-\usepackage{enumerate}
-\usepackage{amssymb}
-\usepackage{amsbsy}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{latexsym}
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{manfnt}
-\ffvadjustfalse
-\setlength{\columnsep}{1cm}
-\Ncolumn{3}
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.5cm,landscape]{geometry}
 
-\usepackage{lipsum}
-\input{'/home/alal/Templates/boilerplate/math_shortcuts.tex'}
-\title{Cheatsheet Template}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{regexpatch}
+\usepackage{xspace}
+
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  citestyle=authoryear,
+  ]{biblatex}
+\addbibresource{book_list.bib}
+
+\renewbibmacro{in:}{}
+
+
+\usepackage[colorinlistoftodos,prependcaption,]{todonotes}
+
+
+\linespread{0.5}
+
+\setlength{\columnsep}{1cm}
+
+\makeatletter
+\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{inline,#1}}{}{}
+\makeatother
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+
+\usepackage{sectsty}
+\sectionfont{\textsc}
+\subsectionfont{\centering}
+\setlength\parindent{0pt}
+
+\input{/home/alal/Templates/boilerplate/math_shortcuts}
+
+% \usepackage{cochineal}
+\usepackage[no-math]{fontspec}
+\setmainfont{TeX Gyre Pagella}
+
+\title{Notes}
 \author{Apoorva Lal}
 
+%  ######  ########    ###    ########  ########
+% ##    ##    ##      ## ##   ##     ##    ##
+% ##          ##     ##   ##  ##     ##    ##
+%  ######     ##    ##     ## ########     ##
+%       ##    ##    ######### ##   ##      ##
+% ##    ##    ##    ##     ## ##    ##     ##
+%  ######     ##    ##     ## ##     ##    ##
+
+
 \begin{document}
+\twocolumn
 \maketitle
 
-\lipsum[1-4]
+\tableofcontents
+
+
+\nocite{keener2011theoretical}
+\nocite{cameron2005microeconometrics}
+\nocite{angrist2008mostly}
+\nocite{wasserman2013all}
+\nocite{carter2001foundations}
+\nocite{schrimpfMathEcon}
+\nocite{stachurski2009economic}
+\nocite{vohra2004advanced}
+\nocite{austen2000positive}
+\nocite{ward2018maximum}
+\nocite{imbens2015causal}
+
+
+% \newpage
+\onecolumn
+% \input{big_thing_here}
+\twocolumn
+
+% ##    ##  #######  ######## ########  ######
+% ###   ## ##     ##    ##    ##       ##    ##
+% ####  ## ##     ##    ##    ##       ##
+% ## ## ## ##     ##    ##    ######    ######
+% ##  #### ##     ##    ##    ##             ##
+% ##   ### ##     ##    ##    ##       ##    ##
+% ##    ##  #######     ##    ########  ######
+
+
+\newpage
+\appendix
+
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
+\printbibliography
 
 \end{document}
