@@ -25,6 +25,8 @@
 
 % big parentheses
 \newcommand*\Bigpar[1]{\left( #1 \right )}
+\newcommand*\Bigbr[1]{\left[ #1 \right ]}
+\newcommand*\Bigcr[1]{\left\{ #1 \right \}}
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
@@ -182,6 +184,7 @@
 \DeclareTextFontCommand{\textfrak}{\frakfamily}
 
 % Fractions
+\newcommand{\ooN}{\frac{1}{N}}  %oneforth
 \newcommand{\fof}{\frac{1}{4}}  %oneforth
 \newcommand{\foh}{\frac{1}{2}}  %onehalf
 \newcommand{\fot}{\frac{1}{3}}  %onethird
@@ -191,7 +194,6 @@
 \newcommand{\fotpi}{\frac{1}{2 \pi i}}
 \newcommand{\cm}{c_{\text{{\rm mean}}}}
 \newcommand{\cv}{c_{\text{{\rm variance}}}}
-
 
 % minimiser
 \newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
@@ -205,19 +207,18 @@
 \def\indist{\,{\buildrel d \over \rightarrow}\,}
 
 % such that
-\def\ST{\text{ s.t. }}
-
+\def\ST{\text{\; s.t. \;}}
+% with probability
+\def\WP{\text{\; w.p. \;}}
 % if
-\def\IF{\text{ if }}
+\def\IF{\text{\; if \;}}
 
 % definition bench
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
-
 % blackboard F
 \def\Function{\mathbb{F}}
-
 % Natural
 \def\Nat{\mathbb{N}}
 % Integers
@@ -235,10 +236,7 @@
 \def\Expn{\mathbb{E}_n}
 % P_n
 \def\Probn{\mathbb{P}_n}
-
 \def\rel{\,{\buildrel R \over \sim}\,}
-
-
 
 \renewcommand{\det}{\mathrm{det}}
 \renewcommand{\dim}{\mathrm{dim}}
@@ -382,6 +380,9 @@
 \newcommand{\Score}{\mathsf{S}}
 \newcommand{\Hessian}{\mathsf{H}}
 
+% bigO
+\newcommand{\lilO}[1]{\mathsf{o}\Bigpar{#1}}
+\newcommand{\bigO}[1]{\mathsf{O}\Bigpar{#1}}
 
 % expectation
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
