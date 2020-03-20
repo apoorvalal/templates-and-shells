@@ -27,6 +27,9 @@
 \newcommand*\Bigpar[1]{\left( #1 \right )}
 \newcommand*\Bigbr[1]{\left[ #1 \right ]}
 \newcommand*\Bigcr[1]{\left\{ #1 \right \}}
+% set builder notation
+\newcommand*\SetB[1]{\left\{ #1 \right\}}
+
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}
@@ -45,6 +48,9 @@
 \newcommand{\bsnumber}{\begin{align}\begin{split}}
 \newcommand{\es}{\end{split}\end{align}}
 \newcommand{\fns}{\singlespace\footnotesize}
+\def\ST{\text{\; s.t. \;}}
+\def\WP{\text{\; w.p. \;}}
+\def\IF{\text{\; if \;}}
 
 % ##     ##    ###    ######## ##     ##
 % ###   ###   ## ##      ##    ##     ##
@@ -76,7 +82,6 @@
 \newcommand{\prodin}{\ensuremath{\prod_{i=1}^N}}
 \newcommand{\prodjn}{\ensuremath{\prod_{j=1}^n}}
 
-
 % partial derivative
 \newcommand{\dydx}[2]{\frac{\partial #1}{\partial #2}}
 % vertical equal prefix
@@ -99,10 +104,6 @@
 
 % indicator function
 \newcommand*\Indic[1]{\mathds{1}_{#1}}
-
-% generic vector and matrix
-\newcommand*{\Vect}[1]{\mathbf{#1}}
-\newcommand*{\Mat}[1]{\mathbf{#1}}
 
 % ellipsis
 \newcommand{\tto}{,\ldots,}
@@ -128,16 +129,14 @@
 \def\rel{\,{\buildrel R \over \sim}\,}
 % generic m x n matrix
 \newcommand{\gmatrix}[1]{\begin{bmatrix} {#1}_{11} & \cdots &{#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &{#1}_{mn} \end{bmatrix}}
-
-
 % generic n x 1 vector
-\newcommand{\gvec}[1]{\begin{pmatrix} {#1}_{1} \\ \vdots \\ {#1}_{n} \end{pmatrix}}
+\newcommand{\gvec}[1]{\begin{bmatrix} {#1}_{1} \\ \vdots \\ {#1}_{n} \end{bmatrix}}
 
 % matrix inverse
 \newcommand{\inv}[1]{ \left({#1} \right)^{-1}}
 
 % matrix transprose
-\newcommand{\trap}[1]{ {#1}^{T}}
+\newcommand{\trap}[1]{ #1^{T}}
 
 % inner product
 \newcommand{\iprod}[1]{\left\langle {#1} \right\rangle}
@@ -152,6 +151,7 @@
 % linalg misc
 \renewcommand{\det}{\mathrm{det}}
 \newcommand{\rank}{\mathrm{rank}}
+\newcommand{\trc}{\mathrm{trace}}
 \newcommand{\spn}{\mathrm{span}}
 \newcommand{\row}{\mathrm{Row}}
 \newcommand{\col}{\mathrm{Col}}
@@ -206,12 +206,6 @@
 % convergence in distribution
 \def\indist{\,{\buildrel d \over \rightarrow}\,}
 
-% such that
-\def\ST{\text{\; s.t. \;}}
-% with probability
-\def\WP{\text{\; w.p. \;}}
-% if
-\def\IF{\text{\; if \;}}
 
 % definition bench
 \newcommand{\defeq}{\vcentcolon=}
@@ -243,11 +237,15 @@
 % single arrow
 \renewcommand{\to}{{\rightarrow}}
 
+% generic vector and matrix
 \newcommand{\mc}[1]{\mathcal{#1}}
 \def\mbf#1{\mathbf{#1}}
 \def\mrm#1{\mathrm{#1}}
 \def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
-\def\v#1{\mbi{#1}} % Vector notation
+\def\ve#1{\mbi{#1}} % Vector notation
+
+\newcommand*{\Vect}[1]{\mbi{#1}}
+\newcommand*{\Mat}[1]{\mathbf{#1}}
 
 
 \newcommand{\eucN}[1]{\norm{#1}} % l1 norm
@@ -255,7 +253,6 @@
 \newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
 \newcommand{\pnorm}[1]{\norm{#1}_p} % p-norm
 \newcommand{\linf}[1]{\norm{#1}_\infty} % l-infinity norm
-% \newcommand{\dnorm}[1]{\norm{#1}_*} % Dual norm
 \newcommand{\lfro}[1]{\left\|{#1}\right\|_{\rm Fr}} % Frobenius norm
 \newcommand{\matrixnorm}[1]{\left|\!\left|\!\left|{#1}
   \right|\!\right|\!\right|} % Matrix norm with three bars
@@ -279,6 +276,11 @@
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wt}[1]{\widetilde{#1}} % Wide tilde
 \newcommand{\wb}[1]{\overline{#1}} % Wide bar
+% widehat, widetilde
+\newcommand*\wtil[1]{\widetilde{#1}}
+% over and underbars
+\newcommand*\Ol[1]{\overline{#1}}
+\newcommand*\Ul[1]{\underline{#1}}
 
 \newcommand{\half}{\frac{1}{2}}
 
@@ -313,8 +315,6 @@
 \newcommand{\helaff}{A_{\rm hel}}  % Hellinger affinity
 
 
-% set builder notation
-\newcommand*\SetB[1]{\left\{ #1 \right\}}
 
 % Simple floor/ceiling stuff
 \newcommand{\floor}[1]{\left\lfloor{#1} \right\rfloor}
@@ -356,6 +356,8 @@
 %  ######     ##    ##     ##    ##     ######
 
 
+% data - curly D - Murphy notation
+\def\Dat{\mathcal{D}}
 
 % convergence in probability sideways
 \def\inprobLOW{\rightarrow_p}
@@ -394,6 +396,8 @@
 \newcommand{\Covar}[1]{\text{Cov}\left[#1\right]}
 % Probability
 \newcommand{\Prob}[1]{\mathbf{Pr}\left(#1\right)}
+% support
+\newcommand{\Supp}[1]{\text{Supp}\left[#1\right]}
 
 % generic estimators
 \newcommand{\betahat}{\hat{\beta}}
@@ -415,8 +419,8 @@
 \newcommand{\cp}{\stackrel{p}{\rightarrow}}
 
 % Probability distributions
-\newcommand*\normal[1]{\mathsf{N} \left( #1 \right )}
-\newcommand*\Normal[1]{\mathsf{N} \left( #1 \right )}
+\newcommand*\normal[1]{\mathcal{N} \left( #1 \right )}
+\newcommand*\Normal[1]{\mathcal{N} \left( #1 \right )}
 % \newcommand{\unif}{\mathsf{U}}  % Uniform distribution
 \newcommand*\unif[1]{\mathsf{U} \left( #1 \right )}
 \newcommand*\Unif[1]{\mathsf{U} \left( #1 \right )}

@@ -3,15 +3,23 @@
 %% in directory macros/latex/base/lppl.txt.
 %
 
-\usepackage{
-color,
-fancyhdr,
-graphicx,
-hyperref,
-mathtools,
-setspace,
-xcolor,
-}
+\usepackage[english]{babel}
+\usepackage[shortlabels]{enumitem}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{mathtools}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{xcolor}
 
 \usepackage[utf8]{inputenc}
 
@@ -45,6 +53,27 @@ xcolor,
 % -----------------------------------------
 \setbeamertemplate{navigation symbols}{}
 
+
+\newcommand{\blue}[1]{\textcolor{blue}{(\bf{#1})}}
+\newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
+\newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
+\newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
+\newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
+\newcommand{\ind}{\otimes}
+\newcommand{\witi}{\widetilde}
+\newcommand{\ch}{{\bf 1}}
+\newcommand{\dt}[1]{\witi{\witi #1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\lr}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\eqd}{\overset{\footnotesize{d}}{=}}
+\newcommand{\calf}{{\mathcal F}}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+\let\definition\relax
+\let\Theorem\relax
+\let\fact\relax
 
 \input{/home/alal/Templates/boilerplate/math_shortcuts.tex}
 
