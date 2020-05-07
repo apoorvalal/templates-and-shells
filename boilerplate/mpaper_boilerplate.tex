@@ -24,6 +24,11 @@
 \newcommand{\bland}{\begin{landscape}}
 \newcommand{\eland}{\end{landscape}}
 
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+% Disable indentation
+\setlength{\parindent}{0pt}
 
 \newcommand{\bburl}[1]{\textcolor{blue}{\url{#1}}}
 
@@ -60,20 +65,16 @@
 \newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
 \newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
 \newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
-\newcommand{\ind}{\otimes}
-\newcommand{\witi}{\widetilde}
-\newcommand{\ch}{{\bf 1}}
-\newcommand{\dt}[1]{\witi{\witi #1}}
-\newcommand{\ol}[1]{\overline{#1}}
-\newcommand{\lr}[1]{\left\lfloor#1\right\rfloor}
-\newcommand{\eqd}{\overset{\footnotesize{d}}{=}}
-\newcommand{\calf}{{\mathcal F}}
-\newcommand{\cal}{\mathcal}
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
-
+% left align section markers
+\makeatletter
+\def\sectionC{\@startsection{section}{1}%
+  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+  {\normalfont\scshape\bfseries}}% NEW
+\makeatother
 
 \input{/home/alal/Templates/boilerplate/math_shortcuts.tex}
 %
