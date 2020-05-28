@@ -22,6 +22,9 @@
 
 \DeclareMathOperator{\erf}{erf}
 
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
 
 % big parentheses
 \newcommand*\Bigpar[1]{\left( #1 \right )}
@@ -37,6 +40,7 @@
 \newcommand{\etc}{etc.\@\xspace}
 \newcommand{\iid}{\emph{i.i.d.}\ }
 \newcommand{\etal}{et.\ al.\ }
+\newcommand{\wprob}{\text{w.p.}}
 \newcommand{\D}{\displaystyle}
 \newcommand{\ba}{\begin{array}}
 \newcommand{\ea}{\end{array}}
@@ -48,10 +52,14 @@
 \newcommand{\bsnumber}{\begin{align}\begin{split}}
 \newcommand{\es}{\end{split}\end{align}}
 \newcommand{\fns}{\singlespace\footnotesize}
+
 \def\ST{\text{\; s.t. \;}}
 \def\WP{\text{\; w.p. \;}}
 \def\IF{\text{\; if \;}}
-
+\newcommand{\suchthat}{\text{ s.t. }}
+\newcommand{\wrt}{\text{ w.r.t. }}
+\providecommand{\subjectto}{\mathop{\rm subject\;to}}
+\providecommand{\sto}{\mathop{\rm subject\;to}}
 % ##     ##    ###    ######## ##     ##
 % ###   ###   ## ##      ##    ##     ##
 % #### ####  ##   ##     ##    ##     ##
@@ -92,15 +100,20 @@
 \newcommand{\nulls}{\mathrm{null}}
 % range
 \newcommand{\range}{\mathrm{range}}
+
+\newcommand*\maxx[1]{\text{max}\SetB{#1}}
+\newcommand*\minn[1]{\text{min}\SetB{#1}}
+
 % maximise
 \newcommand{\maximise}{\operatornamewithlimits{max}}
+\providecommand{\maximize}{\mathop{\rm maximize}}
 % minimise
 \newcommand{\minimise}{\operatornamewithlimits{min}}
+\providecommand{\minimize}{\mathop{\rm minimize}}
 % maximiser
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
 
-% such that (inside math mode)
-\newcommand{\suchthat}{\text{ s.t. }}
+
 
 % indicator function
 \newcommand*\Indic[1]{\mathds{1}_{#1}}
@@ -141,7 +154,7 @@
 % inner product
 \newcommand{\iprod}[1]{\left\langle {#1} \right\rangle}
 % vector norm
-\newcommand{\norm}[1]{\left\Vert {#1} \right\Vert}
+\newcommand{\norm}[1]{\left\Vert{#1} \right\Vert}
 
 % Trace
 \newcommand{\trace}[1]{\text{tr} \left({#1} \right)}
@@ -249,6 +262,7 @@
 
 
 \newcommand{\eucN}[1]{\norm{#1}} % l1 norm
+\newcommand{\lzero}[1]{\norm{#1}_0} % l0 norm
 \newcommand{\lone}[1]{\norm{#1}_1} % l1 norm
 \newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
 \newcommand{\pnorm}[1]{\norm{#1}_p} % p-norm
@@ -274,6 +288,7 @@
 
 
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
+\newcommand{\wh}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wt}[1]{\widetilde{#1}} % Wide tilde
 \newcommand{\wb}[1]{\overline{#1}} % Wide bar
 % widehat, widetilde
@@ -338,9 +353,6 @@
 \providecommand{\vol}{\mathop{\rm Vol}}
 \providecommand{\supp}{\mathop{\rm supp}}
 
-\providecommand{\minimize}{\mathop{\rm minimize}}
-\providecommand{\maximize}{\mathop{\rm maximize}}
-\providecommand{\subjectto}{\mathop{\rm subject\;to}}
 
 % Highlight part of eqn with colour
 \newcommand*\hlred[1]{\textcolor{red}{#1}}
@@ -390,6 +402,10 @@
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
 % expectation at time
 \newcommand{\Expt}[2]{\mathbb{E}_{#1}\left[#2\right]}
+% expected utility for agent
+\newcommand{\Expu}[1]{\mathbb{E}U^{#1}}
+\newcommand{\Expua}[2]{\mathbb{E}U^{#1}\left[#2\right]}
+\newcommand{\Expuat}[3]{\mathbb{E}U^{#1}_{#2}\left[#3\right]}
 % variance
 \newcommand{\Var}[1]{\mathbb{V}\left[#1\right]}
 % covariance
@@ -404,6 +420,8 @@
 \newcommand{\thetahat}{\hat{\theta}}
 
 % CDF
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ff}{\mathsf{f}}
 \newcommand{\Cdf}[1]{\mathbb{F}\left(#1\right)}
 \newcommand{\Cdff}[2]{\mathbb{F}_{#1}\left(#2\right)}
 % PDF
@@ -453,6 +471,7 @@
 \def\rss{\textsc{rss}\xspace}
 \def\ess{\textsc{ess}\xspace}
 \def\tss{\textsc{tss}\xspace}
+
 
 % Naming shortcuts.
 \def\ahat{\ensuremath{\widehat{\alpha}}}
