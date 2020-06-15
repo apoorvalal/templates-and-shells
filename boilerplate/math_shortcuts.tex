@@ -112,7 +112,8 @@
 \providecommand{\minimize}{\mathop{\rm minimize}}
 % maximiser
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
-
+% general operator
+\newcommand\oper[2]{\operatornamewithlimits{#1}_{#2}}
 
 
 % indicator function
@@ -150,6 +151,35 @@
 
 % matrix transprose
 \newcommand{\trap}[1]{ #1^{T}}
+
+% 2 X 2 matrix
+\newcommand{\mattwo}[4]
+{\left(\begin{array}{cc}
+                        #1  & #2   \\
+                        #3 &  #4
+                          \end{array}\right) }
+
+\newcommand{\matthree}[9]
+{\left(\begin{array}{ccc}
+                        #1  & #2 & #3  \\
+                        #4 &  #5 & #6 \\
+                        #7 &  #8 & #9
+                          \end{array}\right) }
+
+\newcommand{\dettwo}[4]
+{\left|\begin{array}{cc}
+                        #1  & #2   \\
+                        #3 &  #4
+                          \end{array}\right| }
+
+\newcommand{\detthree}[9]
+{\left|\begin{array}{ccc}
+                        #1  & #2 & #3  \\
+                        #4 &  #5 & #6 \\
+                        #7 &  #8 & #9
+                          \end{array}\right| }
+
+
 
 % inner product
 \newcommand{\iprod}[1]{\left\langle {#1} \right\rangle}
@@ -256,6 +286,7 @@
 \def\mrm#1{\mathrm{#1}}
 \def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
 \def\ve#1{\mbi{#1}} % Vector notation
+\def\vea#1{\overrightarrow{#1}} % Vector notation
 
 \newcommand*{\Vect}[1]{\mbi{#1}}
 \newcommand*{\Mat}[1]{\mathbf{#1}}
@@ -286,6 +317,9 @@
 
 \newcommand{\hinge}[1]{\left[{#1}\right]_+}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tildes / hats / bars etc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wh}[1]{\widehat{#1}} % Wide hat
@@ -296,6 +330,8 @@
 % over and underbars
 \newcommand*\Ol[1]{\overline{#1}}
 \newcommand*\Ul[1]{\underline{#1}}
+% star
+\newcommand*\Str[1]{#1^{*}}
 
 \newcommand{\half}{\frac{1}{2}}
 
