@@ -25,13 +25,15 @@ output:
 
 ```{r}
 options(digits=2)
-rm(list=ls())
+# %% ####################################################
+rm(list = ls())
 library(LalRUtils)
-
-load_or_install(c('tidyverse', 'magrittr', 'data.table', 'knitr',
-  'stargazer','lfe','rio', 'gridExtra', 'kableExtra'))
-
+LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach, magrittr, janitor)
 theme_set(lal_plot_theme())
+options(repr.plot.width=12, repr.plot.height=9)
+set.seed(42)
+# %% ####################################################
+
 
 knitr::opts_chunk$set(
   echo =    F,          # don't show code

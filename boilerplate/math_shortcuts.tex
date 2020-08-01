@@ -17,14 +17,16 @@
 }
 
 \usepackage[colorinlistoftodos,prependcaption,]{todonotes}
-
 \newcommand{\secend}{\vspace{3mm}}
-
 \DeclareMathOperator{\erf}{erf}
-
+% eqn environment
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\eeq}{\end{equation}}
+\newcommand{\link}[1]{\href{#1}{#1}}
 
+% remaps for better greek letters
+\newcommand{\epsi}{\varepsilon}
+\newcommand{\phii}{\varphi}
 
 % big parentheses
 \newcommand*\Bigpar[1]{\left( #1 \right )}
@@ -32,7 +34,12 @@
 \newcommand*\Bigcr[1]{\left\{ #1 \right \}}
 % set builder notation
 \newcommand*\SetB[1]{\left\{ #1 \right\}}
+% set
+\newcommand*\Set[1]{\mathcal{#1}}
 
+% underbrace and overbrace
+\newcommand{\Ubr}[2]{\underbrace{#1}_{\text{#2}}}
+\newcommand{\Obr}[2]{ \overbrace{#1}^{\text{#2}}}
 
 % command shorthand
 \newcommand{\eg}{e.g., \xspace}

@@ -38,13 +38,14 @@ knitr::opts_chunk$set(
   fig.align = "center"
 )
 # preliminaries - clear workspace and load libraries
-rm(list=ls())
+# %% ####################################################
+rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, lfe, kableExtra, magrittr, stargazer, rio, broom)
-set.seed(42)
+LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach, magrittr, janitor)
 theme_set(lal_plot_theme())
-expt = 'latex'
-options(knitr.table.format = "latex")
+options(repr.plot.width=12, repr.plot.height=9)
+set.seed(42)
+# %% ####################################################
 ```
 
 # Problem 1

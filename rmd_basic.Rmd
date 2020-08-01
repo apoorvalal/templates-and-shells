@@ -28,16 +28,14 @@ header-includes:
 ---
 
 ```{r, echo=FALSE, include=FALSE}
-####################################################
-rm(list=ls())
+# %% ####################################################
+rm(list = ls())
 library(LalRUtils)
-load_or_install(c('knitr','tidyverse','magrittr',
-  'rio','data.table', 'stargazer'))
-   #, "lib2"))
+LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach, magrittr, janitor)
 theme_set(lal_plot_theme())
+options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
-####################################################
-
+# %% ####################################################
 opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
                message=FALSE, warning=FALSE)
 
