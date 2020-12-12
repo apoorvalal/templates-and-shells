@@ -1,10 +1,13 @@
 ---
 title: "Handy Universal Note Template"
 author: "Apoorva Lal"
+abstract: "The quick brown fox jumped over the lazy dog."
 date: "`r Sys.Date()`"
 numbersections: true
 # output: tint::tintPdf
-output: tint::tintHtml
+output:
+  tint::tintHtml:
+    self_contained: true
 bibliography: /home/alal/Dropbox/theoryPapers.bib
 link-citations: yes
 ---

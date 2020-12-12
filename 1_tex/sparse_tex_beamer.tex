@@ -1,0 +1,199 @@
+%  Must be compiled with pdf Latex
+\documentclass[12pt, aspectratio=169]{beamer}
+\usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
+
+% set universal bibliography (change to point to your master bibfile)
+% \bibliographystyle{plainnat}
+% \usepackage[backend=biber,
+% citestyle=authoryear
+% ]{biblatex}
+% \addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+
+% Changing the fonts: this will make the slides more readable and the math look like regular tex math
+\usecolortheme{beaver} % v stanford
+
+% Titles will appear in Small Cap Serif
+% \usefonttheme{structuresmallcapsserif}
+\usepackage[no-math]{fontspec}
+\setsansfont{IBM Plex Sans Condensed}
+\setmainfont{IBM Plex Sans Condensed}
+
+% -----------------------------------------
+% Center the Frame Title
+% -----------------------------------------
+
+\setbeamertemplate{frametitle} {
+\begin{centering}
+\vspace{0.1in} \insertframetitle
+\par
+\end{centering}
+}
+
+\begin{document}
+
+% -----------------------------------------
+\title{Legislator Identity and Public Goods Provision: Evidence from
+Indian Redistricting}
+\author{Apoorva Lal}
+
+\date{\today}
+
+\frame{\titlepage}
+
+% -----------------------------------------
+
+% /*
+% ██ ███    ██ ████████ ██████   ██████
+% ██ ████   ██    ██    ██   ██ ██    ██
+% ██ ██ ██  ██    ██    ██████  ██    ██
+% ██ ██  ██ ██    ██    ██   ██ ██    ██
+% ██ ██   ████    ██    ██   ██  ██████
+% */
+
+\begin{frame}{Introduction}
+
+\begin{itemize}
+
+\item Descriptive representation of the electorate in the legislature
+  has been improved in many countries through a system of electoral
+  policies such as quotas
+\item Effectiveness of such policies in inducing better policy
+  outcomes for less-represented groups is not well understood
+\item Electoral representation especially important when constituency
+  service includes basic public goods provision (Bussell (2019))
+\end{itemize}
+
+\textbf{Research Question:} Do different `types' of legislator perform
+  different levels of constituency service, thereby resulting in
+  economic outcomes?
+
+\end{frame}
+
+\begin{frame}[t]\frametitle{Redistricting varies legislator identity}
+
+\bi
+  \item Most democratic countries undergo a process of redistricting
+  periodically
+  \item Purported goal of equalising the number of voters in each
+  constituencies in accordance with the normative goal of one person
+  - one vote
+  \item Different `types' of legislators perform varying degrees of
+  constituency service (Anzia and Berry (2010), Bhalotra et al (2014))
+  \item Redistricting combined with quota systems generates variation
+  in `type' of legislator
+  \item Permits \emph{within-unit} comparisons to evaluate effects of
+  legislator identity.
+  \item Existing literature has been unable to do this, and instead
+  simply compares constituencies on a variety of outcomes after
+  matching on a set of observable socio-economic characteristics
+  [Jensenius (2015)]
+\ei
+
+\end{frame}
+
+\begin{frame}[t]\frametitle{Reservations / Quotas in India}
+
+\bi
+  \item Seats in the Indian national and state legislatures are
+  subject to a system of demographic reservations
+  \item seats are categorised as `General', reserved for `Scheduled
+    Castes', or reserved for `Scheduled tribes', i.e. only candidates
+    from certain ethnic groups can run in specific electoral races,
+    thereby fixing leader identity (on one axis) in that constituency
+  \item Introduced by the Indian constitution following independence
+  and was initially supposed to be in place for the first decade, with
+  the goal of ensuring political participation by marginalised and
+  under-represented groups.
+\item has since been extended for seven decades by parliament, with
+  the most recent extension in 2019 extending reservations to 2030
+\ei
+
+
+\end{frame}
+
+
+
+% -----------------------------------------
+\begin{frame}{Source of Variation - Flows}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../../output/figures/village_ac_switches_alluvial_prez.pdf}
+  \label{fig:switch_alluvial}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\bi
+  \item 2007-2008 re-drawing of boundaries was the first in nearly 3
+  decades
+  \item Delimitation Commission used specific census measures --
+  Scheduled Caste and Scheduled Tribe population shares -- in their
+  decision to redistrict villages.
+  \item Two states - Jharkhand and Assam - were granted extensions for
+  `technical' reasons
+\ei
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=1.1\textwidth]{../../output/figures/village_ac_switches.png}
+  \label{fig:switch_map}
+\end{figure}
+
+\end{column}
+\end{columns}
+
+
+\end{frame}
+
+
+\begin{frame}{Data and Empirical Setup}
+
+\bi
+\item Data target: village-level panel dataset of public goods
+  [currently night lights; soon-public works] with pre- and post-
+  delimitation legislator type
+  \scriptsize
+\item electricity provision follows political cycle in many developing economies, including India (Min et al 2015, Min and Golden 2014)
+\normalsize
+  \be
+  \item village level 2001 census data and shapefiles
+  \item pre-and post-delimitation shapefiles for each state in India
+  \item village level socio-economic outcomes from the Socioeconomic High-resolution Rural-Urban Geographic Dataset on India (which collates censuses)
+  \item Spatial merge with harmonized DMSP luminosity series (1992 - 2013)
+  \ee
+\ei
+
+
+\begin{align*}
+y_{ijkt} & = \tau_1 \text{GEN-SC}_{ijkt} + \tau_2 \text{SC-GEN}_{ijkt} +
+\tau_3 \text{GEN-ST}_{ijkt} + \tau_4 \text{ST-GEN}_{ijkt}  \\
+& + \gamma_i(t) + \psi_{(jk)t} + \epsi_{ijkt}
+\end{align*}
+
+village $i$ in state $j$ with ST/SC decile $k$ at time $t$
+
+\end{frame}
+
+\begin{frame}
+\tiny
+\center
+\input{../../output/tables/vil_nl_table_block.tex}
+\end{frame}
+
+
+\begin{frame}[t]\frametitle{Next Steps}
+\be
+  \item Attempt to reconcile specifications with and without time trends
+  \item Cleaner event-studies [for particular treatment pairs]
+  \item Public works programme provision [collection in progress]
+  \item Direct measure of constituency service by MLAs
+  \item Other village level outcomes
+\ee
+\end{frame}
+
+
+\end{document}
+

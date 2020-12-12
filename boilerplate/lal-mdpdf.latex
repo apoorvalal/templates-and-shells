@@ -11,9 +11,26 @@ $if(dir)$$if(latex-dir-rtl)$
 $endif$$endif$%
 \documentclass[$if(fontsize)$$fontsize$,$endif$ $if(lang)$$babel-lang$,$endif$ $if(papersize)$$papersize$paper,$endif$ $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
-
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
 
 % \setlength\parindent{0pt}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\renewenvironment{abstract}
+ {{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \relax}
+ {\endlist}
 
 $if(linestretch)$
 \usepackage{setspace}
@@ -21,17 +38,17 @@ $if(linestretch)$
 $endif$
 
 \usepackage{
-amsfonts,
-amsmath,
-amssymb,
-amsthm,
-mathtools,
-setspace,
-graphics,
-titling,
-cancel,
-booktabs,
-float
+  amsfonts,
+  amsmath,
+  amssymb,
+  amsthm,
+  mathtools,
+  setspace,
+  graphics,
+  titling,
+  cancel,
+  booktabs,
+  float
 }
 
 \usepackage{lscape}
@@ -121,12 +138,12 @@ $endif$
 
 $if(indent)$
 $else$
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
+  \IfFileExists{parskip.sty}{%
+  \usepackage{parskip}
+  }{% else
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{6pt plus 2pt minus 1pt}
+  }
 $endif$
 
 $if(verbatim-in-note)$
@@ -166,11 +183,6 @@ $if(listings)$
 \newcommand{\passthrough}[1]{#1}
 $endif$
 
-
-$if(lhs)$
-\lstnewenvironment{code}{\lstset{language=Haskell,
-  basicstyle=\small\ttfamily}}{}
-$endif$
 
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -250,6 +262,7 @@ $for(polyglossia-otherlangs)$
 $endfor$
 \fi
 $endif$
+
 $if(dir)$
 \ifxetex
   % load bidi as late as possible as it modifies e.g. graphicx
@@ -280,6 +293,7 @@ $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 
+
 $if(amsart)$
   \usepackage[foot]{amsaddr}
   $if(address)$\address{$address$}$endif$
@@ -307,11 +321,20 @@ $endfor$
 \begin{document}
 $if(title)$
 \maketitle
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
+  $if(abstract)$
+  \begin{abstract}
+      \hbox{\vrule height .2pt width 42pc}
+      \vskip 8.5pt % \small
+      \noindent $abstract$
+      \vskip 8.5pt \noindent
+      \hbox{\vrule height .2pt width 42pc}
+  \end{abstract}
+{}
+  $endif$
 $endif$
+
+$if(septitle)$
+\newpage
 $endif$
 
 $for(include-before)$
@@ -331,6 +354,8 @@ $if(lof)$
 \listoffigures
 $endif$
 $body$
+
+
 
 $if(natbib)$
 $if(bibliography)$

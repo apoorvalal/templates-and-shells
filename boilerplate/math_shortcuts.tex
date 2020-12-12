@@ -10,13 +10,23 @@
   dsfont,
   cancel, % cancellation
   latexsym,
+  cases,
   mathtools,
   graphicx,
   xcolor,
-  xargs
+  xargs,
+  lineno
 }
 
+% algorithms package
+\usepackage{algorithm2e}
+\SetKwInput{kwParam}{Parameters}
+
+\newcommand{\figinc}[1]{\includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{#1}}
+
+% todo package
 \usepackage[colorinlistoftodos,prependcaption,]{todonotes}
+
 \newcommand{\secend}{\vspace{3mm}}
 \DeclareMathOperator{\erf}{erf}
 % eqn environment
@@ -35,7 +45,9 @@
 % set builder notation
 \newcommand*\SetB[1]{\left\{ #1 \right\}}
 % set
-\newcommand*\Set[1]{\mathcal{#1}}
+\newcommand*\Sett[1]{\mathcal{#1}}
+% shorthand for data (Murphy PML style)
+\newcommand{\Data}{\mathcal{D}}
 
 % underbrace and overbrace
 \newcommand{\Ubr}[2]{\underbrace{#1}_{\text{#2}}}
@@ -62,7 +74,14 @@
 
 \def\ST{\text{\; s.t. \;}}
 \def\WP{\text{\; w.p. \;}}
-\def\IF{\text{\; if \;}}
+\def\IF{\text{ if \;}}
+\def\AS{\text{ as }}
+\def\OR{\text{ or }}
+\def\FOR{\text{ for }}
+\def\AND{\text{ and }}
+\def\THEN{\text{ then }}
+\def\WITH{\text{ with }}
+\newcommand{\WHERE}{\text{ where }}
 \newcommand{\suchthat}{\text{ s.t. }}
 \newcommand{\wrt}{\text{ w.r.t. }}
 \providecommand{\subjectto}{\mathop{\rm subject\;to}}
@@ -77,13 +96,16 @@
 
 
 % derivative
-% \newcommand{\deriv}[1]{\nabla \left{(#1 \right)}}
 
-% \newcommandx\dbern[2][1=x,2=p]{#2^{#1} \left(1-#2\right)^{1-#1}}
 \newcommandx{\deriv}[2][1=x,2=f]{\nabla \, #2 \Bigpar{ #1 } }
 
+\newcommandx{\ortho}[1][1=L]{#1^{\bot}}
+
+
+\newcommandx*\seqq[3][1=1,2=x, 3=n]{#2_{#1},\ldots,#2_{#3}}
+\newcommandx*\coord[3][1=1,2=x, 3=n]{(#2_{#1},\ldots,#2_{#3})}
+
 % Sums and products
-\newcommand{\Sum}[2][i=1]{\ensuremath{\sum_{#1}^{#2}}}
 \newcommand{\sumin}{\ensuremath{\sum_{i=1}^N}}
 \newcommand{\sumiN}{\ensuremath{\sum_{i=1}^N}}
 \newcommand{\sumim}{\ensuremath{\sum_{i=1}^m}}
@@ -156,8 +178,13 @@
 % matrix inverse
 \newcommand{\inv}[1]{ \left({#1} \right)^{-1}}
 
+\newcommand{\invg}[1]{ #1^{-1}}
+
 % matrix transprose
-\newcommand{\trap}[1]{ #1^{T}}
+\newcommand{\trap}[1]{ #1^{\top}}
+
+
+\newcommand{\tra}{^{\top}}
 
 % 2 X 2 matrix
 \newcommand{\mattwo}[4]
@@ -256,6 +283,8 @@
 % convergence in distribution
 \def\indist{\,{\buildrel d \over \rightarrow}\,}
 
+\def\asurely{\,{\buildrel a.s. \over \rightarrow}\,}
+
 
 % definition bench
 \newcommand{\defeq}{\vcentcolon=}
@@ -293,13 +322,14 @@
 \def\mrm#1{\mathrm{#1}}
 \def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
 \def\ve#1{\mbi{#1}} % Vector notation
+\def\vee#1{\mathbf{#1}} % Vector notation
 \def\vea#1{\overrightarrow{#1}} % Vector notation
 
 \newcommand*{\Vect}[1]{\mbi{#1}}
 \newcommand*{\Mat}[1]{\mathbf{#1}}
 
-
 \newcommand{\eucN}[1]{\norm{#1}} % l1 norm
+
 \newcommand{\lzero}[1]{\norm{#1}_0} % l0 norm
 \newcommand{\lone}[1]{\norm{#1}_1} % l1 norm
 \newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
@@ -424,6 +454,8 @@
 \def\indist{\,{\buildrel d \over \rightarrow}\,}
 % probability limit
 \def\plim{\text{plim} \;}
+% lim n
+\def\limn{\text{plim}_{n \to \infty} \;}
 
 % equality in distribution
 \def\eqdist{\,{\buildrel d \over = }\,}
@@ -457,12 +489,18 @@
 \newcommand{\Prob}[1]{\mathbf{Pr}\left(#1\right)}
 % support
 \newcommand{\Supp}[1]{\text{Supp}\left[#1\right]}
+% do y | X = x
+\newcommand{\doyx}{\Prob{Y \, | \, \text{do} (X = x)}}
+
+\newcommand{\larr}{\leftarrow}
+\newcommand{\rarr}{\rightarrow}
 
 % generic estimators
 \newcommand{\betahat}{\hat{\beta}}
 \newcommand{\thetahat}{\hat{\theta}}
 
 % CDF
+\newcommand{\F}{\mathbb{F}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\ff}{\mathsf{f}}
 \newcommand{\Cdf}[1]{\mathbb{F}\left(#1\right)}
@@ -470,8 +508,9 @@
 % PDF
 \newcommand{\Pdf}[1]{\mathsf{f}\left(#1\right)}
 \newcommand{\Pdff}[2]{\mathsf{f}_{#1}\left(#2\right)}
+% derivative
+\newcommand{\dd}{\mathsf{d}}
 
-\newcommand{\F}{\mathbb{F}}
 
 
 % Convergence of random variables
@@ -479,9 +518,12 @@
 \newcommand{\cas}{\stackrel{a.s.}{\rightarrow}}
 \newcommand{\cp}{\stackrel{p}{\rightarrow}}
 
+\newcommand{\rootn}{\sqrt{n}}
+
 % Probability distributions
 \newcommand*\normal[1]{\mathcal{N} \left( #1 \right )}
 \newcommand*\Normal[1]{\mathcal{N} \left( #1 \right )}
+\newcommand*\Normalp[2]{\mathcal{N}_{#1} \left( #2 \right )}
 % \newcommand{\unif}{\mathsf{U}}  % Uniform distribution
 \newcommand*\Unif[1]{\mathsf{U} \left[ #1 \right ]}
 \newcommand*\unif[1]{\mathsf{U} \left[ #1 \right ]}
@@ -501,6 +543,7 @@
 
 \def\bias{\textsf{bias}\xspace}
 \def\se{\textsf{se}\xspace}
+
 \def\pdf{\textsc{pdf}\xspace}
 \def\cdf{\textsc{cdf}\xspace}
 \def\ise{\textsc{ise}\xspace}
@@ -751,6 +794,7 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{proj}[thm]{Research Project}
 \newtheorem{proposition}[thm]{Proposition}
+\newtheorem{propn}[thm]{Proposition}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{que}[thm]{Question}
 \newtheorem{rek}[thm]{Remark}

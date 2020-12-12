@@ -17,13 +17,20 @@ fontsize: 12pt
 colorlinks: true
 indent: true
 xetex: true
-# mainfont: "Linux Libertine O"
 mainfont: "Utopia"
 monofont: Iosevka
-mathspec: true
+# mathspec: true
 geometry: margin=2cm
 numbersections: true
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
+csl: econometrica.csl
 header-includes:
+  - \input{/home/alal/Templates/boilerplate/math_shortcuts}
+  - \usepackage{fancyhdr}
+  - \usepackage{booktabs}
+  - \pagestyle{fancy}
+  - \rhead{Title}
+  - \lhead[CO,LE]{Apoorva Lal}
   # - \setmainfont{Museo}
 ---
 
@@ -31,14 +38,14 @@ header-includes:
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach, magrittr, janitor)
+LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio,
+    foreach, magrittr, janitor, knitr)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
 # %% ####################################################
 opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
                message=FALSE, warning=FALSE)
-
 ```
 
 # Introduction
@@ -46,7 +53,7 @@ opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,
 # Model
 
 $$
-max_{x} \int_{-\infty}^{\infty} \beta^t U(c_t) dt
+\Exp{x} = \int x \dd \F x
 $$
 
 # Data

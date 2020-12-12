@@ -1,36 +1,55 @@
 ---
-title: "Punny Title"
-subtitle: "Some explanation"
-author:  'Apoorva Lal'
+title: "Flexible covariate adjustment using high-dimensional regression"
+author:
+  - "Apoorva Lal"
+address:
+  - "PhD Candidate in Political Science, Stanford University, CA"
+email:
+  - "apoorval@stanford.edu"
+abstract: "abstract here"
+thanks: "Acknowledgements: I'd like to thank my mum and dad"
 documentclass: amsart
 amsart: true
-thanks: "Acknowledgements: I'd like to thank my mum and dad"
 date: \today
-abstract: '\lipsum[4]'
 output:
   pdf_document:
     keep_tex: true
-    toc: false
-    toc_depth : 2
     fig_width: 7
     fig_height: 6
     fig_caption: true
+    df_print: kable
     dev: cairo_pdf
-    template: /home/alal/Templates/boilerplate/lal-mdpdf.latex
     latex_engine: xelatex
+    template: /home/alal/Templates/boilerplate/lal-mdpdf.latex
+  # tint::tintHtml:
+    #   toc: true
+    #   self_contained: true
+    # tint::tintPdf:
+    #   toc: true
 fontsize: 12pt
 colorlinks: true
 indent: true
+# fonts
 xetex: true
+mainfont: TeX Gyre Pagella
+monofont: Iosevka
 mathspec: true
-# numbersections: true
+geometry: margin=2cm
+# embed links in citations
+link-citations: true
+numbersections: true
+# separate title page
+septitle: true
+# spacing
+linestretch: 2
+# bib stuff
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
 csl: econometrica.csl
+# extra tex
 header-includes:
-  - '\usepackage{lipsum}'
+  - \usepackage{lipsum}
 ---
-
 
 ```{r, echo=FALSE, include=FALSE}
 # %% ####################################################

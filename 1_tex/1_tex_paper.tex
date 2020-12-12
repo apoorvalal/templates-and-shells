@@ -1,0 +1,100 @@
+\documentclass[12pt,reqno]{amsart} % add titlepage param for separate title page
+\input{/home/alal/Templates/boilerplate/mpaper_boilerplate}
+
+\usepackage[foot]{amsaddr}
+
+% bibliography
+\usepackage[
+backend=biber,
+style=authoryear,
+citestyle=authoryear,
+]{biblatex}
+\addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+\renewbibmacro{in:}{}
+\setcounter{secnumdepth}{5}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}
+\setmainfont{IBM Plex Serif}
+
+% docs http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf
+% add todos using these steps
+% \todo{margin comment}
+% \todo[inline]{inline comment}
+% \missingfigure{description of what should be in figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ########     ###    ########  ######## ########
+% ##     ##   ## ##   ##     ## ##       ##     ##
+% ##     ##  ##   ##  ##     ## ##       ##     ##
+% ########  ##     ## ########  ######   ########
+% ##        ######### ##        ##       ##   ##
+% ##        ##     ## ##        ##       ##    ##
+% ##        ##     ## ##        ######## ##     ##
+
+\title{Paper Title}
+
+\author{Apoorva Lal}
+\email{{\href{mailto:apoorval@stanford.edu}{apoorval@stanford.edu}}}
+\address{Stanford University, CA}
+
+\keywords{KW1, KW2}
+\date{\today}
+
+\begin{document}
+
+\begin{abstract} Abstract for a groundbreaking paper.
+\end{abstract}
+
+\maketitle
+
+% \listoftodos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\linenumbers
+\modulolinenumbers[5]
+\thepart{}
+\section{Introduction} \label{intro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Results}
+
+\lipsum[5]
+
+\textcite{sutton2018reinforcement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
+\printbibliography
+
+\newpage
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\appendix
+% \part{Online Appendix}
+% \parttoc
+
+\begin{refsection}
+\section{Simulations} % (fold)
+\label{sec:simulations}
+
+\section{Geodata} % (fold)
+\label{sec:geodata}
+\textcite{jordahlGeoPandasPythonTools2014}
+% section geodata (end)
+
+
+% section simulations (end)
+\printbibliography
+\end{refsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+
+\end{document}
