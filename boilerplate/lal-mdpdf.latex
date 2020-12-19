@@ -303,7 +303,17 @@ $endif$
 
 $if(title)$
   $if(amsart)$
-    \title{{\large $title$} $if(subtitle)$ \\ $subtitle$  $endif$}
+    \title{{\Large $title$} $if(subtitle)$ \\ $subtitle$  $endif$}
+    \makeatletter
+    % define new section with boldface
+    \def\section{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\large\bfseries\centering}}% NEW
+    % define new section with boldface + left align
+    \def\sectionL{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\large\bfseries}}% NEW
+    \makeatother
   $else$
     \title{{\Huge $title$} $if(subtitle)$ \\ $subtitle$
       $if(thanks)$\thanks{$thanks$}$endif$  $endif$}
@@ -311,6 +321,8 @@ $if(title)$
 $endif$
 
 $if(date)$\date{$date$}$endif$
+
+
 
 \input{"/home/alal/Templates/boilerplate/math_shortcuts"}
 

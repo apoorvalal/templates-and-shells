@@ -5,8 +5,6 @@ description: |
 author:
   - name: Apoorva Lal
     affiliation: Stanford
-# bibliography: spatial_se.bib
-
 date: "`r Sys.Date()`"
 output:
   distill::distill_article:

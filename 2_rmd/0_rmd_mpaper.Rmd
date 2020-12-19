@@ -98,4 +98,11 @@ stargazer(lm1, header=F, type='latex')
 
 \newpage
 
-# Bibliography
+
+# References
+
+<div id="refs"></div>
+
+\newpage
+
+# Appendix

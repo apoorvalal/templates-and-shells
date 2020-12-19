@@ -5,7 +5,6 @@
 \usepackage[margin=1in]{geometry}
 
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
 \usepackage[shortlabels]{enumitem}
 
 \usepackage{
@@ -89,14 +88,16 @@
 \numberwithin{equation}{section}
 
 % optional left align section markers
-\makeatletter
-\def\sectionC{\@startsection{section}{1}%
-  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
-  {\normalfont\scshape\bfseries}}% NEW
+\def\section{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\large\bfseries\centering}}% NEW
+    % define new section with boldface + left align
+\def\sectionL{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\large\bfseries}}% NEW
 \makeatother
 
 % math packages in self-contained file
-
 \input{/home/alal/Templates/boilerplate/math_shortcuts.tex}
 
 % this fixes incompatibility between todonotes and amsart [classic latex]

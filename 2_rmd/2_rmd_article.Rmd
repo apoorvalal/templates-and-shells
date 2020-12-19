@@ -74,3 +74,9 @@ lm1 = lm(hwy ~ cyl + factor(class), data=mpg)
 ```{r, results='asis'}
 stargazer(lm1, header=F, type='latex')
 ```
+
+# References
+
+<div id="refs"></div>
+
+\newpage

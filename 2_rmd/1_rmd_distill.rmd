@@ -1,18 +1,22 @@
 ---
-title: "Lecture 1: Introduction"
-subtitle: "subtitle here"
-author: Apoorva Lal | Stanford
-date: "`r format(Sys.time(), '%d %B %Y')`"
+title: "article title"
+description: |
+  abstract for writeup here
+author:
+  - name: Apoorva Lal
+    affiliation: Stanford
+    url: http://apoorvalal.github.io/
+date: "`r Sys.Date()`"
 output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
-    lib_dir: libs
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    code_download: true
+    self_contained: true
+backend: biber
+bibliography: /home/alal/Dropbox/MyLibrary2.bib
 ---
+
 
 <!--- For HTML renders - selection from math_shortcuts.tex --->
 `r if (!knitr:::is_latex_output()) '
@@ -76,63 +80,82 @@ $\\newcommand{\\ltwo}[1]{\\norm{#1}_2}$
 $\\newcommand{\\pnorm}[1]{\\norm{#1}_p}$
 '`
 
-```{r setup, include=FALSE}
+
+<!--
+########     ###    ########  ######## ########
+##     ##   ## ##   ##     ## ##       ##     ##
+##     ##  ##   ##  ##     ## ##       ##     ##
+########  ##     ## ########  ######   ########
+##        ######### ##        ##       ##   ##
+##        ##     ## ##        ##       ##    ##
+##        ##     ## ##        ######## ##     ##
+-->
+
+```{r global_options, include=FALSE}
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach,
-  magrittr, janitor, knitr, gapminder)
+LalRUtils::libreq(tidyverse, data.table, stargazer2, knitr, kableExtra,
+ rmarkdown, lfe, rio, foreach, magrittr, janitor)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
+knitr::opts_chunk$set(fig.width=12, fig.height=8,
+ cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE)
 # %% ####################################################
-
-options(htmltools.dir.version = FALSE)
-opts_chunk$set(
-  fig.align="center", fig.height=6, fig.width=10, dpi=300,
-  cache=T, echo=F, warning=F, message=F
-  )
-
-theme_set(lal_plot_theme())
-set.seed(42)
 ```
 
-# Table of contents
+# Introduction
 
-1. [Sec1](#prologue)
-
-2. [Sec2](#syllabus)
+@leamer1983let
 
 
----
-class: inverse, center, middle
-name: prologue
+$\Exp{Y | \vee{X} = \ve{x}}$
 
-# Prologue
 
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
+Let
+$$
+x = \SetB{1, \dots, 10}
+$$
 
----
+```{r}
+x = 1:10
+x
+```
 
-# Survey
+The quick brown fox jumped over the lazy dog.
 
-Results from our [survey](https://goo.gl/forms/PjojERKMOpbo78JJ3)...
+<aside>
+the dog's laziness is a stereotype.
+</aside>
 
----
-class: inverse, center, middle
-name: syllabus
+# Figures
+```{r, layout="l-body-outset", fig.width=6, fig.height=1.5}
+library(ggplot2)
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+ facet_grid(~ cut)
+```
 
-# Syllabus highlights
+<aside>
+```{r}
+ggplot(mtcars, aes(hp, mpg)) + geom_point() + geom_smooth()
+```
 
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
+</aside>
+# Tables
+```{r, layout="l-body-outset"}
+paged_table(mtcars)
+```
 
-(Read the full document [here](https://github.com/uo-ec607/syllabus/blob/master/syllabus.pdf).)
+# Widgets
+```{r}
+libreq(leaflet)
+leaflet() %>%
+ addTiles() %>% # Add default OpenStreetMap map tiles
+ addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+```
 
----
-
-# ggplot2
-
-```{r gapm_plot, dev="svg"}
-ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
-  geom_point()
+```{r, layout="l-page", fig.height=3}
+libreq(dygraphs)
+dygraph(ldeaths)
 ```
