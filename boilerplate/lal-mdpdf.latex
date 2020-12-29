@@ -324,7 +324,7 @@ $if(date)$\date{$date$}$endif$
 
 
 
-\input{"/home/alal/Templates/boilerplate/math_shortcuts"}
+\input{/home/alal/Templates/boilerplate/math_shortcuts}
 
 $for(header-includes)$
 $header-includes$
