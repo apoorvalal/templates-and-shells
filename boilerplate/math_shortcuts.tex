@@ -77,6 +77,9 @@
 \newcommand{\eeq}{\end{equation}}
 \newcommand{\link}[1]{\href{#1}{#1}}
 
+
+\newcommand{\tx}[1]{\text{#1}}
+
 % remaps for better greek letters
 \newcommand{\epsi}{\varepsilon}
 \newcommand{\phii}{\varphi}
@@ -669,7 +672,7 @@
 \def\prob{\mathbb{P}}
 \renewcommand{\Pr}[2][]{\ensuremath{\prob_{#1}\left[#2\right]}\xspace}
 \newcommand{\V}[2][]{\ensuremath{\mathbb{V}_{#1}\left[#2\right]}}
-\newcommand{\corr}[2][]{\ensuremath{\rho_{#1}\left[#2\right]}}
+\newcommand{\Corr}[1]{\ensuremath{\rho\left[#1\right]}}
 \def\sd{\ensuremath{\textsf{sd}}\xspace}
 \def\samplemean{\ensuremath{\bar{X}_n}\xspace}
 \def\samplevar{\ensuremath{S^2}\xspace}
@@ -802,9 +805,9 @@
 % theorem envs for everything besides beamer
 
 \makeatletter%
-\@ifclassloaded{beamer}%
+  \@ifclassloaded{beamer}%
   {}% skip all below
-  {
+  { % else
     % theorem stuff for outside beamer
     % Proof environments
     % The Theorems are numbered consecutively

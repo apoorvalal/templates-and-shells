@@ -22,6 +22,7 @@ output:
 header-includes:
   - \definecolor{mLightBrown}{HTML}{EB811B}
   - \definecolor{mLightGreen}{HTML}{14B03D}
+  - \setbeamercolor{block body}{bg=mDarkTeal!30}
   - \setbeamercolor{frametitle}{bg=mLightBrown}
 ---
 
@@ -68,8 +69,8 @@ Hello, world!
 
 ## Mathy slide
 
-### IPW Estimator
-
+\metroset{block=fill}
+\begin{alertblock}{AIPW Estimator}
 $$
 \wh{\tau}_{\text{ipw}}^{\text{ate}} = \ooN \sumin \Bigpar{
   \underbrace{\frac{Y_iD_i}{\hat{\pi}(\Vect{X}_i)}}_{\Exp{Y_1}} -
@@ -78,14 +79,11 @@ $$
 D_i}{1 - \wh{\pi} (\ve{X}_i)}}
 $$
 
-### AIPW Estimator
+\end{alertblock}
 
-$$
-\wh{\tau}_{AIPW}^* = \ooN \sumiN \Bigbr{
-\mu_{(1)}(\ve{X}_i) - \mu_{(0)}(\ve{X}_i) + D_i \frac{y_i -
-\mu_{(1)}(\ve{X}_i) }{e(\ve{X_i})} + (1-D_i)\frac{y_i -
-\mu_{(0)}(\ve{X}_i)}{1 - e(\ve{X}_i)} }
-$$
+Places highest weight for observations with $\wh{\pi} \approx 0.5$
+
+
 
 # Core Presentation Ingredients
 
@@ -129,7 +127,7 @@ knitr::kable(mtcars[1:5, 1:8],
 \end{column}
 \begin{column}{0.5\textwidth}
     \begin{center}
-     \includegraphics[width=1\textwidth]{images/skeleton.jpg}
+     \includegraphics[width=1\textwidth]{covid/viz/carpet_plot_xc.png}
      \end{center}
 \end{column}
 \end{columns}
