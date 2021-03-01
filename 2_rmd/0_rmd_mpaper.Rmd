@@ -38,10 +38,11 @@ geometry: margin=2cm
 # embed links in citations
 link-citations: true
 numbersections: true
+# extratext: "Word Count: 9205"
 # separate title page
 septitle: true
 # spacing
-linestretch: 2
+linestretch: 1.5
 # bib stuff
 backend: biber
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
@@ -55,10 +56,13 @@ header-includes:
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe,
+LalRUtils::libreq(tidyverse, data.table, stargazer2, patchwork,
   rio, foreach, magrittr, janitor, knitr, rmarkdown)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
+options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.continuous.fill = "viridis"); options(ggplot2.continuous.colour = "viridis")
 set.seed(42)
 # %% ####################################################
 

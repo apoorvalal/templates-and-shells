@@ -18,7 +18,11 @@ $endif$$endif$%
   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
   {\par}
 
-% \setlength\parindent{0pt}
+% Disable indentation
+\setlength{\parindent}{0pt}
+% increase spacing between paragraphs
+\setlength{\parskip}{\baselineskip}
+
 
 \usepackage{abstract}
 \renewcommand{\abstractname}{}    % clear the title
@@ -343,6 +347,12 @@ $if(title)$
   \end{abstract}
 {}
   $endif$
+$endif$
+
+$if(extratext)$
+\begin{center}
+$extratext$
+\end{center}
 $endif$
 
 $if(septitle)$

@@ -17,10 +17,15 @@
   hyperref,
   url,
   setspace,
-  graphics,
+  booktabs,
+  subcaption,
   lipsum,
   float
 }
+
+\makeatletter
+\def\@setthanks{\vspace{-\baselineskip}\def\thanks##1{\@par##1\@addpunct.}\thankses}
+\makeatother
 
 
 \usepackage{lscape}
@@ -30,6 +35,8 @@
 
 % Disable indentation
 \setlength{\parindent}{0pt}
+% increase spacing between paragraphs
+\setlength{\parskip}{\baselineskip}
 
 \newcommand{\bburl}[1]{\textcolor{blue}{\url{#1}}}
 

@@ -38,10 +38,13 @@ header-includes:
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio,
-    foreach, magrittr, janitor, knitr)
+LalRUtils::libreq(tidyverse, data.table, rio,
+    foreach, magrittr, janitor, knitr, patchwork)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
+options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.continuous.fill = "viridis"); options(ggplot2.continuous.colour = "viridis")
 set.seed(42)
 # %% ####################################################
 opts_chunk$set(echo=F, autodep=TRUE, cache.comments=FALSE,

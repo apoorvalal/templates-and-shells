@@ -28,7 +28,7 @@ $\\newcommand\\Sett[1]{\\mathcal{#1}}$
 $\\newcommand{\\Data}{\\mathcal{D}}$
 $\\newcommand{\\Ubr}[2]{\\underbrace{#1}_{\\text{#2}}}$
 $\\newcommand{\\Obr}[2]{ \\overbrace{#1}^{\\text{#2}}}$
-$\\newcommand{\\sumiN}{\\ensuremath{\\sum_{i=1}^N}}$
+$\\newcommand{\\sumiN}{\\sum_{i=1}^N}$
 $\\newcommand{\\dydx}[2]{\\frac{\\partial #1}{\\partial #2}}$
 $\\newcommand\\Indic[1]{\\mathds{1}_{#1}}$
 $\\newcommand{\\Realm}[1]{\\mathbb{R}^{#1}}$
@@ -40,8 +40,8 @@ $\\newcommand{\\Prob}[1]{\\mathbf{Pr}\\left(#1\\right)}$
 $\\newcommand{\\Supp}[1]{\\text{Supp}\\left[#1\\right]}$
 $\\newcommand{\\doyx}{\\Prob{Y \\, |\\,\\mathsf{do} (X = x)}}$
 $\\newcommand{\\doo}[1]{\\Prob{Y |\\,\\mathsf{do} (#1) }}$
-$\\newcommand{\\R}{\\ensuremath{\\mathbb{R}}}$
-$\\newcommand{\\Z}{\\ensuremath{\\mathbb{Z}}}$
+$\\newcommand{\\R}{\\mathbb{R}}$
+$\\newcommand{\\Z}{\\mathbb{Z}}$
 $\\newcommand{\\wh}[1]{\\widehat{#1}} % Wide hat$
 $\\newcommand{\\wt}[1]{\\widetilde{#1}} % Wide tilde$
 $\\newcommand{\\wb}[1]{\\overline{#1}} % Wide bar$
