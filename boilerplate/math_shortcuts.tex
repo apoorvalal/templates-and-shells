@@ -11,6 +11,7 @@
   cancel, % cancellation
   latexsym,
   cases,
+  setspace,
   mathtools,
   graphicx,
   xcolor,
@@ -19,8 +20,12 @@
 }
 
 % algorithms package
-\usepackage{algorithm2e}
-\SetKwInput{kwParam}{Parameters}
+\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+\SetKwInput{kwParam}{Parameter}
+\SetKwInput{kwInit}{Param}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+
 
 \newcommand{\figinc}[1]{\includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{#1}}
 
@@ -434,6 +439,7 @@
 \newcommand*\hlred[1]{\textcolor{red}{#1}}
 \newcommand*\hlblu[1]{\textcolor{blue}{#1}}
 
+\newcommand*\hlcyn[1]{\textcolor{cyan}{#1}}
 
 %  ######  ########    ###    ########  ######
 % ##    ##    ##      ## ##      ##    ##    ##

@@ -8,7 +8,8 @@ biblio-style: authoryear
 toc: true
 theme: metropolis
 themeoptions: "background=dark"
-# mainfont: IBM Plex Sans Condensed
+classoption: "aspectratio=169"
+mainfont: IBM Plex Sans Condensed
 output:
   binb::metropolis:
     citation_package: biblatex

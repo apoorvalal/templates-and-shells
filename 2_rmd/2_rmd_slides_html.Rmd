@@ -1,17 +1,18 @@
 ---
-title: "Lecture 1: Introduction"
-subtitle: "subtitle here"
+title: "Topic"
+subtitle: "subtitle"
 author: Apoorva Lal | Stanford
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, "/home/alal/Templates/boilerplate/edr-css.css"]
+    css: [xaringan-themer.css]
     lib_dir: libs
     nature:
       ratio: "16:9"
-      highlightStyle: github
+      highlightStyle: solarized-dark
       highlightLines: true
       countIncrementalSlides: false
+    self_contained: true
 ---
 
 <!--- For HTML renders - selection from math_shortcuts.tex --->
@@ -76,25 +77,46 @@ $\\newcommand{\\ltwo}[1]{\\norm{#1}_2}$
 $\\newcommand{\\pnorm}[1]{\\norm{#1}_p}$
 '`
 
-```{r setup, include=FALSE}
-# %% ####################################################
-rm(list = ls())
-library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach,
-  magrittr, janitor, knitr, gapminder)
-theme_set(lal_plot_theme())
-options(repr.plot.width=12, repr.plot.height=9)
-set.seed(42)
-# %% ####################################################
+```{css, echo=FALSE}
+.remark-slide-content {
+  padding-top: 1px;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 35px
+}
+.remark-slide-content > h1:first-of-type {
+  margin-top: 0px;
+}
+```
 
-options(htmltools.dir.version = FALSE)
-opts_chunk$set(
-  fig.align="center", fig.height=6, fig.width=10, dpi=300,
-  cache=T, echo=F, warning=F, message=F
+```{r setup, include=FALSE}
+library(LalRUtils)
+libreq(tidyverse, data.table, magrittr, janitor, knitr, gapminder,
+  patchwork,
+  xaringan, xaringanthemer, xaringanExtra)
+
+# knitr stuff
+knitr::opts_chunk$set(
+  fig.align="center", dpi=300,
+  cache=T, echo=F, warning=F, message=F,
+  fig.showtext = TRUE
   )
 
 theme_set(lal_plot_theme())
+options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(9, "Set1"))
+options(ggplot2.continuous.fill = "viridis"); options(ggplot2.continuous.colour = "viridis")
+
+options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
+
+# theme stuff
+style_solarized_light(
+  header_font_google = google_font("IBM Plex Sans Condensed"),
+  text_font_google   = google_font("IBM Plex Sans"),
+  code_font_google   = google_font("Fira Mono")
+)
 ```
 
 # Table of contents
@@ -104,7 +126,9 @@ set.seed(42)
 2. [Sec2](#syllabus)
 
 
+
 ---
+
 class: inverse, center, middle
 name: prologue
 
@@ -114,11 +138,17 @@ name: prologue
 
 ---
 
-# Survey
+# Data
 
-Results from our [survey](https://goo.gl/forms/PjojERKMOpbo78JJ3)...
++ nonsense here
+--
+
++ more nonsense
+
++ [a hyperlink](https://www.youtube.com/watch?v=Op_MEZ864Ak)
 
 ---
+
 class: inverse, center, middle
 name: syllabus
 
@@ -126,13 +156,44 @@ name: syllabus
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
 
-(Read the full document [here](https://github.com/uo-ec607/syllabus/blob/master/syllabus.pdf).)
+---
+
+```{r, fig.width = 8, fig.height = 6, dev='svg'}
+g_base <- ggplot(mpg) + aes(hwy, cty, colour = as.factor(cyl)) +
+  geom_point() +
+  labs(x = "Highway MPG", y = "City MPG", title = "Fuel Efficiency", colour = "")
+g_base
+```
 
 ---
 
-# ggplot2
+# Some Maths
 
-```{r gapm_plot, dev="svg"}
-ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
-  geom_point()
-```
+$$
+y_i = \vee{x}_i ' \ve{\beta} + \epsi_i
+$$
+
+- vanilla OLS
+--
+
+- semiparametric setup: $\Exp{\epsi | \vee{x}_i} = 0$
+
+---
+
+# Multiple Columns
+
+.pull-left[
+- One bullet.
+- Another bullet.
+]
+
+.pull-right[
+![an image](banana.jpg)
+]
+
+---
+
+class: center, middle
+background-image: url(banana.jpg)
+background-size: cover
+# AARGH
