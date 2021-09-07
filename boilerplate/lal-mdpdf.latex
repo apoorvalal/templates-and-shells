@@ -11,11 +11,12 @@ $if(dir)$$if(latex-dir-rtl)$
 $endif$$endif$%
 \documentclass[$if(fontsize)$$fontsize$,$endif$ $if(lang)$$babel-lang$,$endif$ $if(papersize)$$papersize$paper,$endif$ $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+  {}%
+  {\par}
+
 \newenvironment{cslreferences}%
-  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
-  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {}%
   {\par}
 
 % Disable indentation
@@ -370,39 +371,37 @@ $if(toc)$
 $endif$
 
 $if(lot)$
-\listoftables
+  \listoftables
 $endif$
 $if(lof)$
-\listoffigures
+  \listoffigures
 $endif$
+
 $body$
 
-
-
 $if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
+  $if(bibliography)$
+    $if(biblio-title)$
+      $if(book-class)$
+      \renewcommand\bibname{$biblio-title$}
+      $else$
+      \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+  $endif$
+  $endif$
 
-
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$endif$
-$endif$
-
-$if(biblatex)$
-\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
-\renewbibmacro{in:}{}
-\printbibliography$if(biblio-title)$[title=$biblio-title$]
-$endif$
+  $if(biblatex)$
+    \renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
+    \renewbibmacro{in:}{}
+    \printbibliography$if(biblio-title)$[title=$biblio-title$]
+  $endif$
 
 $endif$
+
 $for(include-after)$
-$include-after$
-
+  $include-after$
 $endfor$
+
 \end{document}

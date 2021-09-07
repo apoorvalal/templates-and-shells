@@ -1,3 +1,12 @@
+\input{/home/alal/Templates/boilerplate/math_shortcuts.tex}
+\usecolortheme{beaver} % v stanford
+\setbeamercolor{titlelike}{parent=structure}
+
+\usefonttheme{professionalfonts}
+\usepackage[no-math]{fontspec}
+\setmainfont{IBM Plex Serif}
+\setsansfont{IBM Plex Sans Condensed}
+
 \usepackage[english]{babel}
 \usepackage{braket}
 \usepackage{caption}
@@ -7,22 +16,37 @@
 \usepackage{float}
 \usepackage{graphics}
 \usepackage{graphicx}
-\usepackage{hyperref}
 \usepackage{lipsum}
-\usepackage{mathtools}
 \usepackage{mathtools}
 \usepackage{setspace}
 \usepackage{url}
-\usepackage{xcolor}
 \usepackage{booktabs}
-
 \usepackage[utf8]{inputenc}
+
+% subfigures
+\usepackage{subfigure}
+
+\usepackage{xcolor}
+\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
+
+\usepackage{hyperref}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Apoorva Lal},
+             pdfkeywords = {},
+            colorlinks=true,
+            citecolor=maroon,
+            urlcolor=blue,
+            linkcolor=blue,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+% Smaller font-size for references
+
 
 % font size presets for dense slides
 \newcommand\Fontsm{\fontsize{6}{7.2}\selectfont}
 \newcommand\Fontmed{\fontsize{8}{9.2}\selectfont}
 \newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
-
 
 \newcommand {\framedgraphic}[2] {
     \begin{frame}{#1}
@@ -31,7 +55,6 @@
         \end{center}
     \end{frame}
 }
-
 
 
 % -----------------------------------------
@@ -44,12 +67,11 @@
 % -----------------------------------------
 \setbeamertemplate{navigation symbols}{}
 
-
 \newcommand{\blue}[1]{\textcolor{blue}{(\bf{#1})}}
 \newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
 \newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
 \newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
-\newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
+
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
@@ -58,10 +80,28 @@
 \let\Theorem\relax
 \let\fact\relax
 
-\input{/home/alal/Templates/boilerplate/math_shortcuts.tex}
 
+\setbeamertemplate{frametitle} {
+  \begin{centering}
+  \insertframetitle
+  \par
+  \end{centering}
+}
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Figures
 
-\endinput
+% \imageframe{img_name} -----------------------------
+% from https://github.com/mattjetwell/cousteau
+\newcommand{\imageframe}[1]{%
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[at = (current page.center), xshift = 0cm] (cover) {%
+                \includegraphics[keepaspectratio, width=\paperwidth, height=\paperheight]{#1}
+            };
+        \end{tikzpicture}
+    \end{frame}%
+}
+
 
 

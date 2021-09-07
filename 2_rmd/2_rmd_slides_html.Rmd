@@ -7,6 +7,8 @@ output:
   xaringan::moon_reader:
     css: [xaringan-themer.css]
     lib_dir: libs
+    fig_width: 5
+    fig_height: 4
     nature:
       ratio: "16:9"
       highlightStyle: solarized-dark
@@ -18,9 +20,12 @@ output:
 <!--- For HTML renders - selection from math_shortcuts.tex --->
 `r if (!knitr:::is_latex_output()) '
 $\\DeclareMathOperator*{\\argmin}{argmin}$
+$\\newcommand{\\defeq}{:=}$
+$\\newcommand{\\eqdef}{=:}$
 $\\newcommand{\\var}{\\mathrm{Var}}$
 $\\newcommand{\\epsi}{\\varepsilon}$
 $\\newcommand{\\phii}{\\varphi}$
+$\\newcommand{\\ooN}{\\frac{1}{n}}$
 $\\newcommand\\Bigpar[1]{\\left( #1 \\right )}$
 $\\newcommand\\Bigbr[1]{\\left[ #1 \\right ]}$
 $\\newcommand\\Bigcr[1]{\\left\\{ #1 \\right \\}}$
@@ -70,7 +75,9 @@ $\\def\\mbi#1{\\boldsymbol{#1}}$
 $\\def\\ve#1{\\mbi{#1}} % Vector notation$
 $\\def\\vee#1{\\mathbf{#1}} % Vector notation$
 $\\newcommand{\\Mat}[1]{\\mathbf{#1}}$
+$\\newcommand{\\abs}[1]{\\left\\vert {#1} \\right\\vert}$
 $\\newcommand{\\eucN}[1]{\\norm{#1}}$
+$\\newcommand{\\norm}[1]{\\left\\Vert{#1} \\right\\Vert}$
 $\\newcommand{\\lzero}[1]{\\norm{#1}_0}$
 $\\newcommand{\\lone}[1]{\\norm{#1}_1}$
 $\\newcommand{\\ltwo}[1]{\\norm{#1}_2}$
@@ -78,6 +85,32 @@ $\\newcommand{\\pnorm}[1]{\\norm{#1}_p}$
 '`
 
 ```{css, echo=FALSE}
+/* custom.css */
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
+.plot-callout {
+  height: 225px;
+  width: 450px;
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+  padding: 0px;
+  z-index: 100;
+}
+.plot-callout img {
+  width: 100%;
+  border: 4px solid #23373B;
+}
+
 .remark-slide-content {
   padding-top: 1px;
   padding-left: 5px;
@@ -88,6 +121,21 @@ $\\newcommand{\\pnorm}[1]{\\norm{#1}_p}$
 .remark-slide-content > h1:first-of-type {
   margin-top: 0px;
 }
+
+.scroll-output {
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.panelset {
+  --panel-tab-color: currentColor;
+  --panel-tab-color-active: currentColor;
+  --panel-tab-color-hover: currentColor;
+  --panel-tabs-border-bottom: #ddd;
+  --panel-tab-inactive-opacity: 0.25;
+  --panel-tab-font-family: Roboto;
+}
+
 ```
 
 ```{r setup, include=FALSE}
@@ -97,10 +145,11 @@ libreq(tidyverse, data.table, magrittr, janitor, knitr, gapminder,
   xaringan, xaringanthemer, xaringanExtra)
 
 # knitr stuff
+
 knitr::opts_chunk$set(
   fig.align="center", dpi=300,
-  cache=T, echo=F, warning=F, message=F,
-  fig.showtext = TRUE
+  cache=T, echo=F, warning=F, mer_timedssage=F,
+  fig.width = 8, fig.height = 4
   )
 
 theme_set(lal_plot_theme())
@@ -108,7 +157,7 @@ options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(9, "Set1"))
 options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(9, "Set1"))
 options(ggplot2.continuous.fill = "viridis"); options(ggplot2.continuous.colour = "viridis")
 
-options(repr.plot.width=12, repr.plot.height=9)
+# options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
 
 # theme stuff
@@ -117,6 +166,8 @@ style_solarized_light(
   text_font_google   = google_font("IBM Plex Sans"),
   code_font_google   = google_font("Fira Mono")
 )
+xaringanExtra::use_xaringan_extra(c("tile_view", "panelset"))
+xaringanExtra::style_panelset(panel_tab_color_active = "red")
 ```
 
 # Table of contents
@@ -152,18 +203,60 @@ name: prologue
 class: inverse, center, middle
 name: syllabus
 
-# Syllabus highlights
+# Finding Highlights
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
-
 ---
 
-```{r, fig.width = 8, fig.height = 6, dev='svg'}
+
+```{r}
 g_base <- ggplot(mpg) + aes(hwy, cty, colour = as.factor(cyl)) +
   geom_point() +
   labs(x = "Highway MPG", y = "City MPG", title = "Fuel Efficiency", colour = "")
 g_base
 ```
+
+---
+
+# Unconstrained optimization
+
+```{css echo=FALSE}
+.panelset {
+  --panel-tab-color: currentColor;
+  --panel-tab-color-active: currentColor;
+  --panel-tab-color-hover: currentColor;
+  --panel-tabs-border-bottom: #ddd;
+  --panel-tab-inactive-opacity: 0.25;
+  --panel-tab-font-family: Roboto;
+}
+```
+
+.panelset[
+
+.panel[.panel-name[Words Details]
+
+We need second-order conditions to guarantee we have found a maximum
+
+
+We need marginal utility to be .b[decreasing] (i.e. utility be concave) at $x^*$
+
+
+This guarantees $x^*$ maximizes $U$ if $x^*$ satisfies the first-order necessary conditions
+
+]
+
+.panel[.panel-name[Math Details]
+
+Approximate $U$ around $x^*$ with a second-order Taylor expansions:
+$$U(x^*+h) = U(x^*) + DU(x^*)h + {1 \over 2} h^TD^2U(x^*)h + O(h^2)$$
+$DU(x^*) = 0$ by definition of $x^*$ so that
+$$U(x^*+h)-U(x^*) = {1\over2} h^T D^2U(x^*)h$$
+$U$ is always decreasing away from $x^*$ if ${1\over2}h^T D^2U(x^*)h < 0$
+
+]
+
+]
+
 
 ---
 
@@ -194,6 +287,9 @@ $$
 ---
 
 class: center, middle
-background-image: url(banana.jpg)
 background-size: cover
 # AARGH
+
+---
+
+# Thanks!

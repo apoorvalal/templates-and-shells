@@ -5,11 +5,21 @@
 
 % bibliography
 \usepackage[
-backend=biber,
-style=authoryear,
-citestyle=authoryear,
-]{biblatex}
+  hyperref=true,
+  url=false,
+  isbn=false,
+  backref=true,
+  maxcitenames=3,
+  backend=biber,
+  style=authoryear,
+  citestyle=authoryear,
+  natbib=true]{biblatex}
+
+% local bibs
 \addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
+% paperpile
+\addbibresource{https://raw.githubusercontent.com/apoorvalal/master_bibfile/main/references.bib}
+
 \renewbibmacro{in:}{}
 \setcounter{secnumdepth}{5}
 

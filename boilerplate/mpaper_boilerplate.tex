@@ -7,22 +7,26 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[shortlabels]{enumitem}
+
 \usepackage{mathtools,
+  booktabs,
   braket,
   caption,
-  mathrsfs,
-  latexsym,
   epsfig,
   etoolbox,
-  xcolor,
+  float,
   hyperref,
-  url,
-  setspace,
-  booktabs,
-  subcaption,
+  latexsym,
   lipsum,
-  float
+  mathrsfs,
+  setspace,
+  subcaption,
+  url,
+  xcolor
 }
+
+% caption packages
+\usepackage{caption, subcaption}
 
 \makeatletter
 \def\@setthanks{\vspace{-\baselineskip}\def\thanks##1{\@par##1\@addpunct.}\thankses}
@@ -42,7 +46,6 @@
 \newcommand{\bburl}[1]{\textcolor{blue}{\url{#1}}}
 
 \definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
-
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Apoorva Lal},
@@ -54,6 +57,7 @@
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 
+
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -64,8 +68,8 @@
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 \newcommand{\blue}[1]{\textcolor{blue}{(\bf{#1})}}
-\newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
 \newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
+\newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
 \newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
 \newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
 
@@ -89,7 +93,6 @@
       \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
       {\normalfont\Large\bfseries}}% NEW
 \makeatother
-
 
 \patchcmd{\subsection}{\bfseries}{\bfseries\large}{}{}
 \patchcmd{\subsubsection}{\itshape}{\bfseries}{}{}

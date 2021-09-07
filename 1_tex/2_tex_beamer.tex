@@ -1,153 +1,149 @@
-% \documentclass{beamer}
-\documentclass[11pt, aspectratio=169]{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage{bookmark}
-\hypersetup{bookmarksdepth=4,bookmarksnumbered=true,bookmarksopen=true}
-% either
-\usetheme{metropolis}
-% or {
-% \usetheme[compress]{Berlin}
-% \setbeamerfont{section in head/foot}{size=\tiny}
+\documentclass[12pt, aspectratio=169]{beamer}
 
-% hyperlinks and math shortcuts
-\usepackage{/home/alal/Templates/boilerplate/lal_default_beamer}
-
+\input{/home/alal/Templates/boilerplate/beamer_boilerplate.tex}
 % set universal bibliography (change to point to your master bibfile)
+
 \bibliographystyle{plainnat}
-\usepackage[backend=biber,
-  citestyle=authoryear
-]{biblatex}
+\usepackage[backend=biber, citestyle=authoryear ]{biblatex}
 \addbibresource{/home/alal/Dropbox/MyLibrary2.bib}
 
-% fonts
-\usepackage[T1]{fontenc}
-
-% \usepackage[no-math]{fontspec}
-% \setsansfont{Fira Sans Condensed}
-% \setmainfont{Fira Sans Condensed}
-
-\usepackage[no-math]{fontspec}
-\setsansfont{IBM Plex Sans Condensed}
-\setmainfont{IBM Plex Sans Condensed}
-
-
-\beamertemplatenavigationsymbolsempty
-
-%Information to be included in the title page:
-\title{Title}
-\subtitle{subtitle}
-\author{Apoorva Lal}
-\institute{Stanford}
-\date{Date}
-
 \begin{document}
-%------------------------------------------------
+
+% -----------------------------------------
+\title{Title of paper}
+\author{Apoorva Lal}
+\date{\today}
+
 \frame{\titlepage}
-\begin{frame}
-\frametitle{Overview}
-\tableofcontents
-% \tableofcontents[currentsection,subsubsectionstyle=hide] % optional for signposting
-\end{frame}
-%------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%------------------------------------------------
-\subsection{Introduction}
-\begin{frame}\frametitle{Introduction}
-Stuff
-\cite{angristMostlyHarmlessEconometrics2008}
-\end{frame}
-%------------------------------------------------
-\subsection{Summary of Results}
-\begin{frame}[t]\frametitle{Summary of Results}
-Upshot
-\end{frame}
+% -----------------------------------------
+
+% /*
+% ██ ███    ██ ████████ ██████   ██████
+% ██ ████   ██    ██    ██   ██ ██    ██
+% ██ ██ ██  ██    ██    ██████  ██    ██
+% ██ ██  ██ ██    ██    ██   ██ ██    ██
+% ██ ██   ████    ██    ██   ██  ██████
+% */
+
+\begin{frame}{Introduction}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Theory}
-\tableofcontents[currentsection,subsubsectionstyle=hide]
-%------------------------------------------------
-\subsection{Model}
-\begin{frame}[t]\frametitle{Model}
-\begin{align*}
-\maximise_{c_t,k_{t+1}} &  \sum_{t=1}^{\infty} \beta^t u(c_t)  \\
-  s.t. & \enspace c_{t} + k_{t+1} \leq f(k_t) + (1-\delta)k_t
-\end{align*}
-Everyone does infinite horizon optimisation, right?
-\end{frame}
-%------------------------------------------------
-% another slide here
-%------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Empirics}
+\bi
+  \item Panel methods can be characterised into 3 broad groups (as of 2016):
+    \bi
+      \item Difference-in-differences : $\Delta Y^{\text{post}} - \Delta Y^{\text{pre}}$
+      \item Matching: on both pre-treatment outcomes and other covariates
+      \item Synthetic Control: For each treated unit, a `synthetic
+        control' is constructed as a weighted average of control units
+        s.t. the weighted average matches pre-treatment outcomes and
+        covariates
+    \ei
+  \item This paper: framework to nest existing approaches + estimator
+  that relaxes some assumptions.
+  \bi
+    \I Main contribution: framework to clarify assumptions
+    \I Resting WP; Cannibalised by later papers
+    \I \textcite{Arkhangelsky2020-sz}
+  \ei
+\ei
 
-%------------------------------------------------
-\subsection{Data}
-\begin{frame}[label=data_slide]\frametitle{Main Data}
+\end{frame}
+
+\begin{frame}{Common Structure: 4 assumptions}
+
+\bi[<+->]
+  \item Focus on last period for now:  $\tau_{0, T} = Y_{0, T} (1) -
+    Y_{0, T}(0) = Y_{0, T}^{\text{obs}} - \hlred{Y_{0, T}(0)}$
+  \item Many estimators impute $Y_{0, T}(0)$ with the linear structure
+  $\wh{Y}_{0, T} (0) = \mu + \sumin \omega_i \cdot Y_{i, T}^{\text{obs}}$
+    \bi
+      \item Methods differ in how $\mu$ and $\omega$ are chosen as a function of
+      $\Mat{Y}_{\text{c, post}}^{\text{obs}} , \Mat{Y}_{\text{t,
+      pre}}^{\text{obs}} ,  \Mat{Y}_{\text{c, pre}}^{\text{obs}}$
+    \ei
+  \item Impose four constraints
+    \be
+      \item \textbf{No Intercept}: $\mu = 0$. Stronger than Parallel trends in DiD.
+      \item \textbf{Adding up} : $\sumin \omega_i = 1$. Common to DiD, SC.
+      \item \textbf{Non-negativity}: $\omega_i \geq 0 \; \forall \;
+      i$. Ensures uniqueness via `coarse' regularisation + precision
+      control. Negative weights may improve out-of-sample prediction.
+
+      \item \textbf{Constant Weights}: $\omega_i = \Ol{\omega} \; \forall \; i$
+    \ee
+  \item DiD imposes 2-4.
+  \item ADH(2010, 2014) impose 1-3
+    \bi
+    \item 1 + 2 imply `No Extrapolation'.
+    \ei
+
+\ei
+
+\end{frame}
+
+
+\begin{frame}{Re-expressing Standard Methods}
 
 \begin{columns}
-\begin{column}{0.6\textwidth}
-\begin{wideitemize}
-   \item some text here some text here some text here some text here
-   some text here
-   \item \hyperlink{appendix_end}{\beamergotobutton{Details in appendix}}
-\end{wideitemize}
+  \begin{column}{0.5\textwidth}
+  \footnotesize
+  \textbf{Difference in Differences}
+
+  \bi
+  \I assume (2-4)
+  \I No unique $\mu, \omega$ solution for $T = 2$, so fix $\omega = \frac{1}{N}$
+  \ei
+
+  \begin{align*}
+  \omega_i^{\text{did}} & = \frac{1}{N} \; \; \forall i \in \SetB{1, \dots N}  \\
+  \wh{\mu}^{\text{did}} & =  \frac{1}{T_0} \sum_{s=1}^{T_0} Y_{0, s} -
+  \frac{1}{NT_0} \sum_{s=1}^{T_0} \sum_{i=1}^N Y_{i, s} \\
+  \end{align*}
+
+\textbf{Best Subset; One-to-one Matching}
+$
+(\wh{\mu}^S, \wh{\omega}^S) = \argmin_{\mu, \omega} Q(\cdot ; \lambda
+= 0, \alpha) $ with $\sum_{i=1}^N \Indic{\omega_i \neq 0} \leq k$ (=1
+for OtO)
+
 \end{column}
-\begin{column}{0.4\textwidth}
-    \begin{center}
-    Picture goes here
-     % \includegraphics[width=1\textwidth]{picture.png}
-     \end{center}
+
+\begin{column}{0.5\textwidth}
+\footnotesize
+\textbf{Synthetic Control}
+
+\bi
+  \I assume (1-3) (i.e. $\mu = 0$)
+  \I For $M \times M$ PSD diagonal matrix $\Mat{V}$
+\ei
+
+\begin{align*}
+(\wh{\omega}(\Mat{V}), \wh{\mu}(\Mat{V})) = \argmin_{\omega, \mu}
+  \{ & (\Mat{X}_t - \mu - \omega \tra \Mat{X})\tra \Mat{V} \\
+          &  (\Mat{X}_t - \mu - \omega \tra \Mat{X}) \} \\
+\wh{\Mat{V}} = \argmin_{\Mat{V} = \diag (v_1, \dots, v_M)} &
+  \{
+    (\vee{Y}_{\text{t, pre}} - \wh{\omega}(\Mat{V}) \tra \vee{Y}_{\text{c, pre}})
+   \tra \\
+    & (\vee{Y}_{\text{t, pre}} - \wh{\omega}(\Mat{V}) \tra \vee{Y}_{\text{c, pre}})
+   \}
+\end{align*}
+
+\textbf{Constrained regression}:
+When $X_i = Y_{i,t}; \; 1 \leq t \leq T_0$ (Lagged Outcomes only)
+$\Mat{V} = \Mat{I}_N$ and $ \; \lambda = 0$
+
 \end{column}
 \end{columns}
 \end{frame}
-%------------------------------------------------
-\subsection{Estimation}
-\begin{frame}\frametitle{Estimation Framework}
-\begin{align*}
-\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p
-PPI_{ict-k} + \gamma_{ct} + \epsilon_{ict} \\
-\text{outcome}_{ict} = \alpha_i & + \sum_{k=0}^2 \beta_{t-k}^p PPI_{ict-k} +
-\sum_{k=0}^2 + \beta_{t-k}^m CPI_{ict-k} + \\ & \gamma_{c}\times
-trend_t + \epsilon_{ict}
-\end{align*}
-\end{frame}
-%------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
-\subsection{Conclusion}
 
-\begin{frame}[t]\frametitle{Summary}
-%
-\begin{itemize}
-\item Upshot
-\item Closing remark
-\end{itemize}
 
-\end{frame}
-%------------------------------------------------
+\imageframe{/home/alal/tmp/scratch_programming/butts_slides/img/kanagawa.jpg}
 
-\begin{frame}[t]\frametitle{Bibliography}
+\begin{frame}
 \printbibliography
 \end{frame}
-\begin{frame}[t]\frametitle{End}
-\begin{center}
-\Huge
-Thank you!
-\end{center}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-\begin{frame}[label=appendix_end]{Appendix land}
-  \begin{wideitemize}
-    \item[] Now you can make it clear you've done a shitload of work
-      \begin{itemize}
-      \item[]  without having to show everything! \hyperlink{data_slide}{\beamergotobutton{Back}}
-      \end{itemize}
-    \item[] You label a frame with the \texttt{[label=name]} option, and then point a link to it
-    \item[] You can make an object a link using the \texttt{\textbackslash hyperlink\{label\}\{object\}} command
-  \end{wideitemize}
-\end{frame}
+
 \end{document}
-%
+

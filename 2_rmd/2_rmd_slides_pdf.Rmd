@@ -7,7 +7,7 @@ bibliography: /home/alal/Dropbox/MyLibrary2.bib
 biblio-style: authoryear
 toc: true
 theme: metropolis
-themeoptions: "background=dark"
+# themeoptions: "background=dark"
 classoption: "aspectratio=169"
 mainfont: IBM Plex Sans Condensed
 output:
@@ -21,10 +21,12 @@ output:
     dev: cairo_pdf
     latex_engine: xelatex
 header-includes:
-  - \definecolor{mLightBrown}{HTML}{EB811B}
-  - \definecolor{mLightGreen}{HTML}{14B03D}
-  - \setbeamercolor{block body}{bg=mDarkTeal!30}
-  - \setbeamercolor{frametitle}{bg=mLightBrown}
+  - \definecolor{cardinal}{RGB}{140,21,21}
+  - \setbeamercolor{frametitle}{bg=cardinal}
+  # - \definecolor{mLightBrown}{HTML}{EB811B}
+  # - \definecolor{mLightGreen}{HTML}{14B03D}
+  # - \setbeamercolor{block body}{bg=mDarkTeal!30}
+  # - \setbeamercolor{frametitle}{bg=mLightBrown}
 ---
 
 ```{r, echo=FALSE, include=FALSE}

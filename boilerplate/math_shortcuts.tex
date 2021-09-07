@@ -75,6 +75,7 @@
 \newcommand{\ee}{\end{enumerate}}
 \newcommand{\bi}{\begin{itemize}}
 \newcommand{\ei}{\end{itemize}}
+\newcommand{\I}{\item}
 \newcommand{\bs}{\begin{align}\begin{split}\nonumber}
 \newcommand{\bsnumber}{\begin{align}\begin{split}}
 \newcommand{\es}{\end{split}\end{align}}
@@ -94,6 +95,15 @@
 \newcommand{\wrt}{\text{ w.r.t. }}
 \providecommand{\subjectto}{\mathop{\rm subject\;to}}
 \providecommand{\sto}{\mathop{\rm subject\;to}}
+
+
+% causal inference terms
+
+\newcommand{\yt}{{Y^{1}}}
+\newcommand{\yc}{{Y^{0}}}
+
+
+
 % ##     ##    ###    ######## ##     ##
 % ###   ###   ## ##      ##    ##     ##
 % #### ####  ##   ##     ##    ##     ##
@@ -297,6 +307,8 @@
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
+
+
 % blackboard F
 \def\Function{\mathbb{F}}
 % Natural
@@ -365,6 +377,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % tildes / hats / bars etc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Pn}[1]{\mathbb{P}_n\Bigpar{#1}} % empirical average
 
 \newcommand{\what}[1]{\widehat{#1}} % Wide hat
 \newcommand{\wh}[1]{\widehat{#1}} % Wide hat
@@ -481,6 +495,7 @@
 % bigO
 \newcommand{\lilO}[1]{\mathsf{o}\Bigpar{#1}}
 \newcommand{\bigO}[1]{\mathsf{O}\Bigpar{#1}}
+
 
 % expectation
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
@@ -797,6 +812,10 @@
     \newtheorem{conj}[thm]{Conjecture}
     \newtheorem{cor}[thm]{Corollary}
     \newtheorem{egg}[thm]{Example}
+    \newtheorem{iass}{Identification Assumption}
+    \newtheorem{ires}{Identification Result}
+    \newtheorem{estm}{Estimand}
+    \newtheorem{esti}{Estimator}
     \newtheorem{exe}[thm]{Exercise}
     \newtheorem{hypothesis}[thm]{Hypothesis}
     \newtheorem{lem}[thm]{Lemma}

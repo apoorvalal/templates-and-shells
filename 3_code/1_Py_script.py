@@ -1,36 +1,34 @@
-# system
+# %% imports
 import os, sys, glob, re, itertools, collections, requests
 import multiprocessing, joblib # parallelise list comprehensions
 from pathlib import Path
+from joblib import Parallel, delayed
 # filler to import personal library
 # sys.path.append('/home/alal/Desktop/code/py_libraries/')
-
 
 # pyscience imports
 import numpy as np
 import pandas as pd
-import janitor
-import pandas_flavor as pf
-
-import statsmodels.api as sm
+import scipy as sp
 import statsmodels.formula.api as smf
 
 # viz
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-from plotnine import *
-font = {'family' : 'IBM Plex Sans',
-               'weight' : 'normal',
-               'size'   : 10}
-plt.rc('font', **font)
-plt.rcParams['figure.figsize'] = (10, 10)
+sns.set(style="ticks", context="talk")
 matplotlib.style.use(['seaborn-talk', 'seaborn-ticks', 'seaborn-whitegrid'])
+font = {'family' : 'IBM Plex Sans',
+                 'weight' : 'normal',
+                 'size'   : 10}
+plt.rc('font', **font)
+plt.rcParams['figure.figsize'] = [10, 10]
 %matplotlib inline
 %config InlineBackend.figure_format = 'retina'
 
-# show all output
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = 'all'
+%load_ext autoreload
+%autoreload 1
 
-# %%
+%load_ext watermark
+%watermark --iversions
+
