@@ -39,7 +39,7 @@ header-includes:
 rm(list = ls())
 library(LalRUtils)
 LalRUtils::libreq(tidyverse, data.table, rio,
-    foreach, magrittr, janitor, knitr, patchwork)
+    foreach, magrittr, janitor, knitr, patchwork, stargazer2)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
 options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(9, "Set1"))

@@ -24,11 +24,11 @@
 \RequirePackage[right]{lineno}
 \RequirePackage{amsmath}
 
-\def\@journalname{Political Analysis}
+\def\@journalname{ }
 \def\@keywordsname{Keywords}
 \def\@authornotename{Author's notes}
 \def\@corrauthorname{Corresponding author}
-\def\@editorname{Edited by}
+\def\@editorname{}
 \def\@runningauthor{}
 \def\@corrauthor{}
 \def\@authornote{}
@@ -73,9 +73,23 @@
 
 \setstretch{1.15}
 
+%  ######   ########  #######  ##     ## ######## ######## ########  ##    ##
+% ##    ##  ##       ##     ## ###   ### ##          ##    ##     ##  ##  ##
+% ##        ##       ##     ## #### #### ##          ##    ##     ##   ####
+% ##   #### ######   ##     ## ## ### ## ######      ##    ########     ##
+% ##    ##  ##       ##     ## ##     ## ##          ##    ##   ##      ##
+% ##    ##  ##       ##     ## ##     ## ##          ##    ##    ##     ##
+%  ######   ########  #######  ##     ## ########    ##    ##     ##    ##
+
+
 \RequirePackage{geometry}
+% old
+% \geometry{paperwidth=8.25in,paperheight=11in,
+%   left=4.75cm,top=1.75cm,bottom=2.4cm,right=2.1cm,
+%   footskip=1.5\baselineskip,footnotesep=\baselineskip,headheight=21\p@,headsep=\baselineskip}
+% agnostic
 \geometry{paperwidth=8.25in,paperheight=11in,
-  left=4.75cm,top=1.75cm,bottom=2.4cm,right=2.1cm,
+  left=2.1cm,top=1.75cm,bottom=2.4cm,right=2.1cm,
   footskip=1.5\baselineskip,footnotesep=\baselineskip,headheight=21\p@,headsep=\baselineskip}
   
 \newcommand{\runningauthor}[1]{\def\@runningauthor{#1}}
@@ -90,13 +104,14 @@
 \setlength{\affilsep}{\baselineskip}
 
 \newcommand{\more@metadata}{%
-  \emph{\bfseries \@journalname\ (\the\year)}\par
-  \textcolor{PANDarkBlue}{\bfseries DOI: }10.1017/pan.xxxx.xx\par
-  \textcolor{PANDarkBlue}{\bfseries\@corrauthorname}\\\@corrauthor\par
-  \textcolor{PANDarkBlue}{\bfseries\@editorname}\\John Doe\par
-  \textcopyright\space The Author(s) \the\year.
-  Published by Cambridge University Press on behalf of the Society for Political Methodology.%
+  % \emph{\bfseries \@journalname\ (\the\year)}\par
+  % \textcolor{PANDarkBlue}{\bfseries DOI: }10.1017/pan.xxxx.xx\par
+  % \textcolor{PANDarkBlue}{\bfseries\@corrauthorname}\\\@corrauthor\par
+  % \textcolor{PANDarkBlue}{\bfseries\@editorname}\\ \par
+  % \textcopyright\space The Author(s) \the\year.
+  % Published by Cambridge University Press on behalf of the Society for Political Methodology.%
 }
+
 \newcommand{\@cover@logo}{%
   \begin{textblock*}{4cm}[1,0](\dimexpr\Gm@lmargin-1cm,\Gm@tmargin)
   \fontsize{60\p@}{60\p@}\selectfont\raggedleft%
@@ -168,8 +183,9 @@
 \preto{\footrule}{\begingroup\color{PANLightBlue}}
 \appto{\footrule}{\endgroup}
 %\fancyhead[L]{\hspace*{-4cm}\Huge\color{PANMaroon}PA}
+% \fancyfoot[L]{\small\emph{\@runningauthor}\enskip|\enskip\@journalname}
+
 \fancyfoot[R]{\small\thepage}
-\fancyfoot[L]{\small\emph{\@runningauthor}\enskip|\enskip\@journalname}
 \pagestyle{fancy}
 \fancypagestyle{plain}{%
   \fancyhf{}

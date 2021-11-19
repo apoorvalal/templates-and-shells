@@ -6,22 +6,25 @@
 \usepackage[no-math]{fontspec}
 \setmainfont{IBM Plex Serif}
 \setsansfont{IBM Plex Sans Condensed}
+\setmonofont{Iosevka}
 
 \usepackage[english]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{booktabs}
 \usepackage{braket}
 \usepackage{caption}
 \usepackage{color}
 \usepackage{epsfig}
 \usepackage{fancyhdr}
 \usepackage{float}
-\usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{mathtools}
+\usepackage{multicol}
 \usepackage{setspace}
 \usepackage{url}
-\usepackage{booktabs}
-\usepackage[utf8]{inputenc}
 
 % subfigures
 \usepackage{subfigure}
@@ -61,6 +64,13 @@
 % Number the slides
 % -----------------------------------------
 \setbeamertemplate{footline}[frame number]
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
 
 % -----------------------------------------
 % Get rid of the irritating navigation bar
@@ -103,5 +113,73 @@
     \end{frame}%
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% colours
+% https://www.viget.com/articles/color-contrast/
+\definecolor{purple}{HTML}{5601A4}
+\definecolor{navy}{HTML}{0D3D56}
+\definecolor{ruby}{HTML}{9a2515}
+\definecolor{alice}{HTML}{107895}
+\definecolor{daisy}{HTML}{EBC944}
+\definecolor{coral}{HTML}{F26D21}
+\definecolor{kelly}{HTML}{829356}
+\definecolor{cranberry}{HTML}{E64173}
+\definecolor{jet}{HTML}{131516}
+\definecolor{asher}{HTML}{555F61}
+\definecolor{slate}{HTML}{314F4F}
 
+% Main theme colors
+\definecolor{accent}{HTML}{107895}
+\definecolor{accent2}{HTML}{9a2515}
+
+% transition frame
+\newenvironment{transitionframe}{
+    \setbeamercolor{background canvas}{bg=ruby!40!black}
+    \begin{frame}\color{ruby!10!white}\LARGE\centering
+}{
+    \end{frame}
+}
+
+\setbeamercolor{block title}{fg = white, bg = accent2}
+\setbeamercolor{block body}{fg = jet, bg = jet!10!white}
+
+% Table Highlighting --------------------------------
+% Create top-left and bottom-right markets in tabular cells with a unique matching id and these commands will outline those cells
+
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+
+% Fix \input with tables
+% \input fails when \\ is at end of external .tex file
+% \makeatletter
+% \let\input\@@input
+% \makeatother
+
+% Tables too narrow
+% \begin{tabularx}{\linewidth}{cols}
+% col-types: X - center, L - left, R -right
+% Relative scale: >{\hsize=.8\hsize}X/L/R
+% \usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+
+\usepackage[beamer,customcolors]{hf-tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit,shapes.misc}
+
+% To set the hypothesis highlighting boxes red.
+\newcommand\marktopleft[1]{%
+    \tikz[overlay,remember picture]
+        \node (marker-#1-a) at (0,1.5ex) {};%
+}
+\newcommand\markbottomright[1]{%
+    \tikz[overlay,remember picture]
+        \node (marker-#1-b) at (0,0) {};%
+    \tikz[accent!80!jet, ultra thick, overlay, remember picture, inner sep=4pt]
+        \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
+}
 

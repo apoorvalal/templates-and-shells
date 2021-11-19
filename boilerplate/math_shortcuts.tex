@@ -1,3 +1,5 @@
+\setlength\parindent{0pt}
+
 % math packages
 \usepackage{
   amscd,
@@ -20,7 +22,7 @@
 }
 
 % algorithms package
-\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+\usepackage[ruled, lined, commentsnumbered, longend]{algorithm2e}
 \SetKwInput{kwParam}{Parameter}
 \SetKwInput{kwInit}{Param}
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
@@ -41,6 +43,7 @@
 
 
 \newcommand{\tx}[1]{\text{#1}}
+\newcommand{\ms}[1]{\texttt{#1}}
 
 % remaps for better greek letters
 \newcommand{\epsi}{\varepsilon}
@@ -338,12 +341,13 @@
 
 % generic vector and matrix
 \newcommand{\mc}[1]{\mathcal{#1}}
+
 \def\mbf#1{\mathbf{#1}}
 \def\mrm#1{\mathrm{#1}}
 \def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
 \def\ve#1{\mbi{#1}} % Vector notation
-\def\vee#1{\mathbf{#1}} % Vector notation
 \def\vea#1{\overrightarrow{#1}} % Vector notation
+\renewcommand{\vee}[1]{\mathbf{#1}} % Vector notation
 
 \newcommand*{\Vect}[1]{\mbi{#1}}
 \newcommand*{\Mat}[1]{\mathbf{#1}}
@@ -453,6 +457,8 @@
 \newcommand*\hlred[1]{\textcolor{red}{#1}}
 \newcommand*\hlblu[1]{\textcolor{blue}{#1}}
 
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\newcommand*\hlgrn[1]{\textcolor{ao}{#1}}
 \newcommand*\hlcyn[1]{\textcolor{cyan}{#1}}
 
 %  ######  ########    ###    ########  ######
@@ -853,4 +859,3 @@
       \hspace*{1em}}{\bigskip}
   }%
 \makeatother%
-

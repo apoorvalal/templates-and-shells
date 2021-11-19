@@ -8,7 +8,8 @@
 \usepackage[english]{babel}
 \usepackage[shortlabels]{enumitem}
 
-\usepackage{mathtools,
+\usepackage{
+  mathtools,
   booktabs,
   braket,
   caption,
@@ -22,6 +23,7 @@
   setspace,
   subcaption,
   url,
+  graphicx,
   xcolor
 }
 
@@ -76,19 +78,21 @@
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
-% optional left align section markers
-\makeatletter
-\def\sectionC{\@startsection{section}{1}%
-  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
-  {\normalfont\scshape\bfseries}}% NEW
-\makeatother
+% % optional left align section markers
+% \makeatletter
+% \def\sectionC{\@startsection{section}{1}%
+%   \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+%   {\normalfont\scshape\bfseries}}% NEW
+% \makeatother
 
-% optional left align section markers
+% % optional left align section markers
 \makeatletter
+% \vspace*{-34pt}
 \def\section{\@startsection{section}{1}%
       \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
-      {\normalfont\Large\bfseries\centering}}% NEW
-    % define new section with boldface + left align
+      {\normalfont\Large\bfseries\centering }}
+% define new section with boldface + left align
+
 \def\sectionL{\@startsection{section}{1}%
       \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
       {\normalfont\Large\bfseries}}% NEW

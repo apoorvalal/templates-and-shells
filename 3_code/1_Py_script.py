@@ -32,3 +32,4 @@ plt.rcParams['figure.figsize'] = [10, 10]
 %load_ext watermark
 %watermark --iversions
 
+# %%
