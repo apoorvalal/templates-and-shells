@@ -24,6 +24,10 @@ $\\DeclareMathOperator*{\\argmin}{argmin}$
 $\\newcommand{\\var}{\\mathrm{Var}}$
 $\\newcommand{\\epsi}{\\varepsilon}$
 $\\newcommand{\\phii}{\\varphi}$
+$\\newcommand{\\tra}{^{\\top}}$
+$\\newcommand{\\sumin}{\\sum_{i=1}^n}$
+$\\newcommand{\\sumiN}{\\sum_{i=1}^n}$
+$\\newcommand{\\norm}[1]{\\left\\Vert{#1} \\right\\Vert}$
 $\\newcommand\\Bigpar[1]{\\left( #1 \\right )}$
 $\\newcommand\\Bigbr[1]{\\left[ #1 \\right ]}$
 $\\newcommand\\Bigcr[1]{\\left\\{ #1 \\right \\}}$

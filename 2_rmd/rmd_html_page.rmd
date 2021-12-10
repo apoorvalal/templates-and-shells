@@ -8,6 +8,7 @@ output:
     theme: flatly
     highlight: tango
     code_folding: hide
+    css: "/home/alal/Templates/boilerplate/lal-css.css"
     toc: true
     toc_float: false
     toc_depth: 3
@@ -37,7 +38,7 @@ set.seed(42)
 
 
 knitr::opts_chunk$set(
-  echo =    F,          # don't show code
+  echo =    T,          # don't show code
   include = T,          # show output
   warning = F,       # don't show warnings
   message = F,       # don't show messages (less serious warnings)
