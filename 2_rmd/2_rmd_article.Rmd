@@ -17,13 +17,12 @@ fontsize: 12pt
 colorlinks: true
 indent: true
 xetex: true
-mainfont: "Utopia"
 monofont: Iosevka
 # mathspec: true
 geometry: margin=2cm
 numbersections: true
 bibliography: /home/alal/Dropbox/MyLibrary2.bib
-csl: econometrica.csl
+# csl: econometrica.csl
 header-includes:
   - \input{/home/alal/Templates/boilerplate/math_shortcuts}
   - \usepackage{fancyhdr}
