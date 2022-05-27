@@ -10,6 +10,7 @@ theme: metropolis
 # themeoptions: "background=dark"
 classoption: "aspectratio=169"
 mainfont: IBM Plex Sans Condensed
+urlcolor: blue
 output:
   binb::metropolis:
     citation_package: biblatex

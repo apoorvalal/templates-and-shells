@@ -11,5 +11,5 @@ options(repr.plot.width=12, repr.plot.height=9, scipen=999,
         ggplot2.continuous.fill = "viridis",
         ggplot2.continuous.colour = "viridis")
 set.seed(42)
-notif = function(x) pbPost("note", x)
+notif = \(x) pbPost("note", x)
 # %% ####################################################

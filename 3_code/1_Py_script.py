@@ -9,6 +9,8 @@ from joblib import Parallel, delayed
 # pyscience imports
 import numpy as np
 import pandas as pd
+import datatable as dt
+from datatable import f
 import scipy as sp
 import statsmodels.formula.api as smf
 

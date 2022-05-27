@@ -49,9 +49,9 @@ $\\newcommand{\\doyx}{\\Prob{Y \\, |\\,\\mathsf{do} (X = x)}}$
 $\\newcommand{\\doo}[1]{\\Prob{Y |\\,\\mathsf{do} (#1) }}$
 $\\newcommand{\\R}{\\mathbb{R}}$
 $\\newcommand{\\Z}{\\mathbb{Z}}$
-$\\newcommand{\\wh}[1]{\\widehat{#1}} % Wide hat$
-$\\newcommand{\\wt}[1]{\\widetilde{#1}} % Wide tilde$
-$\\newcommand{\\wb}[1]{\\overline{#1}} % Wide bar$
+$\\newcommand{\\wh}[1]{\\widehat{#1}}$
+$\\newcommand{\\wt}[1]{\\widetilde{#1}}$
+$\\newcommand{\\wb}[1]{\\overline{#1}}$
 $\\newcommand\\Ol[1]{\\overline{#1}}$
 $\\newcommand\\Ul[1]{\\underline{#1}}$
 $\\newcommand\\Str[1]{#1^{*}}$
@@ -73,8 +73,8 @@ $\\newcommand\\Gdist[1]{\\mathsf{Gamma} \\left( #1 \\right )}$
 $\\def\\mbf#1{\\mathbf{#1}}$
 $\\def\\mrm#1{\\mathrm{#1}}$
 $\\def\\mbi#1{\\boldsymbol{#1}}$
-$\\def\\ve#1{\\mbi{#1}} % Vector notation$
-$\\def\\vee#1{\\mathbf{#1}} % Vector notation$
+$\\def\\ve#1{\\mbi{#1}}$
+$\\def\\vee#1{\\mathbf{#1}}$
 $\\newcommand{\\Mat}[1]{\\mathbf{#1}}$
 $\\newcommand{\\eucN}[1]{\\norm{#1}}$
 $\\newcommand{\\lzero}[1]{\\norm{#1}_0}$
@@ -97,7 +97,7 @@ options(digits=2)
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-LalRUtils::libreq(tidyverse, data.table, stargazer2, lfe, rio, foreach, magrittr, janitor)
+libreq(data.table, ggplo2)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)

@@ -3,7 +3,7 @@ cd("/home/alal")
 # %%
 using LinearAlgebra, Statistics
 @time using Plots, Distributions, Random, Statistics
-@time using CSV, DataFrames, Queryverse
+@time using CSV, DataFrames
 gr(fmt=:png);
 
 # %%
