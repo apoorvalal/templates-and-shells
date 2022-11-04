@@ -97,7 +97,7 @@ options(digits=2)
 # %% ####################################################
 rm(list = ls())
 library(LalRUtils)
-libreq(data.table, ggplo2)
+libreq(data.table, ggplot2)
 theme_set(lal_plot_theme())
 options(repr.plot.width=12, repr.plot.height=9)
 set.seed(42)
