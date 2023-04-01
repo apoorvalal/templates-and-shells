@@ -25,21 +25,94 @@ format:
     number-sections: true
     html-math-method: katex
     colorlinks: true
-    self-contained: true
+    embed-resources: true
     theme:
       - cyborg
 jupyter: py3main
 execute:
   cache: true
+  warning: false
 ---
-
 
 ::: {.hidden}
 $$
- \def\RR{{\bf R}}
- \def\bold#1{{\bf #1}}
+% typographic
+\newcommand\Bigbr[1]{\left[ #1 \right ]}
+\newcommand\Bigcr[1]{\left\{ #1 \right \}}
+\newcommand\Bigpar[1]{\left( #1 \right )}
+\newcommand\Obr[2]{ \overbrace{#1}^{\text{#2}}}
+\newcommand\Realm[1]{\mathbb{R}^{#1}}
+\newcommand\Ubr[2]{\underbrace{#1}_{\text{#2}}}
+\newcommand\wb[1]{\overline{#1}}
+\newcommand\wh[1]{\widehat{#1}}
+\newcommand\wt[1]{\widetilde{#1}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\dd{\mathsf{d}}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand\epsi{\varepsilon}
+\newcommand\phii{\varphi}
+\newcommand\tra{^{\top}}
+\newcommand\sumin{\sum_{i=1}^n}
+\newcommand\sumiN{\sum_{i=1}^n}
+\def\mbf#1{\mathbf{#1}}
+\def\mbi#1{\boldsymbol{#1}}
+\def\mrm#1{\mathrm{#1}}
+\def\ve#1{\mbi{#1}}
+\def\vee#1{\mathbf{#1}}
+\newcommand\R{\mathbb{R}}
+\newcommand\Ol[1]{\overline{#1}}
+\newcommand\SetB[1]{\left\{ #1 \right\}}
+\newcommand\Sett[1]{\mathcal{#1}}
+\newcommand\Str[1]{#1^{*}}
+\newcommand\Ul[1]{\underline{#1}}
+
+% stats
+\newcommand\Prob[1]{\mathbf{Pr}\left(#1\right)}
+\def\Exp#1{{\mathbb{E}\left[#1\right]}}
+\newcommand\var{\mathrm{Var}}
+\newcommand\Supp[1]{\text{Supp}\left[#1\right]}
+\newcommand\Var[1]{\mathbb{V}\left[#1\right]}
+\newcommand\Expt[2]{\mathbb{E}_{#1}\left[#2\right]}
+\newcommand\Covar[1]{\text{Cov}\left[#1\right]}
+\newcommand\Cdf[1]{\mathbb{F}\left(#1\right)}
+\newcommand\Cdff[2]{\mathbb{F}_{#1}\left(#2\right)}
+\newcommand\F{\mathsf{F}}
+\newcommand\ff{\mathsf{f}}
+\newcommand\Data{\mathcal{D}}
+\newcommand\Pdf[1]{\mathsf{f}\left(#1\right)}
+\newcommand\Pdff[2]{\mathsf{f}_{#1}\left(#2\right)}
+\newcommand\doo[1]{\Prob{Y |\,\mathsf{do} (#1) }}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand\doyx{\Prob{Y \, |\,\mathsf{do} (X = x)}}
+
+% distributions
+\newcommand\Bern[1]{\mathsf{Bernoulli} \left( #1 \right )}
+\newcommand\BetaD[1]{\mathsf{Beta} \left( #1 \right )}
+\newcommand\Binom[1]{\mathsf{Bin} \left( #1 \right )}
+\newcommand\Diri[1]{\mathsf{Dir} \left( #1 \right )}
+\newcommand\Gdist[1]{\mathsf{Gamma} \left( #1 \right )}
+\newcommand\Normal[1]{\mathcal{N} \left( #1 \right )}
+\newcommand\Pois[1]{\mathsf{Poi} \left( #1 \right )}
+\newcommand\Unif[1]{\mathsf{U} \left[ #1 \right ]}
+
+% calc and linalg
+\newcommand\dydx[2]{\frac{\partial #1}{\partial #2}}
+\newcommand\Mat[1]{\mathbf{#1}}
+\newcommand\normm[1]{\lVert #1 \rVert}
+\newcommand\abs[1]{\vert#1\vert}
+
+\newcommand\eucN[1]{\normm{#1}}
+\newcommand\pnorm[1]{\normm{#1}_p}
+\newcommand\lone[1]{\normm{#1}_1}
+\newcommand\ltwo[1]{\normm{#1}_2}
+\newcommand\lzero[1]{\normm{#1}_0}
+\newcommand\Indic[1]{\mathbb{1}_{#1}}
+
 $$
 :::
+
 
 ```{python}
 import numpy as np

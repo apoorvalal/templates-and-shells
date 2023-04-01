@@ -61,6 +61,20 @@
 \usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart,
           shapes, arrows.meta, arrows,
           decorations.markings, external, trees}
+
+% vanilla tikz setup
+\tikzset{
+    > = stealth,
+    every path/.append style = {
+        arrows = ->
+    },
+    hidden/.style = {
+        draw = black,
+        shape = circle
+    }
+}
+
+
 % Create custom arrow style:
 \tikzstyle{Arrow} = [
           thick,
@@ -72,7 +86,6 @@
           },
           shorten >= 3pt, preaction = {decorate}
           ]
-
 
 \newcommand{\figinc}[1]{\includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{#1}}
 
@@ -168,11 +181,11 @@
 \providecommand{\sto}{\mathop{\rm subject\;to}}
 
 
-% causal inference terms
+% potential outcomes
 
-\newcommand{\yt}{{Y^{1}}}
-\newcommand{\yc}{{Y^{0}}}
-
+\newcommand{\yt}{\ensuremath{Y^{1}}}
+\newcommand{\yc}{\ensuremath{Y^{0}}}
+\newcommandx{\Yw}[2][1=1,2=]{\ensuremath{Y^{(#1)}_{#2}}}
 
 
 % ##     ##    ###    ######## ##     ##

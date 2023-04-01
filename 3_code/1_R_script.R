@@ -2,6 +2,6 @@
 # %% ####################################################
 rm(list = ls())
 set.seed(42)
-libreq(data.table, ggplot2, fixest, janitor)
+libreq(fastverse, ggplot2, janitor)
 source("~/Templates/boilerplate/RFigDefaults.R")
 # %% ####################################################
