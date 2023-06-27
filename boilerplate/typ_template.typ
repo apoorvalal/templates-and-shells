@@ -42,7 +42,7 @@
 
   // Set the body font. AMS uses the LaTeX font.
   // set text(size: normal-size, font: "Linux Libertine O")
-  set text(font: "IBM Plex Sans", size: 12pt )
+  set text(font: "P052", size: 12pt )
 
   // Configure the page.
   set page(
