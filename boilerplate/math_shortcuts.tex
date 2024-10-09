@@ -248,7 +248,7 @@
 
 
 % indicator function
-\newcommand*\Indic[1]{\mathds{1}_{#1}}
+\newcommand*\Indic[1]{\mathds{1}\{#1\}}
 
 % ellipsis
 \newcommand{\tto}{,\ldots,}
@@ -863,8 +863,7 @@
 % theorem envs for everything besides beamer
 
 \makeatletter%
-  \@ifclassloaded{beamer}%
-  {}% skip all below
+  \@ifclassloaded{amsart}
   { % else
     % theorem stuff for outside beamer
     % Proof environments
@@ -883,10 +882,9 @@
       {\newline }%                                    % Space after theorem head, ' ', or \newline
       {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
     \theoremstyle{mystyle}
-    \newtheorem{Theorem}{Theorem}[section]
     \newtheorem{thm}{Theorem}[section]
     \newtheorem{assum}{Assumption}
-    \newtheorem{defi}[Theorem]{Defn}
+    \newtheorem{defi}[thm]{Defn}
     \newtheorem{cla}[thm]{Claim}
     \newtheorem{conjecture}[thm]{Conjecture}
     \newtheorem{conj}[thm]{Conjecture}
@@ -906,6 +904,7 @@
     \newtheorem{que}[thm]{Question}
     \newtheorem{rek}[thm]{Remark}
     \newtheorem{rem}[thm]{Remark}
+    \newtheorem{Theorem}{Theorem}[section]
     \newtheorem{fact}[thm]{Fact}
     \newtheorem{propt}[thm]{Property}
     \newtheorem{X}{X}[section]
@@ -923,13 +922,14 @@
       \hspace*{1em}}{\qed\bigskip\\}
     \newenvironment{inner-proof}{\noindent{\bf Proof}\hspace{1em}}{
       $\bigtriangledown$\medskip\\}
-    %% \newenvironment{proof-of-lemma}[1][{}]{\noindent{\bf Proof of Lemma {#1}}
-    %%   \hspace*{1em}\renewcommand{\qedsymbol}{$\bigtriangledown$}}{\qed\bigskip\\}
-    \newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}
-      \hspace*{1em}}{\qed\bigskip\\}
-    \newenvironment{proofof}[1]{\noindent{\bf Proof} of {#1}:
-      \hspace*{1em}}{\qed\bigskip\\}
-    \newenvironment{remark}{\noindent{\bf Remark}
-      \hspace*{1em}}{\bigskip}
-  }%
+    % \newenvironment{proof-of-lemma}[1][{}]{\noindent{\bf Proof of Lemma {#1}}
+    %   \hspace*{1em}\renewcommand{\qedsymbol}{$\bigtriangledown$}}{\qed\bigskip\\}
+    % \newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}
+    %   \hspace*{1em}}{\qed\bigskip\\}
+    % \newenvironment{proofof}[1]{\noindent{\bf Proof} of {#1}:
+    %   \hspace*{1em}}{\qed\bigskip\\}
+    % \newenvironment{remark}{\noindent{\bf Remark}
+    %   \hspace*{1em}}{\bigskip}
+  }
+{}
 \makeatother%
